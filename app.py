@@ -19,6 +19,9 @@ SOCKETIO = SocketIO(app,
                     cors_allowed_origins="*",
                     json=json,
                     manage_session=False)
+                    
+Current_UserSearched_Topic = ""
+BASE_URL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
 
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 
@@ -33,8 +36,27 @@ def index(filename):
 def Fetch_User_Searched(data):
     UserSearched = data['User_Searched']
     print("The User Searched: " + str(UserSearched))
+    
+    #Defining the Params
+    params = {
+        'q': UserSearched,
+        'api-key': os.getenv('NYT_KEY'),
+    }
+    
+    response = requests.get(BASE_URL, params=params)
+    data = response.json()
+    articles = data['response']['docs']
+    
+    print("**********************NEWS Response*************************")
+    print(data)
+    
+    
+    Fetched_NewsHeadlines=['Topic-#1','Topic-#2','Topic-#3','Topic-#4']
+    Fetched_NewsSnippets=['Snippet-#1','Snippet-#2','Snippet-#3','Snippet-#4']
+    
+    Fetched_Data={'Headlines':Fetched_NewsHeadlines, 'Snippets': Fetched_NewsSnippets}
+    SOCKETIO.emit('Answer_Searched_Topic', Fetched_Data, broadcast=True)
 
-    # SOCKETIO.emit('Answer_Searched_Topic', , broadcast=True, include_self=False)
 
 
 print("The NYT KEY IS: " + os.getenv('NYT_KEY'))
