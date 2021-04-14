@@ -19,6 +19,13 @@ export function TodoPage() {
        localStorage.setItem(TODOLIST_STORAGE, JSON.stringify(tasks))
     }, [tasks]);
     
+    function toggleTask(id) {
+        const newTasks = [...tasks];
+        const task = newTasks.find(task => task.id === id);
+        task.complete = !task.complete;
+        setTasks(newTasks);
+    }
+    
     function submitTask(e) {
         e.preventDefault();
         const name = taskNameRef.current.value;
@@ -34,7 +41,7 @@ export function TodoPage() {
             <form>
                 <input type="text" ref={taskNameRef} placeholder="What is your Task?" autoFocus={true} />
                 <button type="submit" onClick={submitTask} > Add Task </button>
-                <TodoList tasks={tasks}/>
+                <TodoList tasks={tasks} toggle={toggleTask}/>
             </form>
         </div>
         );
