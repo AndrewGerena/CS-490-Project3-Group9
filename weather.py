@@ -9,7 +9,7 @@ WEATHER_KEY = os.getenv('WEATHER_KEY')
 
 lat = "40.902924"
 lon = "-74.094005"
-
+# Dummy values, will be changed once we add in ZIP code to Lat/Lon conversion.
 
 
 
@@ -22,7 +22,8 @@ def get_weather(lat, lon):
     data = data.json()
    
     current_temp = data["current"]["temp"]
-    today = [current_temp]
+    current_weather = data["current"]["weather"][0]["main"]
+    today = [current_temp, current_weather]
     
     dt_day_1 = data["daily"][0]["dt"]
     max_day_1 = data["daily"][0]["temp"]["max"]
@@ -60,7 +61,7 @@ def get_weather(lat, lon):
 
 
 weather_data = get_weather(lat,lon)
-print("Current Temp: " + str(weather_data[0][0]))
+print("Current Temp: " + str(weather_data[0][0]) + " Current Weather: " + weather_data[0][1])
     
 print("Daytime: " + str(weather_data[1][0]) + " Max Day 1: " + str(weather_data[1][1]) + " Min Day 1: " + str(weather_data[1][2]) + " Weather: " + weather_data[1][3])
     
