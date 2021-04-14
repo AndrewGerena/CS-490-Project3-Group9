@@ -1,10 +1,7 @@
 import React from 'react';
 
 export function Task( { task, toggle } ) {
-    //function handleCheckbox () {
-    //    toggleTask(task.id)
-    //}
-    
+
     return (
         <div>
             <label>

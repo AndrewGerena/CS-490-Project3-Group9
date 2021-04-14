@@ -26,6 +26,16 @@ export function TodoPage() {
         setTasks(newTasks);
     }
     
+    console.log("[...tasks]");
+    console.log([...tasks]);
+    console.log("tasks");
+    console.log(tasks);
+    
+    function eraseTasks() {
+        const newTasks = [...tasks].filter(task => !task.complete)
+        setTasks(newTasks)
+    }
+    
     function submitTask(e) {
         e.preventDefault();
         const name = taskNameRef.current.value;
@@ -41,8 +51,10 @@ export function TodoPage() {
             <form>
                 <input type="text" ref={taskNameRef} placeholder="What is your Task?" autoFocus={true} />
                 <button type="submit" onClick={submitTask} > Add Task </button>
-                <TodoList tasks={tasks} toggle={toggleTask}/>
             </form>
+            <TodoList tasks={tasks} toggle={toggleTask}/>
+            <button onClick={eraseTasks}>Erase Completed Tasks</button>
+            <div>{tasks.filter(task => !task.complete).length} tasks to complete today!</div>
         </div>
         );
     
