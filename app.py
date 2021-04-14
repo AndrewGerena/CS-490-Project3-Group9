@@ -27,7 +27,18 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 def index(filename):
     return send_from_directory('./build', filename)
+    
 
+@SOCKETIO.on('User_Searched_Topic')
+def Fetch_User_Searched(data):
+    UserSearched = data['User_Searched']
+    print("The User Searched: " + str(UserSearched))
+
+    # SOCKETIO.emit('Answer_Searched_Topic', , broadcast=True, include_self=False)
+
+
+
+print("The NYT KEY IS: " + os.getenv('NYT_KEY'))
 
 
 if __name__ == "__main__":
