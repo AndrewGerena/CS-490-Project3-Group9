@@ -1,16 +1,39 @@
 import React from 'react';
 import { TodoList } from './TodoList.js';
-import { useState} from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+const TODOLIST_STORAGE = 'todoApp.tasks';
 
 export function TodoPage() {
     //{id: , name: , complete: }
-    const [tasks, setTasks] = useState([{ id: 1, name: 'TodoTask', complete: false }]);
+    const [tasks, setTasks] = useState([]);
+    const taskNameRef = useRef();
+    
+    useEffect(() => {
+        const storedTasks = JSON.parse(localStorage.getItem(TODOLIST_STORAGE));
+        if(storedTasks) setTasks(storedTasks);
+    }, []);
+    
+    useEffect(() => {
+       localStorage.setItem(TODOLIST_STORAGE, JSON.stringify(tasks))
+    }, [tasks]);
+    
+    function submitTask(e) {
+        e.preventDefault();
+        const name = taskNameRef.current.value;
+        if (name === '') return;
+        setTasks(prevTasks => {
+            return [...prevTasks, {id: uuidv4(), name: name, complete: false}];
+        });
+        taskNameRef.current.value = null;
+    }
     
     return (
         <div>
             <form>
-                <input type="text" placeholder="What is your ToDo?" autoFocus={true} />
-                <button type="submit"> Add ToDo </button>
+                <input type="text" ref={taskNameRef} placeholder="What is your Task?" autoFocus={true} />
+                <button type="submit" onClick={submitTask} > Add Task </button>
                 <TodoList tasks={tasks}/>
             </form>
         </div>
