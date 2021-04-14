@@ -18,7 +18,6 @@ function App() {
     }
   }
   
-  
   return (
     <div className="App">
       <h1>Project 3 has started!</h1>

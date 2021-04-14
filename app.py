@@ -37,7 +37,6 @@ def Fetch_User_Searched(data):
     # SOCKETIO.emit('Answer_Searched_Topic', , broadcast=True, include_self=False)
 
 
-
 print("The NYT KEY IS: " + os.getenv('NYT_KEY'))
 
 
