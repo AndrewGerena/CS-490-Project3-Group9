@@ -7,6 +7,7 @@ const socket = io();
 
 function App() { 
   // Reading Inputs
+  
   const News_Topic_User_Input = useRef(null);
   const Covid__Country_User_Input = useRef(null);
   
@@ -16,7 +17,7 @@ function App() {
   const [DisplayNewsDate, setDisplayNewsDate] = useState([]);
   const [DisplayNewsURL, setDisplayNewsURL] = useState([]);
   const [DisplayNewsAuthor, setDisplayNewsAuthor] = useState([]);
-  const [News_Topic, setNews_Topic] = useState("");
+  const [News_Topic, setNews_Topic] = useState("Global");
   
   //For Covid Section
   const [DisplayCovidDate, setDisplayCovidDate] = useState([]);
@@ -26,9 +27,12 @@ function App() {
   const [DisplayCovidNewDeaths, setDisplayCovidNewDeaths] = useState([]);
   const [DisplayCovidTotalRecovered, setDisplayCovidTotalRecovered] = useState([]);
   const [DisplayCovidNewRecovered, setDisplayCovidNewRecovered] = useState([]);
-  const [Country_Input, setCountry_Input] = useState("");
+  const [Country_Input, setCountry_Input] = useState("Global");
   
-
+  window.onload = function (){
+    socket.emit('Onload_News_Headlines');
+    socket.emit('Onload_Covid_Global'); 
+  }
   
   function User_News_Topic_Search() {
     if (News_Topic_User_Input != null) {
@@ -50,6 +54,9 @@ function App() {
   }
   
    useEffect(() => {
+
+     
+    //--------------Answering User Asked News topic------------------------------
     socket.on("Answer_Searched_News_Topic", (Fetched_News_Data) => {
       console.log("These are the article Headlines: " + Fetched_News_Data['Headlines']);
       setDisplayNewsHeadlines(Fetched_News_Data['Headlines']);
@@ -67,6 +74,7 @@ function App() {
       setDisplayNewsAuthor(Fetched_News_Data['Author']);
     });
     
+    //------------- Answering User Asked Covid Data----------------------- 
     socket.on("Answer_Searched_Covid_Country", (Fetched_Country_Data) => {
       console.log("Latest Covid Stats Date: " + Fetched_Country_Data['Date']);
       setDisplayCovidDate(Fetched_Country_Data['Date']);
