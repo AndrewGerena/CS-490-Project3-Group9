@@ -47,19 +47,48 @@ def Fetch_User_Searched(data):
     data = response.json()
     articles = data['response']['docs']
     
+    Storing_Headlines=[]
+    Storing_Snippets=[]
+    Storing_Date=[]
+    Storing_URL=[]
+    Storing_Author=[]
+    
+    print(articles)
+    
+    
     print("**********************NEWS Response*************************")
-    print(data)
+    for i in range(4):
+        News_Headlines = articles[i]['headline']['main']
+        Storing_Headlines.append(News_Headlines)
+        
+        News_Snippets = articles[i]['snippet']
+        Storing_Snippets.append(News_Snippets)
+        
+        News_Date = (articles[i]['pub_date'].split("T")[0])
+        Storing_Date.append(News_Date)
+        
+        News_URL = articles[i]['web_url']
+        Storing_URL.append(News_URL)
+        
+        Author_FirstName=articles[i]['byline']['person'][0]['firstname']
+        Author_LastName=articles[i]['byline']['person'][0]['lastname']
+        Storing_Author.append(str(Author_FirstName) + " " + str(Author_LastName))
+        
+
+    print("==============Headlines================")
+    print(Storing_Headlines)
+    print("==============Snippets================")
+    print(Storing_Snippets)
+    print("==============NEWS Date================")
+    print(Storing_Date)
+    print("==============NEWS URL================")
+    print(Storing_URL)
+    print("==============Authors================")
+    print(Storing_Author)
+
     
-    
-    Fetched_NewsHeadlines=['Topic-#1','Topic-#2','Topic-#3','Topic-#4']
-    Fetched_NewsSnippets=['Snippet-#1','Snippet-#2','Snippet-#3','Snippet-#4']
-    
-    Fetched_Data={'Headlines':Fetched_NewsHeadlines, 'Snippets': Fetched_NewsSnippets}
+    Fetched_Data={'Headlines': Storing_Headlines, 'Snippets': Storing_Snippets, 'Date': Storing_Date, 'URL': Storing_URL, 'Author': Storing_Author}
     SOCKETIO.emit('Answer_Searched_Topic', Fetched_Data, broadcast=True)
-
-
-
-print("The NYT KEY IS: " + os.getenv('NYT_KEY'))
 
 
 if __name__ == "__main__":
