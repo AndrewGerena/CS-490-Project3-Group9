@@ -6,42 +6,90 @@ import io from "socket.io-client";
 const socket = io();
 
 function App() { 
-  const User_Input_Ref = useRef(null);
+  // Reading Inputs
+  const News_Topic_User_Input = useRef(null);
+  const Covid__Country_User_Input = useRef(null);
+  
+  //For NEWs Section
   const [DisplayNewsHeadlines, setDisplayNewsHeadlines] = useState([]);
   const [DisplayNewsSnippet, setDisplayNewsSnippet] = useState([]);
   const [DisplayNewsDate, setDisplayNewsDate] = useState([]);
   const [DisplayNewsURL, setDisplayNewsURL] = useState([]);
-  const [DisplayNewsAuthor, setDisplayNewsAuthor,] = useState([]);
+  const [DisplayNewsAuthor, setDisplayNewsAuthor] = useState([]);
   const [News_Topic, setNews_Topic] = useState("");
   
-  function User_Search() {
-    if (User_Input_Ref != null) {
-      let Curr_Search = User_Input_Ref.current.value;
-      setNews_Topic(Curr_Search);
-      console.log("The User Searched: " + Curr_Search);
-      socket.emit("User_Searched_Topic", {User_Searched: Curr_Search});
+  //For Covid Section
+  const [DisplayCovidDate, setDisplayCovidDate] = useState([]);
+  const [DisplayCovidTotalCases, setDisplayCovidTotalCases] = useState([]);
+  const [DisplayCovidNewCases, setDisplayCovidNewCases] = useState([]);
+  const [DisplayCovidTotalDeaths, setDisplayCovidTotalDeaths] = useState([]);
+  const [DisplayCovidNewDeaths, setDisplayCovidNewDeaths] = useState([]);
+  const [DisplayCovidTotalRecovered, setDisplayCovidTotalRecovered] = useState([]);
+  const [DisplayCovidNewRecovered, setDisplayCovidNewRecovered] = useState([]);
+  const [Country_Input, setCountry_Input] = useState("");
+  
+
+  
+  function User_News_Topic_Search() {
+    if (News_Topic_User_Input != null) {
+      let Curr_News_Search = News_Topic_User_Input.current.value;
+      setNews_Topic(Curr_News_Search);
+      console.log("The User Searched NEWs Topic: " + Curr_News_Search);
+      socket.emit('User_Searched_News_Topic', {News_Topic_Searched: Curr_News_Search});
       
     }
   }
   
+  function User_Covid_Country_Search(){
+    if (Covid__Country_User_Input != null) {
+      let Curr_Country_Search = Covid__Country_User_Input.current.value;
+      setCountry_Input(Curr_Country_Search);
+      console.log("The User Searched Covid Country: " + Curr_Country_Search);
+      socket.emit('User_Searched_Covid_Country', {Covid_Country_Searched: Curr_Country_Search});
+    }
+  }
+  
    useEffect(() => {
-    socket.on("Answer_Searched_Topic", (Fetched_Data) => {
-      console.log("These are the article Headlines: " + Fetched_Data['Headlines']);
-      setDisplayNewsHeadlines(Fetched_Data['Headlines']);
+    socket.on("Answer_Searched_News_Topic", (Fetched_News_Data) => {
+      console.log("These are the article Headlines: " + Fetched_News_Data['Headlines']);
+      setDisplayNewsHeadlines(Fetched_News_Data['Headlines']);
       
-      console.log("These are the article Snippets: " + Fetched_Data['Snippets']);
-      setDisplayNewsSnippet(Fetched_Data['Snippets']);
+      console.log("These are the article Snippets: " + Fetched_News_Data['Snippets']);
+      setDisplayNewsSnippet(Fetched_News_Data['Snippets']);
       
-      console.log("These are the article Dates: " + Fetched_Data['Date']);
-      setDisplayNewsDate(Fetched_Data['Date']);
+      console.log("These are the article Dates: " + Fetched_News_Data['Date']);
+      setDisplayNewsDate(Fetched_News_Data['Date']);
       
-      console.log("These are the article URLS: " + Fetched_Data['URL']);
-      setDisplayNewsURL(Fetched_Data['URL']);
+      console.log("These are the article URLS: " + Fetched_News_Data['URL']);
+      setDisplayNewsURL(Fetched_News_Data['URL']);
       
-      console.log("These are the article Authors: " + Fetched_Data['Author']);
-      setDisplayNewsAuthor(Fetched_Data['Author']);
-      
+      console.log("These are the article Authors: " + Fetched_News_Data['Author']);
+      setDisplayNewsAuthor(Fetched_News_Data['Author']);
     });
+    
+    socket.on("Answer_Searched_Covid_Country", (Fetched_Country_Data) => {
+      console.log("Latest Covid Stats Date: " + Fetched_Country_Data['Date']);
+      setDisplayCovidDate(Fetched_Country_Data['Date']);
+      
+      console.log("Total Covid Cases: " + Fetched_Country_Data['TotalCases']);
+      setDisplayCovidTotalCases(Fetched_Country_Data['TotalCases']);
+      
+      console.log("New Covid Cases: " + Fetched_Country_Data['NewCases']);
+      setDisplayCovidNewCases(Fetched_Country_Data['NewCases']);
+      
+      console.log("Total Covid Deaths: " + Fetched_Country_Data['TotalDeaths']);
+      setDisplayCovidTotalDeaths(Fetched_Country_Data['TotalDeaths']);
+      
+      console.log("New Covid Deaths: " + Fetched_Country_Data['NewDeaths']);
+      setDisplayCovidNewDeaths(Fetched_Country_Data['NewDeaths']);
+      
+      console.log("Total Covid Recoveries: " + Fetched_Country_Data['TotalRecovered']);
+      setDisplayCovidTotalRecovered(Fetched_Country_Data['TotalRecovered']);
+      
+      console.log("New Covid Recoveries: " + Fetched_Country_Data['NewRecovered']);
+      setDisplayCovidNewRecovered(Fetched_Country_Data['NewRecovered']);
+    });
+  
   }, []);
   
   
@@ -80,8 +128,8 @@ function App() {
   return (
     <div className="App">
       <h1>Project 3 has started!</h1>
-       <input id="Form_Input" type="text" ref={User_Input_Ref} />
-      <button id="Form_Btn" type="Submit" onClick={User_Search}>Submit</button>
+       <input id="Form_Input" type="text" ref={News_Topic_User_Input} />
+      <button id="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
       <h1>THE NEWS TOPIC: {News_Topic} </h1>
       <div>{Show_NewsHeadlines}</div>
       <hr/>
@@ -92,6 +140,18 @@ function App() {
       <div>{Show_NewsURL}</div>
       <hr/>
       <div>{Show_NewsAuthor}</div>
+    
+      <hr/>
+      <input id="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
+      <button id="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
+      <h1>Covid Stats For: {Country_Input} </h1>
+      <div><li> As Of Date: {DisplayCovidDate}</li></div>
+      <div><li> Total Cases: {DisplayCovidTotalCases}</li></div>
+      <div><li> New Cases: {DisplayCovidNewCases}</li></div>
+      <div><li> Total Deaths: {DisplayCovidTotalDeaths}</li></div>
+      <div><li> New Deaths: {DisplayCovidNewDeaths}</li></div>
+      <div><li> Total Recoveries: {DisplayCovidTotalRecovered}</li></div>
+      <div><li> New Recoveries: {DisplayCovidNewRecovered}</li></div>
     </div>
     
   );

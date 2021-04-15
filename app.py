@@ -31,12 +31,42 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def index(filename):
     return send_from_directory('./build', filename)
     
-
-@SOCKETIO.on('User_Searched_Topic')
-def Fetch_User_Searched(data):
-    UserSearched = data['User_Searched']
-    print("The User Searched: " + str(UserSearched))
     
+    
+# ///////////////////////////////NEWS Initial Data Section///////////////////////////////////////////////////////////////////////
+
+
+# ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+# ///////////////////////////////COVID-19 Initial Data Section///////////////////////////////////////////////////////////////////////
+COVID_BASE_URL = 'https://api.covid19api.com/summary'
+Covid_Response = requests.get(COVID_BASE_URL)
+Covid_Data = Covid_Response.json()
+    
+Global_Cases = Covid_Data["Global"]["TotalConfirmed"]
+Global_NewCases = Covid_Data["Global"]["NewConfirmed"]
+Global_Deaths = Covid_Data["Global"]["TotalDeaths"]
+Global_NewDeaths = Covid_Data["Global"]["NewDeaths"]
+Global_Recovered = Covid_Data["Global"]["TotalRecovered"]
+Global_NewRecovered = Covid_Data["Global"]["NewRecovered"]
+Latest_Date = (Covid_Data["Global"]["Date"].split("T")[0])
+    
+print("***************COVID-19 DATA****************")
+print("Covid-19 Data From: " +  str(Latest_Date))
+print("Global Cases: " + str(Global_Cases))
+print("Global New Cases: " + str(Global_NewCases))
+print("Global Deaths: "  + str(Global_Deaths))
+print("Global New Deaths: "  + str(Global_NewDeaths))
+print("Global Recovered: "  + str(Global_Recovered))
+print("Global New Recovered: "  + str(Global_NewRecovered))
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+
+# //////////////////////////////////////////////////USER ASKED NEWS DATA///////////////////////////////////////////////////////////////////
+@SOCKETIO.on('User_Searched_News_Topic')
+def Fetch_User_Searched_NEWS(data):
+    UserSearched = data['News_Topic_Searched']
+    print("The User Searched NEWs Topic: " + str(UserSearched))
     #Defining the Params
     params = {
         'q': UserSearched,
@@ -52,9 +82,6 @@ def Fetch_User_Searched(data):
     Storing_Date=[]
     Storing_URL=[]
     Storing_Author=[]
-    
-    print(articles)
-    
     
     print("**********************NEWS Response*************************")
     for i in range(4):
@@ -87,8 +114,44 @@ def Fetch_User_Searched(data):
     print(Storing_Author)
 
     
-    Fetched_Data={'Headlines': Storing_Headlines, 'Snippets': Storing_Snippets, 'Date': Storing_Date, 'URL': Storing_URL, 'Author': Storing_Author}
-    SOCKETIO.emit('Answer_Searched_Topic', Fetched_Data, broadcast=True)
+    Fetched_News_Data={'Headlines': Storing_Headlines, 'Snippets': Storing_Snippets, 'Date': Storing_Date, 'URL': Storing_URL, 'Author': Storing_Author}
+    SOCKETIO.emit('Answer_Searched_News_Topic', Fetched_News_Data, broadcast=True)
+
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#//////////////////////////////////////////User Entered Country Covid Data////////////////////////////////////////////////////
+@SOCKETIO.on('User_Searched_Covid_Country')
+def Fetch_User_Searched_Country(data):
+    Num_Countries = len(Covid_Data["Countries"])
+    UserSearched = data['Covid_Country_Searched']
+    for i in range(Num_Countries):
+        Country_Name = Covid_Data["Countries"][i]["Country"]
+        print(Country_Name)
+        if(str(Country_Name) == str(UserSearched)):
+            Country_Cases = Covid_Data["Countries"][i]["TotalConfirmed"]
+            Country_NewCases = Covid_Data["Countries"][i]["NewConfirmed"]
+            Country_Deaths = Covid_Data["Countries"][i]["TotalDeaths"]
+            Country_NewDeaths = Covid_Data["Countries"][i]["NewDeaths"]
+            Country_Recovered = Covid_Data["Countries"][i]["TotalRecovered"]
+            Country_NewRecovered = Covid_Data["Countries"][i]["NewRecovered"]
+            Country_Latest_Date = (Covid_Data["Countries"][i]["Date"].split("T")[0])
+            
+            print("************COVID STATS FOR: " + Country_Name + "********************")
+            print(Country_Latest_Date)
+            print(Country_Cases)
+            print(Country_NewCases)
+            print(Country_Deaths)
+            print(Country_NewDeaths)
+            print(Country_Recovered)
+            print(Country_NewRecovered)
+            
+    Fetched_Country_Data={'Date': Country_Latest_Date, 'TotalCases': Country_Cases, 'NewCases': Country_NewCases, 'TotalDeaths': Country_Deaths, 'NewDeaths': Country_NewDeaths, 'TotalRecovered': Country_Recovered, 'NewRecovered': Country_NewRecovered }
+    SOCKETIO.emit('Answer_Searched_Covid_Country', Fetched_Country_Data, broadcast=True)
+
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
 
 
 if __name__ == "__main__":
