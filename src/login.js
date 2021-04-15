@@ -38,6 +38,7 @@ export function Login(props) {
   
     //console.log("ID TOKEN BELOW");
     //console.log(id_token);
+    //testing for Heroku deployment
     console.log("PROFILE BELOW");
     console.log('ID: ' + profile.getId());
     console.log('Full Name: ' + profile.getName());
