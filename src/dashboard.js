@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
-import { TodoPage } from './components/TodoPage.js';
+import { TodoPage } from './ToDoComponents/TodoPage.js';
 
 export function DashBoard(props) {
     const [weather, setWeather] = useState(false);
