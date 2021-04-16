@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import './App.css';
 import io from "socket.io-client";
+import { News_Card } from "./News_Cards.js";
+import { Covid_Card } from "./Covid_Cards.js";
 
 const socket = io();
 
@@ -136,30 +138,24 @@ function App() {
   return (
     <div className="App">
       <h1>Project 3 has started!</h1>
-       <input id="Form_Input" type="text" ref={News_Topic_User_Input} />
+      <input id="Form_Input" type="text" ref={News_Topic_User_Input} />
       <button id="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
       <h1>THE NEWS TOPIC: {News_Topic} </h1>
-      <div>{Show_NewsHeadlines}</div>
+      <News_Card News_Headlines={Show_NewsHeadlines[0]} News_Info={Show_NewsSnippets[0]} News_Date={Show_NewsDates[0]} News_Url={Show_NewsURL[0]} News_Author= {Show_NewsAuthor[0]}/>
       <hr/>
-      <div>{Show_NewsSnippets}</div>
+      <News_Card News_Headlines={Show_NewsHeadlines[1]} News_Info={Show_NewsSnippets[1]} News_Date={Show_NewsDates[1]} News_Url={Show_NewsURL[1]} News_Author= {Show_NewsAuthor[1]}/>
       <hr/>
-      <div>{Show_NewsDates}</div>
+      <News_Card News_Headlines={Show_NewsHeadlines[2]} News_Info={Show_NewsSnippets[2]} News_Date={Show_NewsDates[2]} News_Url={Show_NewsURL[2]} News_Author= {Show_NewsAuthor[2]}/>
       <hr/>
-      <div>{Show_NewsURL}</div>
+      <News_Card News_Headlines={Show_NewsHeadlines[3]} News_Info={Show_NewsSnippets[3]} News_Date={Show_NewsDates[3]} News_Url={Show_NewsURL[3]} News_Author= {Show_NewsAuthor[3]}/>
       <hr/>
-      <div>{Show_NewsAuthor}</div>
+
     
       <hr/>
       <input id="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
       <button id="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
       <h1>Covid Stats For: {Country_Input} </h1>
-      <div><li> As Of Date: {DisplayCovidDate}</li></div>
-      <div><li> Total Cases: {DisplayCovidTotalCases}</li></div>
-      <div><li> New Cases: {DisplayCovidNewCases}</li></div>
-      <div><li> Total Deaths: {DisplayCovidTotalDeaths}</li></div>
-      <div><li> New Deaths: {DisplayCovidNewDeaths}</li></div>
-      <div><li> Total Recoveries: {DisplayCovidTotalRecovered}</li></div>
-      <div><li> New Recoveries: {DisplayCovidNewRecovered}</li></div>
+      <Covid_Card Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
     </div>
     
   );
