@@ -84,8 +84,8 @@ def get_weather(zipcode):
     return lst
 
 
-weather_data = get_weather("07663")
-
+#weather_data = get_weather("07663")
+'''
 print("Town: " + str(weather_data[0][0]) + " Current Temp: " + str(weather_data[0][1]) + " Current Weather: " + weather_data[0][2] + " ICON URL: " + weather_data[0][3])
     
 print("Date: " + str(weather_data[1][0]) + " " + str(weather_data[1][1]) + " HIGH: " + str(weather_data[1][2]) + " LOW: " + str(weather_data[1][3]) + " Weather: " + weather_data[1][4])
@@ -102,3 +102,4 @@ print("ICON: " + weather_data[4][5] + "\n")
 
 print("Date: " + str(weather_data[5][0]) + " " + str(weather_data[5][1]) + " HIGH: " + str(weather_data[5][2]) + " LOW: " + str(weather_data[5][3]) + " Weather: " + weather_data[5][4])
 print("ICON: " + weather_data[5][5] + "\n")
+'''
