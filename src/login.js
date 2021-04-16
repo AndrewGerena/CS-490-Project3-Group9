@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { GoogleLogin } from 'react-google-login'; 
 import os from 'os';
+import { DashBoard } from './dashboard.js';
 //import { refreshTokenSetup } from '../utils/refreshToken';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -83,7 +84,7 @@ export function Login(props) {
   if (isHome) {
     return (
       <div>
-        <h1>You are home</h1>
+        <DashBoard /> 
       </div>
     )
   }
@@ -91,7 +92,7 @@ export function Login(props) {
   if (isLoggedIn) {
     return (
       <div>
-        <h1>Welcome to the MyDay App</h1>
+        <DashBoard />
       </div>
     )
   }
@@ -135,3 +136,5 @@ export function Login(props) {
     </div>
   );
 }
+
+export default Login;
