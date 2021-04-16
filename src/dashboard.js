@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
+import { TodoPage } from './ToDoComponents/TodoPage.js';
 
 export function DashBoard(props) {
     const [weather, setWeather] = useState(false);
@@ -47,7 +48,8 @@ export function DashBoard(props) {
         test = <center><h2>You are on news page now</h2></center>
     }
     else if (todo) {
-        test = <center><h2>You are on your to-do list now</h2></center>
+        test = <TodoPage />
+        //<center><h2>You are on your to-do list now</h2></center>
     }
     return (
         <div>

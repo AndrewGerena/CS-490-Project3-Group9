@@ -5,6 +5,8 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 
+from weather import get_weather
+
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
