@@ -6,11 +6,14 @@ import { GoogleLogin } from 'react-google-login';
 import os from 'os';
 //import { refreshTokenSetup } from '../utils/refreshToken';
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 export function Login(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isNewUser, setIsNewUser] = useState(false); // will retrieve basic profile info from user if they are new
+  const [isHome, setIsHome] = useState(false); 
   
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
@@ -68,6 +71,23 @@ export function Login(props) {
     });
   }, []);
   
+  function Home() {
+    return <h2></h2>
+  }
+  function About() {
+    return <h2>You are in about us</h2>
+  }
+  function Contact() {
+    return <h2>You are in contact</h2>
+  }
+  if (isHome) {
+    return (
+      <div>
+        <h1>You are home</h1>
+      </div>
+    )
+  }
+  
   if (isLoggedIn) {
     return (
       <div>
@@ -75,20 +95,43 @@ export function Login(props) {
       </div>
     )
   }
-
   return (
     <div>
-      <center>
-          <GoogleLogin
-            clientId={CLIENT_ID}
-            buttonText="Sign in with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={'single_host_origin'}
-            style={{ marginTop: '100px' }}
-            isSignedIn={false}
-          />
+      <Router>
+  	    <div className="header">
+          <center>
+            <ul className="menu">
+            	 <li><Link to="/"><p>Home</p></Link></li>
+            	 <li><Link to="/about"><p>About Us</p></Link></li>
+            	 <li><Link to="/contact"><p>Contact</p></Link></li>
+            </ul>
           </center>
+          <Switch>
+            <Route path="/"><Home /></Route>
+            <Route path="/about"><About /></Route>
+            <Route path="/contact"><Contact /></Route>
+          </Switch>
+        </div>
+      </Router>
+        <div className="middle">
+          <center>
+            <h1>MyDay Planner</h1>
+            <h2>Use this app to plan out your day!</h2>
+            <br></br><br></br><br></br><br></br>
+            <GoogleLogin
+              clientId={CLIENT_ID}
+              buttonText="Sign in with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}
+              style={{ marginTop: '100px' }}
+              isSignedIn={false}
+            />
+          </center>
+        </div>
+      	<div className="footer">
+      		<center><p>&copy; SASA Inc. All Rights Reserved.</p></center>
+      	</div>
     </div>
   );
 }
