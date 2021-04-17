@@ -42,9 +42,9 @@ export function DashBoard(props) {
     }
     var test = " "; 
     if (profile) {
-        test = <center><Profile /></center>;
+        test = <center><Profile email={props.email} /></center>;
     }
-    if (weather) {
+    else if (weather) {
         test = <center><Sample forecast={forecast}/></center>; 
     }
     else if (news) {
