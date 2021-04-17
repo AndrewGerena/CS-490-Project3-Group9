@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime
 
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"
@@ -66,6 +67,63 @@ def check_zip(zipcode):
 
     return True
 
+class TimeTestCase(unittest.TestCase):
+    def setUp(self):
+        self.success_test_params = [
+            {
+                KEY_INPUT: "1618693467",
+                KEY_EXPECTED: ["04/17", "Saturday"],
+            },
+            {
+                KEY_INPUT: "1735707601",
+                KEY_EXPECTED: ["01/01", "Wednesday"],
+            },
+            {
+                KEY_INPUT: "1609477201",
+                KEY_EXPECTED: ["01/01", "Friday"],
+            },
+        ]
+
+        self.failure_test_params = [
+            {
+                KEY_INPUT: "1618693467",
+                KEY_EXPECTED: ["04/18", "Sunday"],
+            },
+            {
+                KEY_INPUT: "1618693467",
+                KEY_EXPECTED: ["Saturday","04/17"],
+            },
+            {
+                KEY_INPUT: "1609563601",
+                KEY_EXPECTED: ["02/01", "Sunday"],
+            },
+
+        ]
+
+    def test_time_success(self):
+        for test in self.success_test_params:
+            date, day = convert(test[KEY_INPUT])
+            actual_result = [date, day]
+            expected_result = test[KEY_EXPECTED]
+
+            self.assertEqual(actual_result, expected_result)
+            self.assertListEqual(actual_result, expected_result)
+
+    def test_time_failure(self):
+        for test in self.failure_test_params:
+            date, day = convert(test[KEY_INPUT])
+            actual_result = [date, day]
+            expected_result = test[KEY_EXPECTED]
+
+            self.assertNotEqual(actual_result[0], expected_result[0])
+            self.assertNotEqual(actual_result[1], expected_result[1])
+
+def convert(time):
+    '''Used to convert UNIX time to MM-DD, and Day of the Week'''
+    temp = int(time)
+    date = datetime.utcfromtimestamp(temp).strftime('%m/%d')
+    day = datetime.fromtimestamp(temp).strftime("%A")
+    return date, day
 
 if __name__ == '__main__':
     unittest.main()
