@@ -11,6 +11,7 @@ export function DashBoard(props) {
     const [news, setNews] = useState(false);
     const [todo, setTodo] = useState(false);
     const [profile, setProfile] = useState(false);
+    const [forecast, setForecast] = useState([[],[],[],[],[],[]])
     
     function onClickProfile() {
         setProfile(true);
@@ -24,6 +25,8 @@ export function DashBoard(props) {
         setNews(false);
         setTodo(false);
         setProfile(false);
+        socket.emit('forecast', "");
+        console.log(forecast);
     }
     function onClickNews() {
         setNews(true);
@@ -42,7 +45,7 @@ export function DashBoard(props) {
         test = <center><h2>Hey there. You can manage your profile info here</h2></center>;
     }
     if (weather) {
-        test = <center><Sample /></center>; 
+        test = <center><Sample forecast={forecast}/></center>; 
     }
     else if (news) {
         test = <center><h2>You are on news page now</h2></center>
@@ -51,6 +54,15 @@ export function DashBoard(props) {
         test = <TodoPage />
         //<center><h2>You are on your to-do list now</h2></center>
     }
+    
+    useEffect(() => {
+    // When a move has been made.
+    socket.on('forecast', (data) => {
+        setForecast(data);
+        console.log(data);
+    });
+  }, []);
+    
     return (
         <div>
             <center>
