@@ -6,7 +6,7 @@ import { Covid_Card } from "./Covid_Cards.js";
 
 const socket = io();
 
-function News() { 
+export function News() { 
   // Reading Inputs
   
   const News_Topic_User_Input = useRef(null);
@@ -136,7 +136,7 @@ function News() {
 
   return (
     <div className="App">
-      <h1>Project 3 has started!</h1>
+      <h1>News Section!</h1>
       <input id="Form_Input" type="text" ref={News_Topic_User_Input} />
       <button id="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
       <h1>THE NEWS TOPIC: {News_Topic} </h1>
@@ -157,12 +157,3 @@ function News() {
 
 export default News;
 
-
-      // <News_Card News_Headlines={Show_NewsHeadlines[0]} News_Info={Show_NewsSnippets[0]} News_Date={Show_NewsDates[0]} News_Url={Show_NewsURL[0]} News_Author= {Show_NewsAuthor[0]}/>
-      // <hr/>
-      // <News_Card News_Headlines={Show_NewsHeadlines[1]} News_Info={Show_NewsSnippets[1]} News_Date={Show_NewsDates[1]} News_Url={Show_NewsURL[1]} News_Author= {Show_NewsAuthor[1]}/>
-      // <hr/>
-      // <News_Card News_Headlines={Show_NewsHeadlines[2]} News_Info={Show_NewsSnippets[2]} News_Date={Show_NewsDates[2]} News_Url={Show_NewsURL[2]} News_Author= {Show_NewsAuthor[2]}/>
-      // <hr/>
-      // <News_Card News_Headlines={Show_NewsHeadlines[3]} News_Info={Show_NewsSnippets[3]} News_Date={Show_NewsDates[3]} News_Url={Show_NewsURL[3]} News_Author= {Show_NewsAuthor[3]}/>
-      // <hr/>

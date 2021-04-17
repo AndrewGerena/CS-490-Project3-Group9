@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
+import {News} from './News.js';
 import { TodoPage } from './ToDoComponents/TodoPage.js';
 
 export function DashBoard(props) {
@@ -24,6 +25,8 @@ export function DashBoard(props) {
         setNews(false);
         setTodo(false);
         setProfile(false);
+        socket.emit('Onload_News_Headlines');
+        socket.emit('Onload_Covid_Global'); 
     }
     function onClickNews() {
         setNews(true);
@@ -45,7 +48,7 @@ export function DashBoard(props) {
         test = <center><Sample /></center>; 
     }
     else if (news) {
-        test = <center><h2>You are on news page now</h2></center>
+        test = <center><News /></center>
     }
     else if (todo) {
         test = <TodoPage />
