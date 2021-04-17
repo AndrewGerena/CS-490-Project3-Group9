@@ -30,4 +30,4 @@ Sample.propTypes = {
   forecast: PropTypes.array.isRequired,
 };
 
-export default Sample; 
+export default Sample;
