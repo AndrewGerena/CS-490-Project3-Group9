@@ -1,16 +1,17 @@
-import React from 'react';
 import './App.css';
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
 import { TodoPage } from './ToDoComponents/TodoPage.js';
+import Profile from './Profile';
 
 export function DashBoard(props) {
     const [weather, setWeather] = useState(false);
     const [news, setNews] = useState(false);
     const [todo, setTodo] = useState(false);
     const [profile, setProfile] = useState(false);
+    const [forecast, setForecast] = useState([[],[],[],[],[],[]]);
     
     function onClickProfile() {
         setProfile(true);
@@ -24,6 +25,8 @@ export function DashBoard(props) {
         setNews(false);
         setTodo(false);
         setProfile(false);
+        socket.emit('forecast', "");
+        console.log(forecast);
     }
     function onClickNews() {
         setNews(true);
@@ -39,18 +42,27 @@ export function DashBoard(props) {
     }
     var test = " "; 
     if (profile) {
-        test = <center><h2>Hey there. You can manage your profile info here</h2></center>;
+        test = <center><Profile /></center>;
     }
     if (weather) {
-        test = <center><Sample /></center>; 
+        test = <center><Sample forecast={forecast}/></center>; 
     }
     else if (news) {
-        test = <center><h2>You are on news page now</h2></center>
+        test = <center><h2>You are on news page now</h2></center>;
     }
     else if (todo) {
-        test = <TodoPage />
+        test = <center><TodoPage /></center>;
         //<center><h2>You are on your to-do list now</h2></center>
     }
+    
+    useEffect(() => {
+    // When a move has been made.
+    socket.on('forecast', (data) => {
+        setForecast(data);
+        console.log(data);
+    });
+  }, []);
+    
     return (
         <div>
             <center>
@@ -63,7 +75,7 @@ export function DashBoard(props) {
             <br></br><br></br>
             {test}
         </div>
-    )
+    );
 }
 
 export default DashBoard;

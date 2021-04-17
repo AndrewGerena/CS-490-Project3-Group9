@@ -6,7 +6,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 #from sqlalchemy import desc
 from dotenv import load_dotenv, find_dotenv
-#from weather import get_weather
+from weather import get_weather
 
 
 
@@ -77,6 +77,11 @@ def user_login(data):
                   broadcast=True,
                   include_self=True)  ## changing include self to true
 
+@socketio.on('forecast')
+def on_forecast(data):
+    '''Will fetch zipcode from DB and return local weather'''
+    data = get_weather("10001") # Default for now. Will update when we can fetch the zipcode.
+    socketio.emit('forecast', data, broadcast=False, include_self=True)
 
 # Note that we don't call app.run anymore. We call socketio.run with app arg
 if __name__ == "__main__":
