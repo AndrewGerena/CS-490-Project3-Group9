@@ -79,7 +79,7 @@ def user_login(data):
         'user_exists': user_exists,
     },
                   broadcast=True,
-                  include_self=True)  ## changing include self to true
+                  include_self=True)  ## changing include self to true here
 
 @SOCKETIO.on('new_zip')
 def change_zip(data):
