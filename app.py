@@ -69,7 +69,12 @@ def user_login(data):
         if person.email == data['email']:
             user_exists = True
             break
-
+    ## new stuff
+    if user_exists == False:
+        user_add = models.Person(email=data["email"],full_name=data["full_name"],given_name=data["given_name"],family_name=data["family_name"],image_url=data["image_url"])
+        DB.session.add(user_add)
+        DB.session.commit() 
+    
     socketio.emit('login', {
         'info': data,
         'user_exists': user_exists,
