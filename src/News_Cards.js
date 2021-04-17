@@ -24,7 +24,7 @@ export function News_Card(props) {
 		          <p class="News-date">{props.News_Date[0]}</p>
 		        </div>
 		        <div class="News-info">
-		          <h4>{props.News_Headlines[0]}</h4>
+		          <h4 class="Title">{props.News_Headlines[0]}</h4>
 		          <p class="Description_P">
 					{props.News_Info[0]}
 		          </p>
@@ -108,7 +108,7 @@ export function News_Card(props) {
 		            </p>
 		          </div>
 		        </div>
-		        <button class="News_Article_Link"><a href={props.News_Url[3]}>Read More</a></button>
+		        <button class="News_Article_Link"><a  class="Link_Attch" href={props.News_Url[3]}>Read More</a></button>
 		      </article>
 	      </div>
 	  </body>
