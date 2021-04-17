@@ -80,8 +80,7 @@ def user_login(data):
 @socketio.on('forecast')
 def on_forecast(data):
     '''Will fetch zipcode from DB and return local weather'''
-    
-    data = get_weather("07663") # Default for now. Will update when we can fetch the zipcode.
+    data = get_weather("10001") # Default for now. Will update when we can fetch the zipcode.
     socketio.emit('forecast', data, broadcast=False, include_self=True)
 
 # Note that we don't call app.run anymore. We call socketio.run with app arg

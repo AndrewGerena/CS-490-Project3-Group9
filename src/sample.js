@@ -1,6 +1,5 @@
-import React from 'react';
 import './App.css';
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import PropTypes from 'prop-types';
 import Tile from './Tile';
