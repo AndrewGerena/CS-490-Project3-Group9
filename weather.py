@@ -1,4 +1,4 @@
-'''Retreives weather data from API to display on Weather Page'''
+'''Contains the function get_location(ZIPCODE) and get_weather(ZIPCODE).'''
 import os
 import requests
 from dotenv import load_dotenv, find_dotenv
@@ -96,35 +96,3 @@ def get_weather(zipcode):
     lst = [today, day_1, day_2, day_3, day_4, day_5]
 
     return lst
-
-
-WEATHER_DATA = get_weather("07663")
-
-print("Town: " + str(WEATHER_DATA[0][0]) + " Current Temp: " +
-      str(WEATHER_DATA[0][1]) + " Current Weather: " + WEATHER_DATA[0][2] +
-      " ICON URL: " + WEATHER_DATA[0][3])
-
-print("Date: " + str(WEATHER_DATA[1][0]) + " " + str(WEATHER_DATA[1][1]) +
-      " HIGH: " + str(WEATHER_DATA[1][2]) + " LOW: " +
-      str(WEATHER_DATA[1][3]) + " Weather: " + WEATHER_DATA[1][4])
-print("ICON URL: " + WEATHER_DATA[1][5] + "\n")
-
-print("Date: " + str(WEATHER_DATA[2][0]) + " " + str(WEATHER_DATA[2][1]) +
-      " HIGH: " + str(WEATHER_DATA[2][2]) + " LOW: " +
-      str(WEATHER_DATA[2][3]) + " Weather: " + WEATHER_DATA[2][4])
-print("ICON: " + WEATHER_DATA[2][5] + "\n")
-
-print("Date: " + str(WEATHER_DATA[3][0]) + " " + str(WEATHER_DATA[3][1]) +
-      " HIGH: " + str(WEATHER_DATA[3][2]) + " LOW: " +
-      str(WEATHER_DATA[3][3]) + " Weather: " + WEATHER_DATA[3][4])
-print("ICON: " + WEATHER_DATA[3][5] + "\n")
-
-print("Date: " + str(WEATHER_DATA[4][0]) + " " + str(WEATHER_DATA[4][1]) +
-      " HIGH: " + str(WEATHER_DATA[4][2]) + " LOW: " +
-      str(WEATHER_DATA[4][3]) + " Weather: " + WEATHER_DATA[4][4])
-print("ICON: " + WEATHER_DATA[4][5] + "\n")
-
-print("Date: " + str(WEATHER_DATA[5][0]) + " " + str(WEATHER_DATA[5][1]) +
-      " HIGH: " + str(WEATHER_DATA[5][2]) + " LOW: " +
-      str(WEATHER_DATA[5][3]) + " Weather: " + WEATHER_DATA[5][4])
-print("ICON: " + WEATHER_DATA[5][5] + "\n")
