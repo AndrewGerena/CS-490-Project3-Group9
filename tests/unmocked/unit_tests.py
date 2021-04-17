@@ -3,9 +3,6 @@ from datetime import datetime
 
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"
-KEY_LENGTH = "length"
-KEY_FIRST_WORD = "first_word"
-KEY_SECOND_WORD = "second_word"
 
 class ZipCheckTestCase(unittest.TestCase):
     def setUp(self):
