@@ -15,13 +15,13 @@ export function Login(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isNewUser, setIsNewUser] = useState(false); // will retrieve basic profile info from user if they are new
   const [isHome, setIsHome] = useState(false); 
+  const [userEmail, setUserEmail] = useState(""); 
   
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
       `Login Successful. Welcome ${res.profileObj.name}.`
     );
-    setIsLoggedIn(true);
     var id_token = res.getAuthResponse().id_token; // this works
     var profile = res.getBasicProfile();
     
@@ -31,6 +31,9 @@ export function Login(props) {
     var family_name = profile.getFamilyName();
     var image_url = profile.getImageUrl();
     var email = profile.getEmail(); 
+    setIsLoggedIn(true);
+    setUserEmail(email); 
+    
     socket.emit('login', {
       id: id,
       email: email,
@@ -92,10 +95,11 @@ export function Login(props) {
   if (isLoggedIn) {
     return (
       <div>
-        <DashBoard />
+        <DashBoard email={userEmail} />
       </div>
     )
   }
+  
   return (
     <div>
       <Router>
