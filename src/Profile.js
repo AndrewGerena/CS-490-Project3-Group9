@@ -4,14 +4,14 @@ import './App.css';
 
 function Profile() {
   const inputRef = useRef();
-  
+
   function zipButton(){
-        if (inputRef.current.value !== '') {
-            var zipcode = inputRef.current.value;
-            alert(zipcode);
-        }
+    if (inputRef.current.value !== '') {
+        var zipcode = inputRef.current.value;
+        alert(zipcode);
     }
-  
+  }
+
   return (
     <div>
         <h1>Welcome to the Profile Page!</h1>
