@@ -1,43 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-  /*background-image: url('https://res.cloudinary.com/ddsomtotk/image/upload/v1618696175/NewsImage_i545w3.jpg');*/
-  /*background-repeat: no-repeat;*/
-  /*background-attachment: fixed;  */
-  /*background-size: cover;*/
-  /*background-size: 100% 100%;*/
-  /*z-index:-1;*/
-}
-
-
-ul {
-  list-style-type: none;
-}
-a {
+.Link_Attch {
   text-decoration: none;
 }
-img {
+.News-img {
   width: 100%;
   display: block;
 }
 
-h4 {
+.Title {
   letter-spacing: 0.25;
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
 }
 
-p {
+.News-date {
   margin-bottom: 1.25rem;
   color: silver;
 }
 
-button{
+.News_Article_Link{
   margin: 10px;
 }
 
