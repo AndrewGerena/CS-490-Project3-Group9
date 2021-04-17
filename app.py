@@ -8,8 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv, find_dotenv
 from weather import get_weather
 
-
-
 load_dotenv(find_dotenv())
 
 APP = Flask(__name__, static_folder='./build/static')
@@ -26,8 +24,8 @@ import models
 
 DB.create_all()
 
-cors = CORS(APP, resources={r"/*": {"origins": "*"}})
-socketio = SocketIO(APP,
+cors = CORS(APP, resources={r"/*": {"origins": "*"}}) # pylint: disable=invalid-name
+SOCKETIO = SocketIO(APP,
                     cors_allowed_origins="*",
                     json=json,
                     manage_session=False)
@@ -43,21 +41,21 @@ def index(filename):
 
 
 # When a client connects from this Socket connection, this function is run
-@socketio.on('connect')
+@SOCKETIO.on('connect')
 def on_connect():
     """Function is accessed upon user connection"""
     print('User connected!')
 
 
 # When a client disconnects from this Socket connection, this function is run
-@socketio.on('disconnect')
+@SOCKETIO.on('disconnect')
 def on_disconnect():
     """Function is accessed upon user disconnection"""
     print('User disconnected!')
 
 
 # Login functionality
-@socketio.on('login')
+@SOCKETIO.on('login')
 def user_login(data):
     """User list is updated upon login events"""
     print(str(data))
@@ -70,22 +68,25 @@ def user_login(data):
             user_exists = True
             break
 
-    socketio.emit('login', {
+    SOCKETIO.emit('login', {
         'info': data,
         'user_exists': user_exists,
     },
                   broadcast=True,
                   include_self=True)  ## changing include self to true
 
-@socketio.on('forecast')
+
+@SOCKETIO.on('forecast')
 def on_forecast(data):
     '''Will fetch zipcode from DB and return local weather'''
-    data = get_weather("10001") # Default for now. Will update when we can fetch the zipcode.
-    socketio.emit('forecast', data, broadcast=False, include_self=True)
+    data = get_weather(
+        "10001")  # Default for now. Will update when we can fetch the zipcode.
+    SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
-# Note that we don't call app.run anymore. We call socketio.run with app arg
+
+# Note that we don't call app.run anymore. We call SOCKETIO.run with app arg
 if __name__ == "__main__":
-    socketio.run(
+    SOCKETIO.run(
         APP,
         host=os.getenv('IP', '0.0.0.0'),
         port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),

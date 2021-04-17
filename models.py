@@ -14,4 +14,3 @@ class Person(DB.Model):
 
     def __repr__(self):
         return '<Person %r>' % self.email
-        
