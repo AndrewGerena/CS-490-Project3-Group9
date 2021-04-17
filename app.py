@@ -1,13 +1,14 @@
+'''ADD MODULE DOCSTRING'''
 import os
 from flask import Flask, send_from_directory, json
 from flask_socketio import SocketIO
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import desc
-
-from weather import get_weather
-
+#from sqlalchemy import desc
 from dotenv import load_dotenv, find_dotenv
+#from weather import get_weather
+
+
 
 load_dotenv(find_dotenv())
 
@@ -33,6 +34,7 @@ socketio = SocketIO(APP,
 
 ###########
 
+
 @APP.route('/', defaults={"filename": "index.html"})
 @APP.route('/<path:filename>')
 def index(filename):
@@ -53,26 +55,28 @@ def on_disconnect():
     """Function is accessed upon user disconnection"""
     print('User disconnected!')
 
+
 # Login functionality
 @socketio.on('login')
 def user_login(data):
     """User list is updated upon login events"""
     print(str(data))
     existing_users = models.Person.query.all()
-    email_list = []
+    #email_list = []
     user_exists = False
     for person in existing_users:
         # email_list.append(person.email)
-        if (person.email == data['email']):
+        if person.email == data['email']:
             user_exists = True
             break
-    
+
     socketio.emit('login', {
         'info': data,
         'user_exists': user_exists,
     },
                   broadcast=True,
                   include_self=True)  ## changing include self to true
+
 
 # Note that we don't call app.run anymore. We call socketio.run with app arg
 if __name__ == "__main__":
