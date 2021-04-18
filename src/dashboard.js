@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { socket } from './App.js';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
+import {News} from './News.js';
 import { TodoPage } from './ToDoComponents/TodoPage.js';
 import Profile from './Profile';
 
@@ -42,13 +43,13 @@ export function DashBoard(props) {
     }
     var test = " "; 
     if (profile) {
-        test = <center><Profile /></center>;
+        test = <center><Profile email={props.email} /></center>;
     }
-    if (weather) {
+    else if (weather) {
         test = <center><Sample forecast={forecast}/></center>; 
     }
     else if (news) {
-        test = <center><h2>You are on news page now</h2></center>;
+        test = <center><News /></center>
     }
     else if (todo) {
         test = <center><TodoPage /></center>;

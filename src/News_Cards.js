@@ -4,44 +4,116 @@ import './News_Cards.css';
 
 export function News_Card(props) {
   return (
-	 <div className="grid">
-		<div className="grid-item">
-			<div className="card">
-				<img className="card-img" src="#Image" alt="NEWS IMAGE"/>
-				<div className="card-content">
-					<h1 className="card-header">NEWS #1</h1>
-					<p className="card-text">
-						{props.News_Info[0]}
-					</p>
-					<button class="card-btn">Read NEWS</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	<html lang="en">
+	  <head>
+	    <meta charset="UTF-8" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <title>Document</title>
+	    <link rel="stylesheet" href="./News.css" />
+	  </head>
+	  <body>
+	      <div class="section-center">
+		      <article class="News-card">
+		        <div class="News-img-container">
+		          <img
+		            src="https://image.freepik.com/free-vector/breaking-news-background-with-world-map-backdrop-global-connectivity-line-headline-bar-modern-futuristic-news-template_35632-197.jpg"
+		            alt="News Image"
+		            class="News-img"
+		          />
+		          <p class="News-date">{props.News_Date[0]}</p>
+		        </div>
+		        <div class="News-info">
+		          <h4 class="Title">{props.News_Headlines[0]}</h4>
+		          <p class="Description_P">
+					{props.News_Info[0]}
+		          </p>
+		          <div class="News-footer">
+		            <p>
+		              <span>
+						{props.News_Author[0]}
+		              </span>
+		            </p>
+		          </div>
+		        </div>
+		        <button class="News_Article_Link"><a href="{props.News_Url[0]}">Read More</a></button>
+		      </article>
+		      <article class="News-card">
+		        <div class="News-img-container">
+		          <img
+		            src="https://image.freepik.com/free-vector/breaking-news-background-with-world-map-backdrop-global-connectivity-line-headline-bar-modern-futuristic-news-template_35632-197.jpg"
+		            alt="News Image"
+		            class="News-img"
+		          />
+		          <p class="News-date">{props.News_Date[1]}</p>
+		        </div>
+		        <div class="News-info">
+		          <h4>{props.News_Headlines[1]}</h4>
+		          <p class="Description_P">
+					{props.News_Info[1]}
+		          </p>
+		          <div class="News-footer">
+		            <p>
+		              <span>
+						{props.News_Author[1]}
+		              </span>
+		            </p>
+		          </div>
+		        </div>
+		        <button class="News_Article_Link"><a href="{props.News_Url[0]}">Read More</a></button>
+		      </article>
+		      <article class="News-card">
+		        <div class="News-img-container">
+		          <img
+		            src="https://image.freepik.com/free-vector/breaking-news-background-with-world-map-backdrop-global-connectivity-line-headline-bar-modern-futuristic-news-template_35632-197.jpg"
+		            alt="News Image"
+		            class="News-img"
+		          />
+		          <p class="News-date">{props.News_Date[2]}</p>
+		        </div>
+		        <div class="News-info">
+		          <h4>{props.News_Headlines[2]}</h4>
+		          <p class="Description_P">
+					{props.News_Info[2]}
+		          </p>
+		          <div class="News-footer">
+		            <p>
+		              <span>
+						{props.News_Author[2]}
+		              </span>
+		            </p>
+		          </div>
+		        </div>
+		        <button class="News_Article_Link"><a href={props.News_Url[2]}>Read More</a></button>
+		      </article>
+		      <article class="News-card">
+		        <div class="News-img-container">
+		          <img
+		            src="https://image.freepik.com/free-vector/breaking-news-background-with-world-map-backdrop-global-connectivity-line-headline-bar-modern-futuristic-news-template_35632-197.jpg"
+		            alt="News Image"
+		            class="News-img"
+		          />
+		          <p class="News-date">{props.News_Date[3]}</p>
+		        </div>
+		        <div class="News-info">
+		          <h4>{props.News_Headlines[3]}</h4>
+		          <p class="Description_P">
+					{props.News_Info[3]}
+		          </p>
+		          <div class="News-footer">
+		            <p>
+		              <span>
+						{props.News_Author[3]}
+		              </span>
+		            </p>
+		          </div>
+		        </div>
+		        <button class="News_Article_Link"><a  class="Link_Attch" href={props.News_Url[3]}>Read More</a></button>
+		      </article>
+	      </div>
+	  </body>
+	</html>
   );
 }
 
 export default News_Card;
-
-
-
-
-      // {props.News_Headlines}
-      // {props.News_Info}
-      // {props.News_Date}
-      // {props.News_Url}
-      // {props.News_Author}
-      
-      
-  //     			<div class="News_Card">
-		// 			<div class="News_Card-image"><img src="#none" alt=""/></div>
-		// 				<div class="News_Card-txt">
-		// 					<h2>Heading Will Be Here</h2>
-		// 					<p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur aspernatur reprehenderit velit est voluptatum, voluptas amet quasi dicta consectetur.</p>
-		// 					<ul>
-		// 					  <li><i class="fa fa-calendar" aria-hidden="true"></i> Sep 19, 2020</li>
-		// 					  <li><i class="fa fa-user" aria-hidden="true"></i> Admin</li>
-		// 					</ul>
-		// 					<a href="#">Read More...</a>
-		// 			</div>
-		// 	</div>
