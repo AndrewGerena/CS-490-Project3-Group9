@@ -24,16 +24,14 @@ APP.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @APP.route('/', defaults={"filename": "index.html"})
 @APP.route('/<path:filename>')
 def index(filename):
-    '''MUST ADD DOCSTRING HERE'''
+    '''Used for building the file'''
     return send_from_directory('./build', filename)
 
 
 # ///////////////////////////////NEWS Initial Data Section/////////////////////////////////////////
 @SOCKETIO.on('Onload_News_Headlines')
 def onload_news_data():
-    '''MUST ADD DOCSTRING HERE'''
-    # base_url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
-
+    '''Used To Send INTIAL DATA UPON PAGE LOAD'''
     base_url = 'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=' + str(
         os.getenv('NYT_KEY'))
 
@@ -86,7 +84,7 @@ def onload_news_data():
     }
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +93,7 @@ def onload_news_data():
 # ///////////////////////////////COVID-19 Initial Data Section/////////////////////////////////////
 @SOCKETIO.on('Onload_Covid_Global')
 def onload_covid_data():
-    '''MUST ADD DOCSTRING HERE'''
+    '''Used To Send INTIAL DATA UPON PAGE LOAD'''
     covid_base_url = 'https://api.covid19api.com/summary'
     covid_response = requests.get(covid_base_url)
     covid_data = covid_response.json()
@@ -127,7 +125,7 @@ def onload_covid_data():
     }
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -136,7 +134,7 @@ def onload_covid_data():
 # //////////////////////////////////////////////////USER ASKED NEWS DATA///////////////////////////
 @SOCKETIO.on('User_Searched_News_Topic')
 def fetch_user_searched_news(data):
-    '''MUST ADD DOCSTRING HERE'''
+    '''USED TO SEND USER ASKED NEWS'''
     user_searched = data['News_Topic_Searched']
     print("The User Searched NEWs Topic: " + str(user_searched))
 
@@ -196,7 +194,7 @@ def fetch_user_searched_news(data):
     }
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,7 +203,7 @@ def fetch_user_searched_news(data):
 #//////////////////////////////////////////User Entered Country Covid Data/////////////////////////
 @SOCKETIO.on('User_Searched_Covid_Country')
 def fetch_user_searched_country(data):
-    '''MUST ADD DOCSTRING HERE'''
+    '''USED TO SEND COVID STATS FOR USER SEARCHED COUNTRY'''
     covid_base_url = 'https://api.covid19api.com/summary'
     covid_response = requests.get(covid_base_url)
     covid_data = covid_response.json()
@@ -244,7 +242,7 @@ def fetch_user_searched_country(data):
     }
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -256,7 +254,3 @@ if __name__ == "__main__":
         host=os.getenv('IP', '0.0.0.0'),
         port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),
     )
-# APP.run(
-#     host=os.getenv('IP', '0.0.0.0'),
-#     port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),
-# )
