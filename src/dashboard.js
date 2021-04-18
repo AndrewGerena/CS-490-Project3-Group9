@@ -26,7 +26,7 @@ export function DashBoard(props) {
         setNews(false);
         setTodo(false);
         setProfile(false);
-        socket.emit('forecast', "");
+        socket.emit('forecast', {email: props.email});
         console.log(forecast);
     }
     function onClickNews() {
