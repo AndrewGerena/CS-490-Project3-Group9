@@ -112,25 +112,15 @@ export function News() {
   
   for (let i = 0; i < DisplayNewsHeadlines.length; i++) {
       console.log(DisplayNewsHeadlines[i]);
-      Show_NewsHeadlines.push(
-          <li>NEWS #{i} : {DisplayNewsHeadlines[i]}</li>
-      );
+      Show_NewsHeadlines.push(DisplayNewsHeadlines[i]);
       console.log(DisplayNewsSnippet[i]);
-      Show_NewsSnippets.push(
-          <li>Snippet #{i} : {DisplayNewsSnippet[i]}</li>
-      );
+      Show_NewsSnippets.push(DisplayNewsSnippet[i]);
       console.log(DisplayNewsDate[i]);
-      Show_NewsDates.push(
-          <li>Date #{i} : {DisplayNewsDate[i]}</li>
-      );
+      Show_NewsDates.push(DisplayNewsDate[i]);
       console.log(DisplayNewsURL[i]);
-      Show_NewsURL.push(
-          <li>URL #{i} : {DisplayNewsURL[i]}</li>
-      );
+      Show_NewsURL.push(DisplayNewsURL[i]);
       console.log(DisplayNewsAuthor[i]);
-      Show_NewsAuthor.push(
-          <li>Author #{i} : {DisplayNewsAuthor[i]}</li>
-      );
+      Show_NewsAuthor.push(DisplayNewsAuthor[i]);
   }
       
 
