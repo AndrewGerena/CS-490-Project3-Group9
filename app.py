@@ -69,11 +69,12 @@ def user_login(data):
             user_exists = True
             break
     ## new stuff
-    if user_exists == False:
-        user_add = models.Person(email=data["email"],zipcode="10001",full_name=data["full_name"],given_name=data["given_name"],family_name=data["family_name"],image_url=data["image_url"])
+    false_value = False
+    if user_exists == false_value:
+        user_add = models.Person(email=data["email"], zipcode="10001", full_name=data["full_name"], given_name=data["given_name"], family_name=data["family_name"], image_url=data["image_url"])
         DB.session.add(user_add)
-        DB.session.commit() 
-    
+        DB.session.commit()
+
     SOCKETIO.emit('login', {
         'info': data,
         'user_exists': user_exists,
@@ -85,12 +86,12 @@ def user_login(data):
 def change_zip(data):
     '''Will add zipcode to DB and emit back'''
     update_user = DB.session.query(models.Person).filter_by(email=data["email"]).first()
-    print(update_user) 
-    print(data["zip"]) 
+    print(update_user)
+    print(data["zip"])
     update_user.zipcode = data["zip"]
     DB.session.commit()
     ## broadcast is set to false, not sure if that's what it should be here
-    SOCKETIO.emit('new_zip', { 'zip': data["zip"] }, broadcast=False, include_self=True) 
+    SOCKETIO.emit('new_zip', {'zip': data["zip"]}, broadcast=False, include_self=True)
 
 
 @SOCKETIO.on('forecast')
