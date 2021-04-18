@@ -4,7 +4,7 @@ import { TodoList } from './TodoList';
 
 const TODOLIST_STORAGE = 'todoApp.tasks';
 
-export default function TodoPage() {
+export function TodoPage() {
   // {id: , name: , complete: }
   const [tasks, setTasks] = useState([]);
   const taskNameRef = useRef();
@@ -64,3 +64,5 @@ export default function TodoPage() {
     </div>
   );
 }
+
+export default TodoPage;
