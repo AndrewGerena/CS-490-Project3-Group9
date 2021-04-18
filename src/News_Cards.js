@@ -3,6 +3,14 @@ import { App } from "./App.js";
 import './News_Cards.css';
 
 export function News_Card(props) {
+	 let news_url_0=props.News_Url[0];
+	 console.log(news_url_0)
+	 let news_url_1=props.News_Url[1];
+	 console.log(news_url_1)
+	 let news_url_2=props.News_Url[2];
+	 console.log(news_url_2)
+	 let news_url_3=props.News_Url[3];
+	 console.log(news_url_3)
   return (
 	<html lang="en">
 	  <head>
@@ -36,7 +44,7 @@ export function News_Card(props) {
 		            </p>
 		          </div>
 		        </div>
-		        <button class="News_Article_Link"><a href="{props.News_Url[0]}">Read More</a></button>
+		        <button class="News_Article_Link"><a  class="Link_Attch" href={news_url_0} target="_blank">Read More</a></button>
 		      </article>
 		      <article class="News-card">
 		        <div class="News-img-container">
@@ -60,7 +68,7 @@ export function News_Card(props) {
 		            </p>
 		          </div>
 		        </div>
-		        <button class="News_Article_Link"><a href="{props.News_Url[0]}">Read More</a></button>
+		        <button class="News_Article_Link"><a  class="Link_Attch" href={news_url_1} target="_blank">Read More</a></button>
 		      </article>
 		      <article class="News-card">
 		        <div class="News-img-container">
@@ -84,7 +92,7 @@ export function News_Card(props) {
 		            </p>
 		          </div>
 		        </div>
-		        <button class="News_Article_Link"><a href={props.News_Url[2]}>Read More</a></button>
+		        <button class="News_Article_Link"><a class="Link_Attch" href={news_url_2} target="_blank">Read More</a></button>
 		      </article>
 		      <article class="News-card">
 		        <div class="News-img-container">
@@ -108,7 +116,7 @@ export function News_Card(props) {
 		            </p>
 		          </div>
 		        </div>
-		        <button class="News_Article_Link"><a  class="Link_Attch" href={props.News_Url[3]}>Read More</a></button>
+		        <button class="News_Article_Link"><a  class="Link_Attch" href={news_url_3} target="_blank">Read More</a></button>
 		      </article>
 	      </div>
 	  </body>

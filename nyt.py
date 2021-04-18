@@ -1,5 +1,5 @@
+'''This file has functions for fetching news data'''
 import os
-import json
 import requests
 from dotenv import load_dotenv, find_dotenv
 
@@ -57,7 +57,6 @@ def init_news_data():
         'URL': storing_url,
         'Author': storing_author
     }
-    
     return fetched_news_data
 
 
