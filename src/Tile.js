@@ -10,13 +10,21 @@ function Tile(props) {
   const { icon } = props;
   const { weather } = props;
 
-  return <div className = "day">
-    <h4>{day}</h4>
-    <p>{date}</p>
-    <p>{high}° / {low}°</p>
-    <p>{weather}</p>
-    <img src={icon} alt="Icon"/>
-  </div>;
+  return (
+    <div className="day">
+      <h4>{day}</h4>
+      <p>{date}</p>
+      <p>
+        {high}
+        ° /
+        {' '}
+        {low}
+        °
+      </p>
+      <p>{weather}</p>
+      <img src={icon} alt="Icon" />
+    </div>
+  );
 }
 
 Tile.propTypes = {
