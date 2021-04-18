@@ -122,21 +122,17 @@ def on_forecast(data):
 
 @SOCKETIO.on('Onload_News_Headlines')
 def onload_news_data():
-    
+    '''Used to Display NEWS onPage Load'''
     fetched_news_data = init_news_data()
-    
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
                   broadcast=False, include_self=True)
-
 
 @SOCKETIO.on('User_Searched_News_Topic')
 def fetch_user_searched_news(data):
     '''USED TO SEND USER ASKED NEWS'''
     topic = data['News_Topic_Searched']
-    
     fetched_news_data = user_searched_news(topic)
-    
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
                   broadcast=False, include_self=True)
@@ -155,9 +151,8 @@ def onload_covid_data():
 @SOCKETIO.on('User_Searched_Covid_Country')
 def fetch_user_searched_country(data):
     '''USED TO SEND COVID STATS FOR USER SEARCHED COUNTRY'''
-    
-    country = data['Covid_Country_Searched']
 
+    country = data['Covid_Country_Searched']
     fetched_country_data = user_searched_country(country)
 
     SOCKETIO.emit('Answer_Searched_Covid_Country',

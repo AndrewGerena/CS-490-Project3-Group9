@@ -1,5 +1,4 @@
-import os
-import json
+'''This file has functions for fetching covid data'''
 import requests
 from dotenv import load_dotenv, find_dotenv
 
@@ -37,7 +36,6 @@ def init_covid_data():
         'TotalRecovered': global_recovered,
         'NewRecovered': global_new_recovered
     }
-    
     return fetched_country_data
 
 
