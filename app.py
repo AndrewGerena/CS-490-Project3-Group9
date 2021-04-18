@@ -1,13 +1,14 @@
-'''ADD MODULE DOCSTRING'''
+'''This is the Main Server'''
 import os
 from flask import Flask, send_from_directory, json
 from flask_socketio import SocketIO
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-#from sqlalchemy import desc
+from sqlalchemy import desc
+
 from dotenv import load_dotenv, find_dotenv
+
 from weather import get_weather
-#from zip_check import check_zip # commented out for now
 
 load_dotenv(find_dotenv())
 
@@ -33,7 +34,6 @@ SOCKETIO = SocketIO(APP,
 
 ###########
 
-
 @APP.route('/', defaults={"filename": "index.html"})
 @APP.route('/<path:filename>')
 def index(filename):
@@ -54,7 +54,6 @@ def on_disconnect():
     """Function is accessed upon user disconnection"""
     print('User disconnected!')
 
-
 # Login functionality
 @SOCKETIO.on('login')
 def user_login(data):
@@ -68,38 +67,12 @@ def user_login(data):
         if person.email == data['email']:
             user_exists = True
             break
-    ## new stuff
-    if user_exists == False:
-        user_add = models.Person(email=data["email"],zipcode="10001",full_name=data["full_name"],given_name=data["given_name"],family_name=data["family_name"],image_url=data["image_url"])
-        DB.session.add(user_add)
-        DB.session.commit() 
-    
     SOCKETIO.emit('login', {
         'info': data,
         'user_exists': user_exists,
     },
                   broadcast=True,
-                  include_self=True)  ## changing include self to true here
-
-@SOCKETIO.on('new_zip')
-def change_zip(data):
-    '''Will add zipcode to DB and emit back'''
-    update_user = DB.session.query(models.Person).filter_by(email=data["email"]).first()
-    print(update_user) 
-    print(data["zip"]) 
-    update_user.zipcode = data["zip"]
-    DB.session.commit()
-    ## broadcast is set to false, not sure if that's what it should be here
-    SOCKETIO.emit('new_zip', { 'zip': data["zip"] }, broadcast=False, include_self=True) 
-
-
-@SOCKETIO.on('forecast')
-def on_forecast(data):
-    '''Will fetch zipcode from DB and return local weather'''
-    data = get_weather(
-        "10001")  # Default for now. Will update when we can fetch the zipcode.
-    SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
-
+                  include_self=True)  ## changing include self to true
 
 # Note that we don't call app.run anymore. We call socketio.run with app arg
 if __name__ == "__main__":
@@ -109,3 +82,4 @@ if __name__ == "__main__":
         port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),
         debug=True,
     )
+    
