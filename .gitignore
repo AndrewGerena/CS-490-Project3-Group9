@@ -20,12 +20,9 @@
 .env.production.local
 __pycache__/
 */__pycache__/*
-<<<<<<< HEAD
+.eslintrc.js
 .eslintrc.json
 package-lock2.json
-=======
-.eslintrc.js
->>>>>>> 7e1ad459e123c0d50c84eae1fe11b8177ebcf2a7
 
 npm-debug.log*
 yarn-debug.log*
