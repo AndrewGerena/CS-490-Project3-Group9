@@ -8,6 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv, find_dotenv
 from weather import get_weather
 from zip_check import check_zip  # commented out for now
+from nyt import init_news_data, user_searched_news
+from covid import init_covid_data, user_searched_country
 
 load_dotenv(find_dotenv())
 
@@ -117,6 +119,50 @@ def on_forecast(data):
         )  # Default for now. Will update when we can fetch the zipcode.
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
+
+@SOCKETIO.on('Onload_News_Headlines')
+def onload_news_data():
+    
+    fetched_news_data = init_news_data()
+    
+    SOCKETIO.emit('Answer_Searched_News_Topic',
+                  fetched_news_data,
+                  broadcast=False, include_self=True)
+
+
+@SOCKETIO.on('User_Searched_News_Topic')
+def fetch_user_searched_news(data):
+    '''USED TO SEND USER ASKED NEWS'''
+    topic = data['News_Topic_Searched']
+    
+    fetched_news_data = user_searched_news(topic)
+    
+    SOCKETIO.emit('Answer_Searched_News_Topic',
+                  fetched_news_data,
+                  broadcast=False, include_self=True)
+
+
+@SOCKETIO.on('Onload_Covid_Global')
+def onload_covid_data():
+    '''Used To Send INTIAL DATA UPON PAGE LOAD'''
+
+    fetched_country_data = init_covid_data()
+
+    SOCKETIO.emit('Answer_Searched_Covid_Country',
+                  fetched_country_data,
+                  broadcast=False, include_self=True)
+
+@SOCKETIO.on('User_Searched_Covid_Country')
+def fetch_user_searched_country(data):
+    '''USED TO SEND COVID STATS FOR USER SEARCHED COUNTRY'''
+    
+    country = data['Covid_Country_Searched']
+
+    fetched_country_data = user_searched_country(country)
+
+    SOCKETIO.emit('Answer_Searched_Covid_Country',
+                  fetched_country_data,
+                  broadcast=False, include_self=True)
 
 # Note that we don't call app.run anymore. We call SOCKETIO.run with app arg
 if __name__ == "__main__":
