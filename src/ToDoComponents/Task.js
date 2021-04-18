@@ -1,16 +1,22 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export function Task({ task, toggle }) {
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={task.complete}
-          onChange={(handleCheckbox) => toggle(task.id)}
-        />
-        {task.name}
-      </label>
+      <input
+        type="checkbox"
+        checked={task.complete}
+        onChange={() => toggle(task.id)}
+      />
+      {task.name}
     </div>
   );
 }
+
+Task.propTypes = {
+  task: PropTypes.objectOf(PropTypes.object()).isRequired,
+  toggle: PropTypes.func.isRequired,
+};
+
+export default Task;
