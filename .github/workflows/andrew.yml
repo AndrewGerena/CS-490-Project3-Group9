@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Python Continuous Integration (Linter and Tests)
+name: Python Continuous Integration (Pylint and Tests)
 
 # Controls when the action will run. 
 on:
