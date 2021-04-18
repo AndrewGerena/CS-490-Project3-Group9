@@ -1,6 +1,6 @@
 import React from "react";
-// import { App } from "./App.js";
-// import './Covid_Cards.css';
+import { App } from "./App.js";
+import './Covid_Cards.css';
 
 export function Covid_Card(props) {
   return (
