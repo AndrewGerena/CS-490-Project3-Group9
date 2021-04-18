@@ -84,7 +84,7 @@ def onload_news_data():
     }
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,7 +125,7 @@ def onload_covid_data():
     }
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -194,7 +194,7 @@ def fetch_user_searched_news(data):
     }
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
@@ -242,7 +242,7 @@ def fetch_user_searched_country(data):
     }
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=True)
+                  broadcast=False, include_self=True)
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
