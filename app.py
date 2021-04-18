@@ -69,6 +69,7 @@ def user_login(data):
             user_exists = True
             break
     ## new stuff
+
     if not user_exists:
         user_add = models.Person(email=data["email"],
                                  zipcode="10001",
@@ -117,7 +118,7 @@ def on_forecast(data):
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
 
-# Note that we don't call app.run anymore. We call socketio.run with app arg
+# Note that we don't call app.run anymore. We call SOCKETIO.run with app arg
 if __name__ == "__main__":
     SOCKETIO.run(
         APP,
