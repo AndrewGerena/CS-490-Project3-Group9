@@ -9,7 +9,7 @@ export function Task({ task, toggle }) {
         checked={task.complete}
         onChange={() => toggle(task.id)}
       />
-      {task.name}
+      {task.name }
     </div>
   );
 }
