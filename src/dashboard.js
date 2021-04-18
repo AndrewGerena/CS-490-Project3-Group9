@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState, useRef, useEffect } from 'react';
-import { socket } from './App.js';
+import { socket } from './App';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Sample } from './sample.js';
-import {News} from './News.js';
+import { News } from './News.js';
 import { TodoPage } from './ToDoComponents/TodoPage.js';
-import Profile from './Profile';
+import { Profile } from './Profile';
 
 export function DashBoard(props) {
     const [weather, setWeather] = useState(false);
@@ -49,7 +49,7 @@ export function DashBoard(props) {
         test = <center><Sample forecast={forecast}/></center>; 
     }
     else if (news) {
-        test = <center><News /></center>
+        test = <center><News /></center>;
     }
     else if (todo) {
         test = <center><TodoPage /></center>;
