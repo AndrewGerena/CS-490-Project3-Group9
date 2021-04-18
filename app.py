@@ -86,7 +86,7 @@ def user_login(data):
         'info': data,
         'user_exists': user_exists,
     },
-                  broadcast=True,
+                  broadcast=False,
                   include_self=True)  ## changing include self to true here
 
 
