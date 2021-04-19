@@ -13,6 +13,6 @@ export function TodoList({ tasks, toggle }) {
 export default TodoList;
 
 TodoList.propTypes = {
-  tasks: PropTypes.objectOf(PropTypes.object()).isRequired,
+  tasks: PropTypes.objectOf(PropTypes.object).isRequired,
   toggle: PropTypes.func.isRequired,
 };

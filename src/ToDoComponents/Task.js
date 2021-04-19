@@ -15,7 +15,7 @@ export function Task({ task, toggle }) {
 }
 
 Task.propTypes = {
-  task: PropTypes.objectOf(PropTypes.object()).isRequired,
+  task: PropTypes.objectOf(PropTypes.object).isRequired,
   toggle: PropTypes.func.isRequired,
 };
 
