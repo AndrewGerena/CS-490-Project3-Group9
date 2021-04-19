@@ -21,7 +21,6 @@
 __pycache__/
 */__pycache__/*
 .eslintrc.js
-package-lock2.json
 
 npm-debug.log*
 yarn-debug.log*
