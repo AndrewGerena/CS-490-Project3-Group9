@@ -63,46 +63,56 @@ def user_login(data):
     """User list is updated upon login events"""
     print(str(data))
     existing_users = models.Person.query.all()
-    #email_list = []
     user_exists = False
     for person in existing_users:
-        # email_list.append(person.email)
         if person.email == data['email']:
             user_exists = True
             break
-    ## new stuff
 
     if not user_exists:
-        user_add = models.Person(email=data["email"],
-                                 zipcode="10001",
-                                 full_name=data["full_name"],
-                                 given_name=data["given_name"],
-                                 family_name=data["family_name"],
-                                 image_url=data["image_url"])
-        DB.session.add(user_add)
-        DB.session.commit()
+        add_users(data)
 
     SOCKETIO.emit('login', {
         'info': data,
         'user_exists': user_exists,
     },
-                  broadcast=True,
+                  broadcast=False,
                   include_self=True)  ## changing include self to true here
 
+def add_users(data):
+    user_add = models.Person(email=data["email"],
+                             zipcode="10001",
+                             full_name=data["full_name"],
+                             given_name=data["given_name"],
+                             family_name=data["family_name"],
+                             image_url=data["image_url"])
+    DB.session.add(user_add)
+    DB.session.commit()
+    
+    all_users = models.Person.query.all()
+    all_emails = []
+    for person in all_users:
+        all_emails.append(person.email) 
+    
+    return all_emails
 
 @SOCKETIO.on('new_zip')
 def change_zip(data):
     '''Will add zipcode to DB and emit back'''
-    update_user = DB.session.query(
-        models.Person).filter_by(email=data["email"]).first()
-    print(update_user)
-    print(data["zip"])
-    update_user.zipcode = data["zip"]
+    query = DB.session.query(models.Person) 
+    update_user = on_filter(data["email"],query) ## data["email"] 
+    update_user.zipcode = data["zip"] # data["zip"] ## data["zip"] 
     DB.session.commit()
     ## broadcast is set to false, not sure if that's what it should be here
     SOCKETIO.emit('new_zip', {'zip': data["zip"]},
                   broadcast=False,
                   include_self=True)
+    # added this for mocked test
+    return update_user.zipcode 
+
+def on_filter(email,query):
+    '''Checks DB table and returns user with given email id'''
+    return query.filter_by(email=email).first()
 
 
 @SOCKETIO.on('forecast')

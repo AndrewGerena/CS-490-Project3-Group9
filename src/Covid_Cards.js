@@ -4,26 +4,19 @@ import './Covid_Cards.css';
 
 export function Covid_Card(props) {
   return (
-    <div className="Covid_Card" >Results As Of:
-      {props.Covid_Date}
+    <div className="Covid_Card" >Results As Of: {props.Covid_Date}
       <br/>
-      Total Cases:
-      {props.Covid_TotalCases}
+      Total Cases: {props.Covid_TotalCases}
       <br/>
-      News Cases:
-      {props.Covid_NewCases}
+      News Cases: {props.Covid_NewCases}
       <br/>
-      Total Deaths: 
-      {props.Covid_TotalDeaths}
+      Total Deaths: {props.Covid_TotalDeaths}
       <br/>
-      New Deaths:
-      {props.Covid_NewDeaths}
+      New Deaths: {props.Covid_NewDeaths}
       <br/>
-      Total Recovered: 
-      {props.Covid_TotalRecovered}
+      Total Recovered: {props.Covid_TotalRecovered}
       <br/>
-      New Recovered:
-      {props.Covid_NewRecovered}
+      New Recovered: {props.Covid_NewRecovered}
     </div>
   );
 }
