@@ -2,7 +2,7 @@
     Fill in what this test is for here
     
     1. The test for new_zip function is to make sure that a user's zipcode is being updated accurately in the DB upon user request
-    2. The test for user_login function is to make sure that new users are added to the DB accordingly 
+    2. The test for add_users function is to make sure that new users are added to the DB correctly 
 '''
 
 import unittest
@@ -13,14 +13,14 @@ import sys
 
 sys.path.append(os.path.abspath('../../'))
 import models
-from app import user_login, change_zip 
+from app import add_users, change_zip 
 
 INPUT_USER = "input"
 EXPECTED_OUTPUT = "output"
 
-USER1 = models.Person(id=1,email="tracy@gmail.com",zipcode="10001",full_name="tracy mcgrady",given_name="tracy",family_name="mcgrady",image_url="https://rockets.com") 
-USER2 = models.Person(id=2,email="aaron@gmail.com",zipcode="10002",full_name="aaron judge",given_name="aaron",family_name="judge",image_url="https://yankees.com") 
-USER3 = models.Person(id=3,email="charles@gmail.com",zipcode="10003",full_name="charles barkley",given_name="charles",family_name="barkley",image_url="https://tnt.com") 
+USER1 = models.Person(email="tracy@gmail.com",zipcode="10001",full_name="tracy mcgrady",given_name="tracy",family_name="mcgrady",image_url="https://rockets.com") 
+USER2 = models.Person(email="aaron@gmail.com",zipcode="10002",full_name="aaron judge",given_name="aaron",family_name="judge",image_url="https://yankees.com") 
+USER3 = models.Person(email="charles@gmail.com",zipcode="10003",full_name="charles barkley",given_name="charles",family_name="barkley",image_url="https://tnt.com") 
 USER_LIST = [USER1,USER2,USER3]
 
 class UpdateZipCodeTestCase(unittest.TestCase):
@@ -75,6 +75,53 @@ class UpdateZipCodeTestCase(unittest.TestCase):
                                        
                             self.assertEqual(len(actual_result),len(expected_result))
                             self.assertEqual(actual_result, expected_result) 
+
+class UpdateUsersTestCase(unittest.TestCase):
+    def setUp(self):
+        self.test_params = [
+            {
+                INPUT_USER: {"email": "dwyane@gmail.com","full_name": "dwyane wade","given_name": "dwyane","family_name": "wade","image_url": "https://heat.com"},
+                EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com"],
+            },
+            {
+                INPUT_USER: {"email": "thomas@gmail.com","full_name": "thomas brady","given_name": "thomas","family_name": "brady","image_url": "https://tb12.com"},
+                EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com","thomas@gmail.com"],
+            },
+            {
+                INPUT_USER: {"email": "derek@gmail.com","full_name": "derek jeter","given_name": "derek","family_name": "jeter","image_url": "https://marlins.com"},
+                EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com","thomas@gmail.com","derek@gmail.com"],
+            },
+        ]
+
+        self.list_db_users = USER_LIST
+    
+    def mocked_db_session_add(self,info):
+        USER_LIST.append(info)
+    
+    def mocked_db_session_commit(self):
+        pass
+    
+    def mocked_person_query_all(self):
+        return self.list_db_users
+    
+    def test_success(self):
+        print("Test Case 2: Update User List upon new logins")
+        for test in self.test_params:
+            # print(test) 
+            with patch('app.DB.session.add', self.mocked_db_session_add):
+                with patch('app.DB.session.commit', self.mocked_db_session_commit):
+                    with patch('models.Person.query') as mocked_person_query:
+                        mocked_person_query.all = self.mocked_person_query_all
+                        print(self.list_db_users)
+                        actual_result = add_users(test[INPUT_USER])  ## 
+                        print(actual_result)
+                        expected_result = test[EXPECTED_OUTPUT]
+                        print(expected_result)
+                        print(self.list_db_users) 
+                                       
+                        self.assertEqual(len(actual_result),len(expected_result))
+                        self.assertEqual(actual_result, expected_result) 
+                        print(" ") 
 
 if __name__ == '__main__':
     unittest.main()
