@@ -93,16 +93,22 @@ def user_login(data):
 @SOCKETIO.on('new_zip')
 def change_zip(data):
     '''Will add zipcode to DB and emit back'''
-    update_user = DB.session.query(
-        models.Person).filter_by(email=data["email"]).first()
-    print(update_user)
-    print(data["zip"])
+    query = DB.session.query(models.Person) 
+    # update_user = DB.session.query(
+    #    models.Person).filter_by(email=data["email"]).first()
+    update_user = on_filter(data["email"],query) 
     update_user.zipcode = data["zip"]
     DB.session.commit()
     ## broadcast is set to false, not sure if that's what it should be here
-    SOCKETIO.emit('new_zip', {'zip': data["zip"]},
-                  broadcast=False,
-                  include_self=True)
+    # SOCKETIO.emit('new_zip', {'zip': data["zip"]},
+    #              broadcast=False,
+    #              include_self=True)
+    ## added this for mocked test
+    return update_user.zipcode 
+
+def on_filter(email,query):
+    '''Checks DB table and returns user with given email id'''
+    return query.filter_by(email=email).first()
 
 
 @SOCKETIO.on('forecast')
