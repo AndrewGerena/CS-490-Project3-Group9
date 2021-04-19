@@ -1,6 +1,8 @@
 name: Node.js Continuous Integration (ESLint and Tests)
 
-on: [push, pull_request]
+on: 
+  push: 
+  pull_request: 
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
