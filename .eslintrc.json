@@ -1,0 +1,17 @@
+{
+    "ignorePatterns": ["reportWebVitals.js", "index.js", "setupTests.js", "App.test.js" ],
+    "extends": "airbnb",
+    "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "react/jsx-filename-extension": "off",
+        "import/no-named-as-default": "off",
+        "import/no-cycle": "off",
+        "no-alert": "off",
+        "no-console": "off",
+        "import/no-named-as-default-member": "off"
+      }
+    }
+  ]
+}
