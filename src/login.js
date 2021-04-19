@@ -45,17 +45,6 @@ export function Login(props) {
       imageURL,
     });
 
-    // console.log("ID TOKEN BELOW");
-    // console.log(IDToken);
-    // testing for Heroku deployment
-    console.log('PROFILE BELOW');
-    console.log(`ID: ${profile.getId()}`);
-    console.log(`Full Name: ${profile.getName()}`);
-    console.log(`Given Name: ${profile.getGivenName()}`);
-    console.log(`Family Name: ${profile.getFamilyName()}`);
-    console.log(`Image URL: ${profile.getImageUrl()}`);
-    console.log(`Email: ${profile.getEmail()}`);
-    // refreshTokenSetup(res); // makes sure token doesn't expire after 1 hr
   };
 
   const onFailure = (res) => {
