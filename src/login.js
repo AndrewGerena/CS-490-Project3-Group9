@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import { useState, useRef, useEffect } from 'react';
-import { socket } from './App.js';
+import { socket } from './App';
 import { GoogleLogin } from 'react-google-login'; 
 import os from 'os';
-import { DashBoard } from './dashboard.js';
+import { DashBoard } from './dashboard';
 //import { refreshTokenSetup } from '../utils/refreshToken';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
