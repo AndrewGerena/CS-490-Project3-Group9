@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 // import './Covid_Cards.css';
 
@@ -12,26 +13,19 @@ export function CovidCard({
 }) {
   return (
     <div className="Covid_Card">
-      Results As Of:
-      {CovidDate}
+      Results As Of: {CovidDate}
       <br />
-      Total Cases:
-      {CovidTotalCases}
+      Total Cases: {CovidTotalCases}
       <br />
-      News Cases:
-      {CovidNewCases}
+      News Cases: {CovidNewCases}
       <br />
-      Total Deaths:
-      {CovidTotalDeaths}
+      Total Deaths: {CovidTotalDeaths}
       <br />
-      New Deaths:
-      {CovidNewDeaths}
+      New Deaths: {CovidNewDeaths}
       <br />
-      Total Recovered:
-      {CovidTotalRecovered}
+      Total Recovered: {CovidTotalRecovered}
       <br />
-      New Recovered:
-      {CovidNewRecovered}
+      New Recovered: {CovidNewRecovered}
     </div>
   );
 }

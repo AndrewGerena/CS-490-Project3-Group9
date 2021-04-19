@@ -1,5 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line, prefer-const */
 import React, { useState, useRef, useEffect } from 'react';
-
 import io from 'socket.io-client';
 import { NewsCard } from './NewsCard';
 import { CovidCard } from './CovidCard';
@@ -30,25 +30,26 @@ export function News() {
   const [DisplayCovidNewRecovered, setDisplayCovidNewRecovered] = useState([]);
   const [CountryInput, setCountryInput] = useState('Global');
 
-  window.onload = function () { // eslint-disable-line
+  // eslint-disable-next-line
+  window.onload = function () {
     socket.emit('Onload_News_Headlines');
     socket.emit('Onload_Covid_Global');
   };
 
   function UserNewsTopicSearch() {
     if (NewsTopicUserInput != null) {
-      const CurrNewsSearch = NewsTopicUserInput.current.value;
+      let CurrNewsSearch = NewsTopicUserInput.current.value;
       setNewsTopic(CurrNewsSearch);
-      console.log(`The User Searched NEWs Topic: ${CurrNewsSearch}`);
+      console.log('The User Searched NEWs Topic: ' + CurrNewsSearch);
       socket.emit('User_Searched_News_Topic', { News_Topic_Searched: CurrNewsSearch });
     }
   }
 
   function UserCovidCountrySearch() {
     if (CovidCountryUserInput != null) {
-      const CurrCountrySearch = CovidCountryUserInput.current.value;
+      let CurrCountrySearch = CovidCountryUserInput.current.value;
       setCountryInput(CurrCountrySearch);
-      console.log(`The User Searched Covid Country: ${CurrCountrySearch}`);
+      console.log('The User Searched Covid Country: ' + CurrCountrySearch);
       socket.emit('User_Searched_Covid_Country', { Covid_Country_Searched: CurrCountrySearch });
     }
   }
@@ -56,44 +57,44 @@ export function News() {
   useEffect(() => {
     // --------------Answering User Asked News topic------------------------------
     socket.on('Answer_Searched_News_Topic', (FetchedNewsData) => {
-      console.log(`These are the article Headlines: ${FetchedNewsData.Headlines}`);
-      setDisplayNewsHeadlines(FetchedNewsData.Headlines);
+      console.log('These are the article Headlines: ' + FetchedNewsData['Headlines']);
+      setDisplayNewsHeadlines(FetchedNewsData['Headlines']);
 
-      console.log(`These are the article Snippets: ${FetchedNewsData.Snippets}`);
-      setDisplayNewsSnippet(FetchedNewsData.Snippets);
+      console.log('These are the article Snippets: ' + FetchedNewsData['Snippets']);
+      setDisplayNewsSnippet(FetchedNewsData['Snippets']);
 
-      console.log(`These are the article Dates: ${FetchedNewsData.Date}`);
-      setDisplayNewsDate(FetchedNewsData.Date);
+      console.log('These are the article Dates: ' + FetchedNewsData['Date']);
+      setDisplayNewsDate(FetchedNewsData['Date']);
 
-      console.log(`These are the article URLS: ${FetchedNewsData.URL}`);
-      setDisplayNewsURL(FetchedNewsData.URL);
+      console.log('These are the article URLS: ' + FetchedNewsData['URL']);
+      setDisplayNewsURL(FetchedNewsData['URL']);
 
-      console.log(`These are the article Authors: ${FetchedNewsData.Author}`);
-      setDisplayNewsAuthor(FetchedNewsData.Author);
+      console.log('These are the article Authors: ' + FetchedNewsData['Author']);
+      setDisplayNewsAuthor(FetchedNewsData['Author']);
     });
 
     // ------------- Answering User Asked Covid Data-----------------------
     socket.on('Answer_Searched_Covid_Country', (FetchedCountryData) => {
-      console.log(`Latest Covid Stats Date: ${FetchedCountryData.Date}`);
-      setDisplayCovidDate(FetchedCountryData.Date);
+      console.log('Latest Covid Stats Date: ' + FetchedCountryData['Date']);
+      setDisplayCovidDate(FetchedCountryData['Date']);
 
-      console.log(`Total Covid Cases: ${FetchedCountryData.TotalCases}`);
-      setDisplayCovidTotalCases(FetchedCountryData.TotalCases);
+      console.log('Total Covid Cases: ' + FetchedCountryData['TotalCases']);
+      setDisplayCovidTotalCases(FetchedCountryData['TotalCases']);
 
-      console.log(`New Covid Cases: ${FetchedCountryData.NewCases}`);
-      setDisplayCovidNewCases(FetchedCountryData.NewCases);
+      console.log('New Covid Cases: ' + FetchedCountryData['NewCases']);
+      setDisplayCovidNewCases(FetchedCountryData['NewCases']);
 
-      console.log(`Total Covid Deaths: ${FetchedCountryData.TotalDeaths}`);
-      setDisplayCovidTotalDeaths(FetchedCountryData.TotalDeaths);
+      console.log('Total Covid Deaths: ' + FetchedCountryData['TotalDeaths']);
+      setDisplayCovidTotalDeaths(FetchedCountryData['TotalDeaths']);
 
-      console.log(`New Covid Deaths: ${FetchedCountryData.NewDeaths}`);
-      setDisplayCovidNewDeaths(FetchedCountryData.NewDeaths);
+      console.log('New Covid Deaths: ' + FetchedCountryData['NewDeaths']);
+      setDisplayCovidNewDeaths(FetchedCountryData['NewDeaths']);
 
-      console.log(`Total Covid Recoveries: ${FetchedCountryData.TotalRecovered}`);
-      setDisplayCovidTotalRecovered(FetchedCountryData.TotalRecovered);
+      console.log('Total Covid Recoveries: ' + FetchedCountryData['TotalRecovered']);
+      setDisplayCovidTotalRecovered(FetchedCountryData['TotalRecovered']);
 
-      console.log(`New Covid Recoveries: ${FetchedCountryData.NewRecovered}`);
-      setDisplayCovidNewRecovered(FetchedCountryData.NewRecovered);
+      console.log('New Covid Recoveries: ' + FetchedCountryData['NewRecovered']);
+      setDisplayCovidNewRecovered(FetchedCountryData['NewRecovered']);
     });
   }, []);
 
@@ -103,7 +104,8 @@ export function News() {
   const ShowNewsURL = [];
   const ShowNewsAuthor = [];
 
-  for (let i = 0; i < DisplayNewsHeadlines.length; i + 1) {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < DisplayNewsHeadlines.length; i++) {
     console.log(DisplayNewsHeadlines[i]);
     ShowNewsHeadlines.push(DisplayNewsHeadlines[i]);
     console.log(DisplayNewsSnippet[i]);
@@ -121,10 +123,7 @@ export function News() {
       <h1>News Section!</h1>
       <input id="Form_Input" type="text" ref={NewsTopicUserInput} />
       <button id="Form_Btn" type="submit" onClick={UserNewsTopicSearch}>Submit</button>
-      <h1>
-        THE NEWS TOPIC:
-        {NewsTopic}
-      </h1>
+      <h1>THE NEWS TOPIC: {NewsTopic} </h1>
       <NewsCard
         NewsHeadlines={ShowNewsHeadlines}
         NewsInfo={ShowNewsSnippets}
@@ -135,10 +134,7 @@ export function News() {
       <hr />
       <input id="Form_Input_Covid" type="text" ref={CovidCountryUserInput} />
       <button id="Form_Btn_Covid" type="submit" onClick={UserCovidCountrySearch}>Submit</button>
-      <h1>
-        Covid Stats For:
-        {CountryInput}
-      </h1>
+      <h1>Covid Stats For: {CountryInput} </h1>
       <CovidCard
         CovidDate={DisplayCovidDate}
         CovidTotalCases={DisplayCovidTotalCases}
@@ -149,7 +145,6 @@ export function News() {
         CovidNewRecovered={DisplayCovidNewRecovered}
       />
     </div>
-
   );
 }
 
