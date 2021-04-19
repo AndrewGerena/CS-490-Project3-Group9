@@ -3,12 +3,7 @@
 name: Python Continuous Integration (Pylint and Tests)
 
 # Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ andrew_dev ]
-  pull_request:
-    branches: [ andrew_dev ]
+on: [push, pull_request]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,10 +30,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-      
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
       
       # Install the dependencies
       - name: Install dependencies

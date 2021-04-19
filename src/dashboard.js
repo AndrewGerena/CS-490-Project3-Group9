@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 // import {
 //  BrowserRouter as Router, Switch, Route, Link,
 // } from 'react-router-dom';
@@ -79,9 +78,5 @@ export function DashBoard(props) {
     </div>
   );
 }
-
-DashBoard.propTypes = {
-  email: PropTypes.string.isRequired,
-};
 
 export default DashBoard;
