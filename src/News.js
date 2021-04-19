@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import io from 'socket.io-client';
-import { NewsCard } from './NewsCards';
+import { NewsCard } from './NewsCard';
 import { CovidCard } from './CovidCard';
 
 const socket = io();
@@ -126,11 +126,11 @@ export function News() {
         {NewsTopic}
       </h1>
       <NewsCard
-        News_Headlines={ShowNewsHeadlines}
-        News_Info={ShowNewsSnippets}
-        News_Date={ShowNewsDates}
-        News_Url={ShowNewsURL}
-        News_Author={ShowNewsAuthor}
+        NewsHeadlines={ShowNewsHeadlines}
+        NewsInfo={ShowNewsSnippets}
+        NewsDate={ShowNewsDates}
+        NewsURL={ShowNewsURL}
+        NewsAuthor={ShowNewsAuthor}
       />
       <hr />
       <input id="Form_Input_Covid" type="text" ref={CovidCountryUserInput} />
@@ -140,13 +140,13 @@ export function News() {
         {CountryInput}
       </h1>
       <CovidCard
-        Covid_Date={DisplayCovidDate}
-        Covid_TotalCases={DisplayCovidTotalCases}
-        Covid_NewCases={DisplayCovidNewCases}
-        Covid_TotalDeaths={DisplayCovidTotalDeaths}
-        Covid_NewDeaths={DisplayCovidNewDeaths}
-        Covid_TotalRecovered={DisplayCovidTotalRecovered}
-        Covid_NewRecovered={DisplayCovidNewRecovered}
+        CovidDate={DisplayCovidDate}
+        CovidTotalCases={DisplayCovidTotalCases}
+        CovidNewCases={DisplayCovidNewCases}
+        CovidTotalDeaths={DisplayCovidTotalDeaths}
+        CovidNewDeaths={DisplayCovidNewDeaths}
+        CovidTotalRecovered={DisplayCovidTotalRecovered}
+        CovidNewRecovered={DisplayCovidNewRecovered}
       />
     </div>
 

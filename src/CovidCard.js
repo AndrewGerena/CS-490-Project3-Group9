@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './Covid_Cards.css';
+// import './Covid_Cards.css';
 
 export function CovidCard({
   CovidDate,
@@ -36,15 +35,5 @@ export function CovidCard({
     </div>
   );
 }
-
-CovidCard.propTypes = {
-  CovidDate: PropTypes.string.isRequired,
-  CovidTotalCases: PropTypes.string.isRequired,
-  CovidNewCases: PropTypes.string.isRequired,
-  CovidTotalDeaths: PropTypes.string.isRequired,
-  CovidNewDeaths: PropTypes.string.isRequired,
-  CovidTotalRecovered: PropTypes.string.isRequired,
-  CovidNewRecovered: PropTypes.string.isRequired,
-};
 
 export default CovidCard;
