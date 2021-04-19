@@ -45,8 +45,8 @@ jobs:
         run: pip install -r requirements.txt
         
       # Lint all the python files.
-      #- name: Lint files
-      #  run: pylint *.py
+      - name: Lint files
+        run: pylint *.py
         
       # Run Unmocked tests
       - name: Run tests
