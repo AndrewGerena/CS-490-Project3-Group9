@@ -22,10 +22,15 @@ export function TodoPage() {
 
   function toggleTask(id) {
     const newTasks = [...tasks];
-    const task = newTasks.find((thisTask) => thisTask.id === id);
-    task.complete = !task.complete;
+    const theTask = newTasks.find((task) => task.id === id);
+    theTask.complete = !theTask.complete;
     setTasks(newTasks);
   }
+
+  console.log('[...tasks]');
+  console.log([...tasks]);
+  console.log('tasks');
+  console.log(tasks);
 
   function eraseTasks() {
     const newTasks = [...tasks].filter((task) => !task.complete);
@@ -43,18 +48,10 @@ export function TodoPage() {
   return (
     <div>
       <form>
-        <input
-          type="text"
-          ref={taskNameRef}
-          placeholder="What is your Task?"
-        />
-        <button type="submit" onClick={submitTask}>
-          {' '}
-          Add Task
-          {' '}
-        </button>
+        <input type="text" ref={taskNameRef} placeholder="What is your Task?" />
+        <button type="submit" onClick={submitTask}> Add Task </button>
       </form>
-      <TodoList task={tasks} toggle={toggleTask} />
+      <TodoList tasks={tasks} toggle={toggleTask} />
       <button type="button" onClick={eraseTasks}>Erase Completed Tasks</button>
       <div>
         {tasks.filter((task) => !task.complete).length}
