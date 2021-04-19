@@ -44,7 +44,6 @@ export function Login(props) {
       familyName,
       imageURL,
     });
-
   };
 
   const onFailure = (res) => {
