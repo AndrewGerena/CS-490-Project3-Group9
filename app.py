@@ -80,6 +80,7 @@ def user_login(data):
                   include_self=True)  ## changing include self to true here
 
 def add_users(data):
+    '''add users'''
     user_add = models.Person(email=data["email"],
                              zipcode="10001",
                              full_name=data["full_name"],
@@ -88,29 +89,29 @@ def add_users(data):
                              image_url=data["image_url"])
     DB.session.add(user_add)
     DB.session.commit()
-    
+
     all_users = models.Person.query.all()
     all_emails = []
     for person in all_users:
-        all_emails.append(person.email) 
-    
+        all_emails.append(person.email)
+
     return all_emails
 
 @SOCKETIO.on('new_zip')
 def change_zip(data):
     '''Will add zipcode to DB and emit back'''
-    query = DB.session.query(models.Person) 
-    update_user = on_filter(data["email"],query) ## data["email"] 
-    update_user.zipcode = data["zip"] # data["zip"] ## data["zip"] 
+    query = DB.session.query(models.Person)
+    update_user = on_filter(data["email"], query) ## data["email"]
+    update_user.zipcode = data["zip"] # data["zip"] ## data["zip"]
     DB.session.commit()
     ## broadcast is set to false, not sure if that's what it should be here
     SOCKETIO.emit('new_zip', {'zip': data["zip"]},
                   broadcast=False,
                   include_self=True)
     # added this for mocked test
-    return update_user.zipcode 
+    return update_user.zipcode
 
-def on_filter(email,query):
+def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''
     return query.filter_by(email=email).first()
 
@@ -177,3 +178,4 @@ if __name__ == "__main__":
         port=8081 if os.getenv('C9_PORT') else int(os.getenv('PORT', 8081)),
         debug=True,
     )
+    
