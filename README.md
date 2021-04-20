@@ -22,20 +22,20 @@ It is likely that we could have kept this rule in place, but fear of bugs in pro
 **dot-notation**\
 We use dot notation when unnecessary, but we did not let eslint force us into using it for every instance.\
 **prefer-template**\
-This rule flags use of string concatenation, but concatenation use within our code was harmless and quite helpful. We decided that it would be more effective to continue using string concatenation.\
+This rule flags use of string concatenation, but concatenation use within our code was harmless and quite helpful. We decided that it would be more effective to continue using string concatenation.
 
-## Pylinting Rules
+## Pylinting Rules\
 *Below we describe the rules we chose to silence and why these decisions were made.*
 
-**no-member, wrong-import-position, invalid-envvar-default, global-statement**
-We began by silencing the same rules that were silenced for Project 2. These rules complained about code that is necessary to function correctly.
-**too-few-public-methods**
-We need to ignore this rule for our database. We do not have many public methods in the file but it is a crucial aspect of our program.
-**line-too-long**
-We likely no longer need to ignore this rule and we can look to re-implement it in Sprint 2.
-**too-many-locals, too-many-statements**
-Our Weather Page needs a large number of variables and statements to display several days' worth of weather. These rules were ignored to allow the display of this information. 
-**cyclic-import**
-Similar to the *import/no-cycle* rule in eslint, we are required to import certain functions from files within our programs. This error was unavoidable, so we were forced to silence it.
-**duplicate-code**
+**no-member, wrong-import-position, invalid-envvar-default, global-statement**\
+We began by silencing the same rules that were silenced for Project 2. These rules complained about code that is necessary to function correctly.\
+**too-few-public-methods**\
+We need to ignore this rule for our database. We do not have many public methods in the file but it is a crucial aspect of our program.\
+**line-too-long**\
+We likely no longer need to ignore this rule and we can look to re-implement it in Sprint 2.\
+**too-many-locals, too-many-statements**\
+Our Weather Page needs a large number of variables and statements to display several days' worth of weather. These rules were ignored to allow the display of this information.\
+**cyclic-import**\
+Similar to the *import/no-cycle* rule in eslint, we are required to import certain functions from files within our programs. This error was unavoidable, so we were forced to silence it.\
+**duplicate-code**\
 For a time, we were migrating code from one file into another. We silenced this error so we could integrate our code into one cohesive application without the terminal always reminding us that our code was similar.
