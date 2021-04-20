@@ -9,20 +9,20 @@ https://shrouded-lowlands-20943.herokuapp.com/
 
 **react/jsx-filename-extension**\
 This rule was also ignored during Project 2 so it was a simple decision to ignore it for this project. We do not want to name our files with a .jsx extension.\
-**import/no-named-as-default**
-This rule asked us to change the name of an imported file to be different than its default name. This caused confusion and seemed unnecessary.
-**import/no-cycle**
-We have yet to figure out a solution to this error. We must import certain functions for our code to work, but importing files from one another will display this error.
-**no-alert**
-We show an alert to let the user know they have successfully signed into the application.
-**no-console**
-The console was heavily used during development to make sure correct information was being delivered.
-**react/prop-types**
-It is likely that we could have kept this rule in place, but fear of bugs in prop-typing led us to decide against it. We do not often use prop-typing an are slightly unfamiliar with its syntax.
-**dot-notation**
-We use dot notation when unnecessary, but we did not let eslint force us into using it for every instance.
-**prefer-template**
-This rule flags use of string concatenation, but concatenation use within our code was harmless and quite helpful. We decided that it would be more effective to continue using string concatenation.
+**import/no-named-as-default**\
+This rule asked us to change the name of an imported file to be different than its default name. This caused confusion and seemed unnecessary.\
+**import/no-cycle**\
+We have yet to figure out a solution to this error. We must import certain functions for our code to work, but importing files from one another will display this error.\
+**no-alert**\
+We show an alert to let the user know they have successfully signed into the application.\
+**no-console**\
+The console was heavily used during development to make sure correct information was being delivered.\
+**react/prop-types**\
+It is likely that we could have kept this rule in place, but fear of bugs in prop-typing led us to decide against it. We do not often use prop-typing an are slightly unfamiliar with its syntax.\
+**dot-notation**\
+We use dot notation when unnecessary, but we did not let eslint force us into using it for every instance.\
+**prefer-template**\
+This rule flags use of string concatenation, but concatenation use within our code was harmless and quite helpful. We decided that it would be more effective to continue using string concatenation.\
 
 ## Pylinting Rules
 *Below we describe the rules we chose to silence and why these decisions were made.*
