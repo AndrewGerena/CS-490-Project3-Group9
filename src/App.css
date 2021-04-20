@@ -86,3 +86,13 @@ ul > li {
     background-color: pink;
 }
 
+.forecast{
+  width: 1000px; /* Total horizontal dimensions */
+  display: grid; /* Enables CSS Grid */
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /* Total horizontal space broken into 3 columns */
+  margin: auto;
+}
+
