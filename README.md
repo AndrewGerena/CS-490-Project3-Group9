@@ -7,8 +7,8 @@ https://shrouded-lowlands-20943.herokuapp.com/
 ## Eslinting Rules
 *Below we describe the rules we chose to silence and why these decisions were made.*
 
-**react/jsx-filename-extension**
-This rule was also ignored during Project 2 so it was a simple decision to ignore it for this project. We do not want to name our files with a .jsx extension.
+**react/jsx-filename-extension**\
+This rule was also ignored during Project 2 so it was a simple decision to ignore it for this project. We do not want to name our files with a .jsx extension.\
 **import/no-named-as-default**
 This rule asked us to change the name of an imported file to be different than its default name. This caused confusion and seemed unnecessary.
 **import/no-cycle**
