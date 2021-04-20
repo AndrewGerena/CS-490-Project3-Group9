@@ -4,15 +4,16 @@
     1. The test for new_zip function is to make sure that a user's zipcode is being updated accurately in the DB upon user request
     2. The test for add_users function is to make sure that new users are added to the DB correctly 
 '''
-import sys, os
-sys.path.append(os.path.abspath(''))
+
 import unittest
 import unittest.mock as mock
 from unittest.mock import patch
-from app import models
+import os
+import sys
+
+sys.path.append(os.path.abspath('../../'))
+import models
 from app import add_users, change_zip 
-
-
 
 INPUT_USER = "input"
 EXPECTED_OUTPUT = "output"
@@ -79,15 +80,15 @@ class UpdateUsersTestCase(unittest.TestCase):
     def setUp(self):
         self.test_params = [
             {
-                INPUT_USER: {"email": "dwyane@gmail.com","full_name": "dwyane wade","given_name": "dwyane","family_name": "wade","image_url": "https://heat.com"},
+                INPUT_USER: {"email": "dwyane@gmail.com","fullName": "dwyane wade","givenName": "dwyane","familyName": "wade","imageURL": "https://heat.com"},
                 EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com"],
             },
             {
-                INPUT_USER: {"email": "thomas@gmail.com","full_name": "thomas brady","given_name": "thomas","family_name": "brady","image_url": "https://tb12.com"},
+                INPUT_USER: {"email": "thomas@gmail.com","fullName": "thomas brady","givenName": "thomas","familyName": "brady","imageURL": "https://tb12.com"},
                 EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com","thomas@gmail.com"],
             },
             {
-                INPUT_USER: {"email": "derek@gmail.com","full_name": "derek jeter","given_name": "derek","family_name": "jeter","image_url": "https://marlins.com"},
+                INPUT_USER: {"email": "derek@gmail.com","fullName": "derek jeter","givenName": "derek","familyName": "jeter","imageURL": "https://marlins.com"},
                 EXPECTED_OUTPUT: ["tracy@gmail.com","aaron@gmail.com","charles@gmail.com","dwyane@gmail.com","thomas@gmail.com","derek@gmail.com"],
             },
         ]
