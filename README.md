@@ -24,7 +24,7 @@ We use dot notation when unnecessary, but we did not let eslint force us into us
 **prefer-template**\
 This rule flags use of string concatenation, but concatenation use within our code was harmless and quite helpful. We decided that it would be more effective to continue using string concatenation.
 
-## Pylinting Rules\
+## Pylinting Rules
 *Below we describe the rules we chose to silence and why these decisions were made.*
 
 **no-member, wrong-import-position, invalid-envvar-default, global-statement**\
