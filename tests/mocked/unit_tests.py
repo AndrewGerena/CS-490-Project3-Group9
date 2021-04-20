@@ -4,16 +4,15 @@
     1. The test for new_zip function is to make sure that a user's zipcode is being updated accurately in the DB upon user request
     2. The test for add_users function is to make sure that new users are added to the DB correctly 
 '''
-
+import sys, os
+sys.path.append(os.path.abspath(''))
 import unittest
 import unittest.mock as mock
 from unittest.mock import patch
-import os
-import sys
-
-sys.path.append(os.path.abspath('../../'))
-import models
+from app import models
 from app import add_users, change_zip 
+
+
 
 INPUT_USER = "input"
 EXPECTED_OUTPUT = "output"
