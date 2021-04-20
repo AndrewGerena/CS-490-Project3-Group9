@@ -79,7 +79,9 @@ def user_login(data):
                   broadcast=False,
                   include_self=True)  ## changing include self to true here
 
+
 def add_users(data):
+    '''Adding new users to the DB'''
     user_add = models.Person(email=data["email"],
                              zipcode="10001",
                              full_name=data["fullName"],
@@ -88,29 +90,31 @@ def add_users(data):
                              image_url=data["imageURL"])
     DB.session.add(user_add)
     DB.session.commit()
-    
+
     all_users = models.Person.query.all()
     all_emails = []
     for person in all_users:
-        all_emails.append(person.email) 
-    
+        all_emails.append(person.email)
+
     return all_emails
+
 
 @SOCKETIO.on('new_zip')
 def change_zip(data):
     '''Will add zipcode to DB and emit back'''
-    query = DB.session.query(models.Person) 
-    update_user = on_filter(data["email"],query) ## data["email"] 
-    update_user.zipcode = data["zip"] # data["zip"] ## data["zip"] 
+    query = DB.session.query(models.Person)
+    update_user = on_filter(data["email"], query)  ## data["email"]
+    update_user.zipcode = data["zip"]  # data["zip"] ## data["zip"]
     DB.session.commit()
     ## broadcast is set to false, not sure if that's what it should be here
     SOCKETIO.emit('new_zip', {'zip': data["zip"]},
                   broadcast=False,
                   include_self=True)
     # added this for mocked test
-    return update_user.zipcode 
+    return update_user.zipcode
 
-def on_filter(email,query):
+
+def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''
     return query.filter_by(email=email).first()
 
@@ -136,7 +140,9 @@ def onload_news_data():
     fetched_news_data = init_news_data()
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=False, include_self=True)
+                  broadcast=False,
+                  include_self=True)
+
 
 @SOCKETIO.on('User_Searched_News_Topic')
 def fetch_user_searched_news(data):
@@ -145,7 +151,8 @@ def fetch_user_searched_news(data):
     fetched_news_data = user_searched_news(topic)
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
-                  broadcast=False, include_self=True)
+                  broadcast=False,
+                  include_self=True)
 
 
 @SOCKETIO.on('Onload_Covid_Global')
@@ -156,7 +163,9 @@ def onload_covid_data():
 
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=False, include_self=True)
+                  broadcast=False,
+                  include_self=True)
+
 
 @SOCKETIO.on('User_Searched_Covid_Country')
 def fetch_user_searched_country(data):
@@ -167,7 +176,9 @@ def fetch_user_searched_country(data):
 
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
-                  broadcast=False, include_self=True)
+                  broadcast=False,
+                  include_self=True)
+
 
 # Note that we don't call app.run anymore. We call SOCKETIO.run with app arg
 if __name__ == "__main__":
