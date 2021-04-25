@@ -2,8 +2,9 @@
 import os
 import requests
 from dotenv import load_dotenv, find_dotenv
-from date import convert
+#from date import convert
 from icon import get_icon
+from weather_info import pull_weather
 
 load_dotenv(find_dotenv())
 WEATHER_KEY = os.getenv('WEATHER_KEY')
@@ -37,7 +38,7 @@ def get_weather(zipcode):
     icon_curr = str(data["current"]["weather"][0]["icon"])
     icon_curr = get_icon(icon_curr)
     today = [town, current_temp, current_weather, icon_curr]
-
+    '''
     dt_day_1 = str(data["daily"][0]["dt"])
     date_day_1, dow_1 = convert(dt_day_1)
     max_day_1 = str(data["daily"][0]["temp"]["max"])
@@ -92,6 +93,12 @@ def get_weather(zipcode):
     day_5 = [
         date_day_5, dow_5, max_day_5, min_day_5, weather_day_5, icon_day_5
     ]
+    '''
+    day_1 = pull_weather(0, data)
+    day_2 = pull_weather(1, data)
+    day_3 = pull_weather(2, data)
+    day_4 = pull_weather(3, data)
+    day_5 = pull_weather(4, data)
 
     lst = [today, day_1, day_2, day_3, day_4, day_5]
 
