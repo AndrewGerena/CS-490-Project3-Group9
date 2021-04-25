@@ -94,7 +94,7 @@ export function Login(props) {
   
   if (isLoggedIn) {
     return (
-      <div>
+      <div className="parent_div">
         <DashBoard email={userEmail} />
       </div>
     )
@@ -104,25 +104,31 @@ export function Login(props) {
     <div>
       <Router>
   	    <div className="header">
+  	      <div className="header-top"></div>
           <center>
-            <ul className="menu">
-            	 <li><Link to="/"><p>Home</p></Link></li>
-            	 <li><Link to="/about"><p>About Us</p></Link></li>
-            	 <li><Link to="/contact"><p>Contact</p></Link></li>
-            </ul>
+            <div className="NavBar">
+              <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
+              <div className="Nav_Links">
+            	  <a href="#home" className="active">Home</a>
+            	  <a href="#about">About Us</a>
+            	  <a href="#contact">Contact</a>
+              </div>
+            </div>
           </center>
           <Switch>
             <Route path="/"><Home /></Route>
             <Route path="/about"><About /></Route>
             <Route path="/contact"><Contact /></Route>
           </Switch>
+          <div className="header-bottom"></div>
         </div>
       </Router>
-        <div className="middle">
-          <center>
-            <h1>MyDay Planner</h1>
-            <h2>Use this app to plan out your day!</h2>
-            <br></br><br></br><br></br><br></br>
+      <div className="middle">
+        <center>
+          <h1>MyDay Planner</h1>
+          <h2>Use this app to plan out your day!</h2>
+          <br></br><br></br><br></br><br></br>
+          <div className="Main-Content">
             <GoogleLogin
               clientId={CLIENT_ID}
               buttonText="Sign in with Google"
@@ -132,13 +138,17 @@ export function Login(props) {
               style={{ marginTop: '100px' }}
               isSignedIn={false}
             />
-          </center>
-        </div>
-      	<div className="footer">
-      		<center><p>&copy; SASA Inc. All Rights Reserved.</p></center>
-      	</div>
+          </div>
+        </center>
+      </div>
+      <div className="footer">
+      	<div className="footer-top"></div>
+      	<div className="footer-center"><p>&copy; SASA Inc. All Rights Reserved.</p></div>
+      	<div className="footer-bottom"></div>
+      </div>
     </div>
   );
 }
 
 export default Login;
+

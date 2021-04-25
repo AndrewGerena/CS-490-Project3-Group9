@@ -11,11 +11,11 @@ function Tile(props) {
   const { weather } = props;
 
   return <div className = "day">
-    <h4>{day}</h4>
-    <p>{date}</p>
-    <p>{high}° / {low}°</p>
-    <p>{weather}</p>
-    <img src={icon} alt="Icon"/>
+    <h4 className="Weather_Day">{day}</h4>
+    <p className="Weather_Date">{date}</p>
+    <p className="Weather_Temp">{high}° / {low}°</p>
+    <p className="Weather_Num">{weather}</p>
+    <img src={icon} alt="Icon" className="Weather_Icon"/>
   </div>;
 }
 

@@ -21,6 +21,8 @@ APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Gets rid of a warning
 
 DB = SQLAlchemy(APP)
 
+APP.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  #//for using latest stylesheet
+
 # IMPORTANT: This must be AFTER creating db variable to prevent
 # circular import issues
 import models
@@ -86,7 +88,7 @@ def user_login(data):
         'info': data,
         'user_exists': user_exists,
     },
-                  broadcast=True,
+                  broadcast=False,
                   include_self=True)  ## changing include self to true here
 
 

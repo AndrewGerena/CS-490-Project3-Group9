@@ -4,26 +4,26 @@ import { App } from "./App.js";
 
 export function Covid_Card(props) {
   return (
-    <div className="Covid_Card" >Results As Of:
-      {props.Covid_Date}
+    <div className="Covid_Card" ><span><u>Results As Of:</u></span>&nbsp;
+       <i className="Date">{props.Covid_Date}</i>
       <br/>
-      Total Cases:
-      {props.Covid_TotalCases}
+      <span><u>Cases:</u></span>&nbsp;
+       <i className="TotalCases">{props.Covid_TotalCases}</i>
       <br/>
-      News Cases:
-      {props.Covid_NewCases}
+      <span><u>News Cases:</u></span>&nbsp;
+       <i className="NewCases">{props.Covid_NewCases}</i>
       <br/>
-      Total Deaths: 
-      {props.Covid_TotalDeaths}
+      <span><u>Deaths:</u></span>&nbsp; 
+       <i className="TotalDeaths">{props.Covid_TotalDeaths}</i>
       <br/>
-      New Deaths:
-      {props.Covid_NewDeaths}
+      <span><u>New Deaths:</u></span>&nbsp;
+       <i className="NewDeaths">{props.Covid_NewDeaths}</i>
       <br/>
-      Total Recovered: 
-      {props.Covid_TotalRecovered}
+      <span><u>Recovered:</u></span>&nbsp;
+       <i className="TotalRecovered">{props.Covid_TotalRecovered}</i>
       <br/>
-      New Recovered:
-      {props.Covid_NewRecovered}
+      <span><u>New Recovered:</u></span>&nbsp;
+       <i className="NewRecovered">{props.Covid_NewRecovered}</i>
     </div>
   );
 }
