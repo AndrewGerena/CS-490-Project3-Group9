@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router, Switch, Route, Link,
 } from 'react-router-dom';
 import { DashBoard } from './dashboard';
+import { Logout } from './logout'; 
 // import { refreshTokenSetup } from '../utils/refreshToken';
 import { socket } from './App';
 
@@ -53,9 +54,16 @@ export function Login(props) {
       'Login Unsuccessful. Please try again.',
     );
   };
+  
+  function onClickLogout() {
+    setIsLoggedIn(false);
+    setIsNewUser(false);
+    setIsHome(false); // may not need this one
+    setUserEmail(''); 
+    // we don't need to use useEffect here b/c we aren't transmitting this data to other clients
+  }
 
   // working on useEffect here
-
   useEffect(() => {
     socket.on('login', (data) => {
       console.log('Login event received!');
@@ -84,11 +92,15 @@ export function Login(props) {
       </div>
     );
   }
-
+  
+  // once user is logged in, we show dashboard and logout features to them
   if (isLoggedIn) {
     return (
       <div className="parent_div">
         <DashBoard email={userEmail} />
+        <div onClick={onClickLogout}>
+          <Logout /> 
+        </div>
       </div>
     );
   }
