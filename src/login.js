@@ -98,7 +98,7 @@ export function Login(props) {
     return (
       <div className="parent_div">
         <DashBoard email={userEmail} />
-        <div onClick={onClickLogout}>
+        <div className="logout_btn" onClick={onClickLogout}>
           <Logout /> 
         </div>
       </div>
