@@ -1,7 +1,8 @@
-import React from 'react';
+import React from "react";
+import { App } from "./App.js";
 import './News_Cards.css';
 
-export function NewsCard(props) {
+export function News_Card(props) {
 	 let news_url_0=props.News_Url[0];
 	 console.log(news_url_0)
 	 let news_url_1=props.News_Url[1];
@@ -109,5 +110,4 @@ export function NewsCard(props) {
   );
 }
 
-export default NewsCard;
-
+export default News_Card;
