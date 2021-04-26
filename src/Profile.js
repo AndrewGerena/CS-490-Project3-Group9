@@ -34,15 +34,15 @@ export function Profile(props) {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to the Profile Page!</h1>
-      <div>
-        <h3>Set your zipcode here</h3>
-        <input ref={inputRef} type="text" aria-label="zipcode-input" />
-        <button onClick={zipButton} type="submit">
-          Confirm
-        </button>
-      </div>
+    <div className="Profile_Div">
+        <h1 className="ProfileHeader">Welcome to the Profile Page!</h1>
+        <div className="Prof_Wrapper">
+          <h3>Set your zipcode here</h3>
+          <input ref={inputRef} type="text" aria-label="zipcode-input" className="Zip_input" />
+             <button onClick={zipButton} type="submit" className="Confirm_btn">
+                 Confirm
+              </button>
+        </div>
     </div>
   );
 }

@@ -1,98 +1,627 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-top{
+  background-color:gold;
+  z-index:1;
+  height:6px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+  background-color:black;
+  margin-bottom:0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-bottom{
+  height:6px;
+  background-color:gold;
+  z-index:1;
+}
+
+.NavBar{
+  overflow: hidden;
+  padding: 20px 10px;
+}
+
+.Company_Logo{
+  float: left;
+  font-weight: bold; 
+  width:250px;
+}
+
+.Company_Logo img{
+  transform:scale(1.2);
+  margin-left:40px;
+}
+
+.Nav_Links a.active {
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+  padding:20px;
+}
+.Nav_Links{
+  float:right;
+  margin: 15px;
+  
+}
+
+.Nav_Links a{
+  margin: 10px;
+  padding: 25px;
+  letter-spacing: 5px;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-top{
+  background-color:gold;
+  z-index:1;
+  height:6px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-center{
+  color:red;
+  height:30px;
+  background:black;
+  padding:7px;
 }
 
-.menu {
-  margin: 0;
-	padding: 0;
-	list-style-type: none;
-	position: relative;
+.footer-center p{
+  text-align:center;
 }
-.menu li p {
-  color: navy;
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: underline;
-  float: left; 
-  display: block;
-	width: 200px;
+
+.footer-bottom{
+  height:6px;
+  background-color:gold;
+  z-index:1;
 }
-ul > li {
-  display: inline-block;
+
+.footer{
+ position: absolute;
+ bottom: 0;
+ width: 100%;
 }
-.header {
-  background-color: #d4c396;
-  border-bottom: 2.5px solid black;
-  top: 1px;
-  width: 100%;
+
+.middle{
+  position:absolute;
+  width:100vw;
+  height:85vh;
+  background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: contain;
+  z-index: -1;
 }
-.middle {
-  color: navy;
+
+.middle h1{
+  position:absolute;
+  top:25%;
+  left:32%;
+  text-align:center;
+  font-size: 60px;
+  border: 5px solid grey;
+  width: 500px;
+  font-family:Gabriola;
+  background-color:rgb(255, 209, 0);
+  color:black;
+  
 }
-.footer {
-	background-color: #d4c396;
-	border-top: 2.5px solid black;
+
+.middle h2{
+  position:absolute;
+  top:40%;
+  left:32%;
+  font-family:MV Boli;
+  font-size: 30px;
+}
+
+.Main-Content{
+  position:absolute;
+  top: 50%;
+  left:35%;
+  background:linear-gradient(rgb(183, 9, 76), rgb(160, 26, 88), rgb(137, 43, 100), rgb(114, 60, 112), rgb(92, 77, 125), rgb(69, 94, 137), rgb(46, 111, 149), rgb(23, 128, 161), rgb(0, 145, 173));
+  width:400px;
+  margin:20px;
+  padding: 20px;
+  border: 5px groove white;
+  border-radius: 20px;
+}
+
+/*This code us for dashboard buttons*/
+
+.dash_btn{
+  position:absolute;
+  top:17%;
+  left:18%;
+  background: linear-gradient(rgb(0, 8, 20), rgb(0, 29, 61),rgb(0, 53, 102));
+  height:100px;
+  width: 1000px;
+  border: 5px solid white;
+  
+}
+
+.btn{
   position: absolute;
-  bottom: 1px;
-  width: 100%;
-  /*height: 2.5rem;*/ 
-}
-.btn {
-    background-color: indigo;
-    border-color: brown;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    border-width: 6px;
+  top: 20px;
+  font-size:20px;
+  border: 5px dashed silver;
+  border-radius: 10px;
+  padding: 5px;
+  
 }
 
-.btn:hover {
-    background-color: pink;
+.prof-btn{  
+  position: absolute;
+  top:20px;
+  left: 11%;}
+.weath-btn{
+  position: absolute;
+  top:20px;
+  left: 36%;
+}
+.news-btn {
+  position: absolute;
+  top:20px;
+  left: 59%;
+}
+.todo-btn{
+  position: absolute;
+  top:20px;
+  left: 82%;
+}
+
+.profile_img{
+  position: absolute;
+  top:20px;
+  left: 5%;
+  height:50px;
+  width:50px;
+  
+}
+.weather_img{
+  position: absolute;
+  top:20px;
+  left: 30%;
+  height:50px;
+  width:50px;
+  
+}
+
+.news_img{
+  position: absolute;
+  top:20px;
+  left: 53%;
+  height:50px;
+  width:50px;
+  
+}
+.todo_img{
+  position: absolute;
+  top:20px;
+  left: 76%;
+  height:50px;
+  width:50px;
+}
+
+
+/*Profile page styling*/
+.Profile_Div{
+  position:absolute;
+  top: 40%;
+  left:28%;
+  background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));
+  width: 700px;
+  height: 300px;
+  border: 5px double white;
+  
+}
+
+.ProfileHeader{
+  position:absolute;
+  top: 5%;
+  left:7%;
+  z-index:2;
+  font-size: 40px;
+  font-family:Comic Sans MS;
+  text-align:center;
+}
+
+.Prof_Wrapper{
+  background:linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
+  position:absolute;
+  top: 30%;
+  left:15%;
+  z-index:2;
+  font-size: 30px;
+  padding: 20px;
+  border: 10px groove grey;
+  
+}
+
+.Prof_Wrapper h3{
+  font-family:MS UI Gothic;
+}
+
+.Confirm_btn{
+  font-size: 20px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+}
+
+.Zip_input{
+  font-size: 20px;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  
+}
+
+/*Weather page styling*/
+.Weather_div{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.Weather_Wrapper{
+  position: absolute;
+  top:33.5%;
+  left:15%;
+}
+
+.current{
+  background: linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
+  font-family:Ink Free;
+  width:300px;
+  color: yellow;
+  border: 5px solid grey;
+  border-radius: 10px;
+  position: absolute;
+  top:15%;
+  left:0%;
+  
+  
+}
+
+.Horiz_line{
+    position: absolute;
+    border-left: 10px solid wheat;
+    height: 370px;
+    top: 10%;
+    left: 55%;
+
+}
+
+.current:hover {
+  transform:scale(1.2);
+  transition: all 0.3s ease;
 }
 
 .forecast{
-  width: 1000px; /* Total horizontal dimensions */
-  display: grid; /* Enables CSS Grid */
+  position:relative;
+  top:-30px;
+  left:60%;
+  width: 700px; 
+  display: grid; 
   grid-template-columns: repeat(
-    5,
+    3,
     1fr
-  ); /* Total horizontal space broken into 3 columns */
-  margin: auto;
+  ); 
+  margin-top: 2.5px;
+  margin-left: 40px;
+  font-family:Ink Free;
+  font-size: 15px;
+  color:yellow;
+}
+
+.day_1, .day_2, .day_3, .day_4, .day_5{
+  border-right: 5px solid black;
+  padding: 0px 20px;
+  background-color: grey;
+  margin: 10px;
+  border-left: 5px solid black;
+}
+
+.day_1:hover, .day_2:hover, .day_3:hover, .day_4:hover, .day_5:hover{
+  transform:scale(1.05);
+  transition: .3s linear;
+  border: 5px solid aqua;
+}
+
+.Weather_BG{
+  background:url("https://wallpaperaccess.com/full/1119564.jpg");
+  height: 1000px;
+  background-repeat:no-repeat;
+  background-size: 2000px 1000px;
+}
+
+.weather_icon{
+  margin:10px;
+  height:150px;
+  width:150px;
+
+}
+.current img{
+  border: 10px double black;
+  background-color:grey;
+  border-radius: 20px;
+}
+
+
+/*TODO Page*/
+.TodoPage_div{
+  position:absolute;
+  top:35%;
+  left:18%;
+  background-color: wheat;
+  width: 1000px;
+  height:400px;
+  border: 10px groove grey;
+}
+
+.Left_Form_Wrapper{
+  position:absolute;
+  top:20%;
+  left:5%;
+  background-color:aqua;
+  width: 400px;
+  height: 200px;
+}
+
+.Left_Form_Wrapper h1{
+  font-family:Gabriola;
+}
+
+.Todo_inp{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  width:350px;
+  height:40px;
+  background-color: yellow;
+  border: 5px groove black;
+  border-radius: 10px;
+}
+
+.Todo_sub{
+  position: absolute;
+  top: 65%;
+  left: 30%;
+  font-size: 20px;
+  width:150px;
+  height:45px;
+  color:white;
+  border-radius: 10px;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+}
+
+
+.Todo_Divider{
+  position: absolute;
+  border-left: 6px groove black;
+  height: 370px;
+  top: 2%;
+  left: 50%;
+  
+}
+
+
+.Right_Form_Wrapper{
+  position:absolute;
+  top:5%;
+  left:55%;
+  background-color:aqua;
+  width: 400px;
+  height: 350px;
+}
+
+.Task_Num{
+  font-size: 50px; 
+  
+}
+.Task_Comp{
+  font-family:Gabriola;
+  font-size: 30px; 
+  
+}
+
+.eraseButton{
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width:150px;
+  height:35px;
+  border-radius: 10px;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+  color:white;
+}
+
+.Todo_Tasks{
+  position:relative;
+  top:10%;
+  color:  white;
+  font-size: 20px;
+  color: black;
+  background-color:yellow;
+  
+}
+
+/*News Page Styling*/
+.News_div{
+  width: 100vw;
+  height: 100vh;
+  /*background-color: pink;*/
+}
+
+.NewsPage_Footer{
+  position: fixed;
+}
+
+.NewsPage_FooterText p{
+  position:absolute;
+  bottom: 10px;
+  left:40%;
+  
+}
+
+.News_Sec_Name{
+  position:absolute;
+  top: 5%;
+  left: 40%;
+  color:white;
+  text-decoration: underline;
+  z-index:3;
+  
+}
+
+.Form_Input{
+  position:absolute;
+  top: 35%;
+  left: 28%;
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+
+.Form_Btn{
+  position:absolute;
+  top: 35%;
+  left: 43%;
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+}
+
+.News_Conditional_Wrapper{
+  background:radial-gradient(rgb(198, 172, 143),rgb(234, 224, 213),rgb(34, 51, 59),rgb(10, 9, 8));
+  position:absolute;
+  top: 28%;
+  left:1%;
+  width: 1135px;
+  height: 600px;
+  border: 8px groove grey;
+}
+
+.News_Conditional_Wrapper .Searched_Topic{
+  position: absolute;
+  top: 3%;
+  left:36%;
+  font-size: 25px;
+  color:white;
+}
+
+
+/*Covid section*/
+.Covid_div{
+  position:absolute;
+  top: 34%;
+  left: 77%;
+  width: 320px;
+  height: 460px;
+  background:radial-gradient(rgb(247, 178, 103), rgb(247, 157, 101),rgb(244, 132, 95),rgb(242, 112, 89),rgb(242, 92, 84));
+  border: 5px solid black;
+}
+
+.Form_Input_Covid{
+  position:absolute;
+  top: 10%;
+  left: 10%;
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+  
+}
+
+.Form_Btn_Covid{
+  position:absolute;
+  top: 9.5%;
+  left: 70%;
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+
+
+.Covid_Conditional_Wrapper{
+  position:absolute;
+  top: 25%;
+  left: 7%;
+  background-color: aqua;
+  height: 325px;
+  width:270px;
+}
+
+.Covid_Conditional_Wrapper h2{
+  position: absolute;
+  top:-100px;
+  left: 20px;
+}
+
+.Covid_Conditional_Wrapper h4{
+  position: absolute;
+  top:10px;
+  left: 110px;
+  font-size: 20px;
+  text-decoration:underline;
+}
+
+.Covid_Search_Content{
+  position: relative;
+  top: 60px;
+  
+}
+
+.Covid_Default_Content{
+  position: relative;
+  top: 60px;  
+}
+
+.Covid_Card span{
+  background-color: yellow; 
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+i{
+  background-color:rgb(204, 204, 204);
 }
 

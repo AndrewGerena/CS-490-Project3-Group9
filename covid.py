@@ -12,12 +12,12 @@ def init_covid_data():
     covid_data = covid_response.json()
 
     latest_date = (covid_data["Global"]["Date"].split("T")[0])
-    global_cases = covid_data["Global"]["TotalConfirmed"]
-    global_new_cases = covid_data["Global"]["NewConfirmed"]
-    global_deaths = covid_data["Global"]["TotalDeaths"]
-    global_new_deaths = covid_data["Global"]["NewDeaths"]
-    global_recovered = covid_data["Global"]["TotalRecovered"]
-    global_new_recovered = covid_data["Global"]["NewRecovered"]
+    global_cases = "{:,}".format(covid_data["Global"]["TotalConfirmed"])
+    global_new_cases = "{:,}".format(covid_data["Global"]["NewConfirmed"])
+    global_deaths = "{:,}".format(covid_data["Global"]["TotalDeaths"])
+    global_new_deaths = "{:,}".format(covid_data["Global"]["NewDeaths"])
+    global_recovered = "{:,}".format(covid_data["Global"]["TotalRecovered"])
+    global_new_recovered = "{:,}".format(covid_data["Global"]["NewRecovered"])
 
     print("***************COVID-19 DATA****************")
     print("Covid-19 Data From: " + str(latest_date))
@@ -50,14 +50,13 @@ def user_searched_country(search):
     for i in range(num_countries):
         country_name = covid_data["Countries"][i]["Country"]
         if str(country_name) == str(user_searched):
-            country_cases = covid_data["Countries"][i]["TotalConfirmed"]
-            country_new_cases = covid_data["Countries"][i]["NewConfirmed"]
-            country_deaths = covid_data["Countries"][i]["TotalDeaths"]
-            country_new_deaths = covid_data["Countries"][i]["NewDeaths"]
-            country_recovered = covid_data["Countries"][i]["TotalRecovered"]
-            country_new_recovered = covid_data["Countries"][i]["NewRecovered"]
-            country_latest_date = (
-                covid_data["Countries"][i]["Date"].split("T")[0])
+            country_cases = "{:,}".format(covid_data["Countries"][i]["TotalConfirmed"])
+            country_new_cases = "{:,}".format(covid_data["Countries"][i]["NewConfirmed"])
+            country_deaths = "{:,}".format(covid_data["Countries"][i]["TotalDeaths"])
+            country_new_deaths = "{:,}".format(covid_data["Countries"][i]["NewDeaths"])
+            country_recovered = "{:,}".format(covid_data["Countries"][i]["TotalRecovered"])
+            country_new_recovered = "{:,}".format(covid_data["Countries"][i]["NewRecovered"])
+            country_latest_date = covid_data["Countries"][i]["Date"].split("T")[0]
 
             print("************COVID STATS FOR: " + country_name +
                   "********************")
