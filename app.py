@@ -128,9 +128,9 @@ def on_forecast(data):
         models.Person).filter_by(email=data["email"]).first()
     zipcode = user.zipcode
     if check_zip(zipcode):
-        data = get_weather(zipcode)
+        data["weather"] = get_weather(zipcode)
     else:
-        data = get_weather(
+        data["weather"] = get_weather(
             "10001"
         )  # Default for now. Will update when we can fetch the zipcode.
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)

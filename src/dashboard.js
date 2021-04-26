@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import {
 //  BrowserRouter as Router, Switch, Route, Link,
 // } from 'react-router-dom';
@@ -15,6 +15,9 @@ export function DashBoard(props) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
+
+  const emailRef = useRef(null);
+  emailRef.current = props.email;
 
   function onClickProfile() {
     setProfile(true);
@@ -52,14 +55,16 @@ export function DashBoard(props) {
     test = <center><News /></center>;
   } else if (todo) {
     test = <center><TodoPage /></center>;
-    // <center><h2>You are on your to-do list now</h2></center>
   }
 
   useEffect(() => {
     // When a move has been made.
     socket.on('forecast', (data) => {
-      setForecast(data);
-      console.log(data);
+    if (data.email == emailRef.current){
+      setForecast(data.weather);
+      console.log(data.weather);
+    }
+
     });
   }, []);
     
