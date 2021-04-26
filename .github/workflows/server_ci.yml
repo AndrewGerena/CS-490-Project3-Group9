@@ -4,11 +4,8 @@ name: Python Continuous Integration (Pylint and Tests)
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ andrew_dev ]
   pull_request:
-    branches: [ andrew_dev ]
+  push:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -36,24 +33,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
       
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-      
       # Install the dependencies
       - name: Install dependencies
         run: pip install -r requirements.txt
         
       # Lint all the python files.
-      #- name: Lint files
-      #  run: pylint *.py
+      - name: Lint files
+        run: pylint *.py
         
       # Run Unmocked tests
-      - name: Run tests
+      - name: Run Unmocked Tests
         run: python tests/unmocked/unit_tests.py
-      
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        
+      # Run Mocked tests
+      - name: Run Mocked Tests
+        run: python tests/mocked/unit_tests.py 
+        env: 
+           DATABASE_URL: postgres://myxhrihvxbgkpf:793d03290c1d291c913b291512c7499b99814abd78d47e0b05d1fc9a5ca98b90@ec2-34-233-0-64.compute-1.amazonaws.com:5432/d8q490p790n60i
+          

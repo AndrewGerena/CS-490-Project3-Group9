@@ -1,33 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { socket } from './App.js';
+import PropTypes from 'prop-types';
+import { socket } from './App';
 import './App.css';
 
 export function Profile(props) {
-  const [zip,setZip] = useState(""); 
+  const { email } = props;
+
+  const [zip, setZip] = useState('');
   const inputRef = useRef();
 
-  function zipButton(){
+  function zipButton() {
     // will add test for alphanumeric character later
     const zipcode = inputRef.current.value;
-    console.log(zipcode); 
-    console.log(props.email);
+    // console.log(zipcode);
+    // console.log(email);
     if (zipcode.length === 5) {
       socket.emit('new_zip', {
         zip: zipcode,
-        email: props.email,
+        email,
       });
-    }
-    else {
-      alert("Bad zipcode"); 
+    } else {
+      alert('Bad zipcode'); // eslint-disable-line no-undef
     }
   }
 
   useEffect(() => {
     socket.on('new_zip', (data) => {
-      console.log('new_zip event received!');
-      console.log(data.zip);
-      setZip(data.zip); 
-    })
+      // console.log('new_zip event received!');
+      // console.log(data.zip);
+      setZip(data.zip);
+      console.log(zip);
+    });
   }, []);
 
   return (
@@ -44,5 +47,8 @@ export function Profile(props) {
   );
 }
 
+Profile.propTypes = {
+  email: PropTypes.string.isRequired,
+};
 
-export { Profile as default };
+export default Profile;

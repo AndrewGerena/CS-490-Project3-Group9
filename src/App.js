@@ -1,8 +1,8 @@
-  
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { Login } from './login.js'; // render the Login component from login.js
 import io from 'socket.io-client';
+import { Login } from './login';
+// render the Login component from login.js
 export const socket = io(); // Newly added this to App.js
 
 function App() {

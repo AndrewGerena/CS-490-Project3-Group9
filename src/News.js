@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import io from "socket.io-client";
-import { News_Card } from "./News_Cards.js";
-import { Covid_Card } from "./Covid_Cards.js";
+import { NewsCard } from "./NewsCard.js";
+import { CovidCard } from "./CovidCard.js";
 
 const socket = io();
 
@@ -141,12 +141,12 @@ export function News() {
         {NewsSearch ?(
           <div className="Searched_News_Div">
             <h4 className="Searched_Topic">Current News Topic: {News_Topic} </h4>
-            <News_Card News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
+            <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
           </div>
         ):
           <div className="Searched_News_Div">
             <h4 className="Searched_Topic">Current News Topic: {News_Topic} </h4>
-            <News_Card News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
+            <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
           </div>
         }
       </div>
@@ -159,7 +159,7 @@ export function News() {
               <h2>Covid Statistics:</h2>
               <h4>{Country_Input}</h4>
               <div className="Covid_Search_Content">
-                <Covid_Card Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
+                <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
               </div>
             </div>
           ):
@@ -167,7 +167,7 @@ export function News() {
               <h2>Covid Statistics:</h2>
               <h4>{Country_Input}</h4>
               <div className="Covid_Default_Content">
-                <Covid_Card Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
+                <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
               </div>
             </div>
           }
@@ -179,3 +179,4 @@ export function News() {
 }
 
 export default News;
+

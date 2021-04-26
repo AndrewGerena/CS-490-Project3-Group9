@@ -1,7 +1,6 @@
-import React from 'react';
-import { TodoList } from './TodoList.js';
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { TodoList } from './TodoList';
 
 
 const TODOLIST_STORAGE = 'todoApp.tasks';

@@ -1,0 +1,21 @@
+{
+    "ignorePatterns": ["reportWebVitals.js", "index.js", "setupTests.js", "App.test.js",
+    "Profile.js", "sample.js", "Tile.js", "News.js","CovidCard.js", "NewsCard.js", "TodoPage.js", "TodoList.js", "Task.js", "dashboard.js", "login.js", "Covid_Cards.js", "News_Cards.js"],
+    "extends": "airbnb",
+    "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "react/jsx-filename-extension": "off",
+        "import/no-named-as-default": "off",
+        "import/no-cycle": "off",
+        "no-alert": "off",
+        "no-console": "off",
+        "import/no-named-as-default-member": "off",
+        "react/prop-types": "off",
+        "dot-notation": "off",
+        "prefer-template": "off"
+      }
+    }
+  ]
+}

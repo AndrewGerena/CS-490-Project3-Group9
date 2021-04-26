@@ -1,5 +1,5 @@
 import React from 'react';
-import { Task } from './Task.js';
+import { Task } from './Task';
 
 
 export function TodoList({tasks, toggle}) {
