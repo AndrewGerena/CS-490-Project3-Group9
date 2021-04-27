@@ -77,11 +77,6 @@ export function DashBoard(props) {
   	            <div className="header-top"></div>
   	            <div className="NavBar">
   	                <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
-                    <div className="Nav_Links">
-            	        <a href="#home" className="active">Home</a>
-            	        <a href="#about">About Us</a>
-            	        <a href="#contact">Contact</a>
-                    </div>
                 </div>
                 <div className="header-bottom"></div>
                     <center>
@@ -102,9 +97,7 @@ export function DashBoard(props) {
             <div className="Comp_Render">
                 {test}
             </div>
-            <div>
-              <h2>Hello {firstName}!</h2>
-            </div>
+
             <div className="footer NewsPage_Footer">
       	        <div className="footer-top"></div>
       	        <div className="footer-center NewsPage_FooterText"><p>&copy; SASA Inc. All Rights Reserved.</p></div>

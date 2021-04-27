@@ -88,6 +88,23 @@
  width: 100%;
 }
 
+.middle-about{
+  position:absolute;
+  width:100vw;
+  height:85vh;
+  background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: contain;
+  z-index: -1;
+}
+
+.middle-about h1{
+  font-size: 60px;
+  font-family:Gabriola;
+  color:black;
+}
+
 .middle{
   position:absolute;
   width:100vw;
@@ -110,7 +127,6 @@
   font-family:Gabriola;
   background-color:rgb(255, 209, 0);
   color:black;
-  
 }
 
 .middle h2{

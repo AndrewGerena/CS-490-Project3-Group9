@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { GoogleLogin } from 'react-google-login';
-import {
+/*import {
   BrowserRouter as Router, Switch, Route, Link,
-} from 'react-router-dom';
+} from 'react-router-dom';*/
 import { DashBoard } from './dashboard';
 import { Logout } from './logout'; 
 // import { refreshTokenSetup } from '../utils/refreshToken';
@@ -13,12 +13,22 @@ import { socket } from './App';
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
 export function Login(props) {
+  const [aboutUs, setAboutUs] = useState(false);
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // will retrieve basic profile info from user if they are new
   const [isNewUser, setIsNewUser] = useState(false);
-  const [isHome, setIsHome] = useState(false);
+  //const [isHome, setIsHome] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [firstName, setFirstName] = useState('');
+  
+  function onClickHome() {
+    setAboutUs(false); 
+  }
+  
+  function onClickAbout() {
+    setAboutUs(true);
+  }
   
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
@@ -60,7 +70,7 @@ export function Login(props) {
   function onClickLogout() {
     setIsLoggedIn(false);
     setIsNewUser(false);
-    setIsHome(false); // may not need this one
+    //setIsHome(false); // may not need this one
     setUserEmail(''); 
     // we don't need to use useEffect here b/c we aren't transmitting this data to other clients
   }
@@ -77,23 +87,6 @@ export function Login(props) {
       }
     });
   }, []);
-
-  function Home() {
-    return <></>;
-  }
-  function About() {
-    return <h2>You are in about us</h2>;
-  }
-  function Contact() {
-    return <h2>You are in contact</h2>;
-  }
-  if (isHome) {
-    return (
-      <div>
-        <DashBoard />
-      </div>
-    );
-  }
   
   // once user is logged in, we show dashboard and logout features to them
   if (isLoggedIn) {
@@ -106,30 +99,75 @@ export function Login(props) {
       </div>
     );
   }
-
-  return (
-    <div>
-      <Router>
-  	    <div className="header">
-  	      <div className="header-top"></div>
+  
+  if (aboutUs) {
+    return (
+      <div>
+    	  <div className="header">
+    	    <div className="header-top"></div>
           <center>
             <div className="NavBar">
               <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
               <div className="Nav_Links">
-            	  <a href="#home" className="active">Home</a>
-            	  <a href="#about">About Us</a>
-            	  <a href="#contact">Contact</a>
+                <button className="active" onClick={onClickHome}>Home</button>
+              	<button className="about" onClick={onClickAbout}>About Us</button>
               </div>
             </div>
           </center>
-          <Switch>
-            <Route path="/"><Home /></Route>
-            <Route path="/about"><About /></Route>
-            <Route path="/contact"><Contact /></Route>
-          </Switch>
           <div className="header-bottom"></div>
         </div>
-      </Router>
+        <div className="middle-about">
+          <center>
+            <h1> Our Team </h1>
+            <br></br>
+            <table>
+              <tbody>
+                <tr>
+                  <td><img src="" /></td>
+                  <td>Amandeep Singh</td>
+                </tr>
+                <tr>
+                  <td><img src="" /></td>
+                  <td>Andrew Gerena</td>
+                </tr>
+                <tr>
+                  <td><img src="../images/Kuntamukkala_Headshot.jpg" /></td>
+                  <td>Sunny Kuntamukkala</td>
+                </tr>
+                <tr>
+                  <td><img src="" /></td>
+                  <td>Sunny Raval</td>
+                </tr>
+              </tbody>
+            </table>
+          </center>
+        </div>
+        <div className="footer">
+        	<div className="footer-top"></div>
+        	<div className="footer-center"><p>&copy; SASA Inc. All Rights Reserved.</p></div>
+        	<div className="footer-bottom"></div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div>
+  	  <div className="header">
+  	    <div className="header-top"></div>
+        <center>
+          <div className="NavBar">
+            <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
+            <div className="Nav_Links">
+              <button className="active" onClick={onClickHome}>Home</button>
+            	<button className="about" onClick={onClickAbout}>About Us</button>
+            </div>
+          </div>
+        </center>
+        <div className="header-bottom"></div>
+      </div>
+
+      
       <div className="middle">
         <center>
           <h1>MyDay Planner</h1>
