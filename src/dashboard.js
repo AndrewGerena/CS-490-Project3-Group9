@@ -18,6 +18,9 @@ export function DashBoard(props) {
 
   const emailRef = useRef(null);
   emailRef.current = props.email;
+  
+  const firstName = props.name;
+  console.log(props.name); 
 
   function onClickProfile() {
     setProfile(true);
@@ -98,6 +101,9 @@ export function DashBoard(props) {
             </div>
             <div className="Comp_Render">
                 {test}
+            </div>
+            <div>
+              <h2>Hello {firstName}!</h2>
             </div>
             <div className="footer NewsPage_Footer">
       	        <div className="footer-top"></div>

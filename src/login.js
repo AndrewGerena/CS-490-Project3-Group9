@@ -18,7 +18,8 @@ export function Login(props) {
   const [isNewUser, setIsNewUser] = useState(false);
   const [isHome, setIsHome] = useState(false);
   const [userEmail, setUserEmail] = useState('');
-
+  const [firstName, setFirstName] = useState('');
+  
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
     // eslint-disable-next-line no-undef
@@ -36,6 +37,7 @@ export function Login(props) {
     const email = profile.getEmail();
     setIsLoggedIn(true);
     setUserEmail(email);
+    setFirstName(givenName); 
 
     socket.emit('login', {
       id,
@@ -97,7 +99,7 @@ export function Login(props) {
   if (isLoggedIn) {
     return (
       <div className="parent_div">
-        <DashBoard email={userEmail} />
+        <DashBoard email={userEmail} name={firstName} />
         <div className="logout_btn" onClick={onClickLogout}>
           <Logout /> 
         </div>
