@@ -135,28 +135,31 @@ export function News() {
   return (
     <div className="News_div">
       <h1 className="News_Sec_Name">News Section!</h1>
-      <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
-      <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
       <div className="News_Conditional_Wrapper">
         {NewsSearch ?(
           <div className="Searched_News_Div">
+            <h4 className="Searched_Topic">Current News Topic: {News_Topic} </h4>
+            <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
+            <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
             <h4 className="Searched_Topic">Current News Topic: {News_Topic} </h4>
             <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
           </div>
         ):
           <div className="Searched_News_Div">
             <h4 className="Searched_Topic">Current News Topic: {News_Topic} </h4>
+            <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
+            <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
             <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author= {Show_NewsAuthor}/>
           </div>
         }
       </div>
       <div className="Covid_div">
-        <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
-        <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
         <div className="Covid_Conditional_Wrapper">
           {CovidSearch ?(
             <div>
               <h2>Covid Statistics:</h2>
+              <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
+              <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
               <h4>{Country_Input}</h4>
               <div className="Covid_Search_Content">
                 <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
@@ -165,6 +168,8 @@ export function News() {
           ):
             <div>
               <h2>Covid Statistics:</h2>
+              <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
+              <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
               <h4>{Country_Input}</h4>
               <div className="Covid_Default_Content">
                 <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths= {DisplayCovidNewDeaths}  Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered}/>
@@ -180,3 +185,11 @@ export function News() {
 
 export default News;
 
+
+//       <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
+      // <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
+      
+      
+      
+        // <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
+        // <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>

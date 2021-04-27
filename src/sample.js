@@ -20,46 +20,56 @@ export function Sample(props) {
         </div>
         <div className="Horiz_line"></div>
         <div className="forecast">
-          <Tile
-            day={forecast[1][1]}
-            date={forecast[1][0]}
-            high={forecast[1][2]}
-            low={forecast[1][3]}
-            weather={forecast[1][4]}
-            icon={forecast[1][5]}
-          />
-          <Tile
-            day={forecast[2][1]}
-            date={forecast[2][0]}
-            high={forecast[2][2]}
-            low={forecast[2][3]}
-            weather={forecast[2][4]}
-            icon={forecast[2][5]}
-          />
-          <Tile
-            day={forecast[3][1]}
-            date={forecast[3][0]}
-            high={forecast[3][2]}
-            low={forecast[3][3]}
-            weather={forecast[3][4]}
-            icon={forecast[3][5]}
-          />
-          <Tile
-            day={forecast[4][1]}
-            date={forecast[4][0]}
-            high={forecast[4][2]}
-            low={forecast[4][3]}
-            weather={forecast[4][4]}
-            icon={forecast[4][5]}
-          />
-          <Tile
-            day={forecast[5][1]}
-            date={forecast[5][0]}
-            high={forecast[5][2]}
-            low={forecast[5][3]}
-            weather={forecast[5][4]}
-            icon={forecast[5][5]}
-          />
+          <div className ="day_1">
+            <Tile 
+              day={forecast[1][1]}
+              date={forecast[1][0]}
+              high={forecast[1][2]}
+              low={forecast[1][3]}
+              weather={forecast[1][4]}
+              icon={forecast[1][5]}
+            />
+          </div>
+          <div className ="day_2">
+            <Tile
+              day={forecast[2][1]}
+              date={forecast[2][0]}
+              high={forecast[2][2]}
+              low={forecast[2][3]}
+              weather={forecast[2][4]}
+              icon={forecast[2][5]}
+            />
+          </div>
+          <div className ="day_3">
+            <Tile
+              day={forecast[3][1]}
+              date={forecast[3][0]}
+              high={forecast[3][2]}
+              low={forecast[3][3]}
+              weather={forecast[3][4]}
+              icon={forecast[3][5]}
+            />
+          </div>
+          <div className ="day_4">
+            <Tile
+              day={forecast[4][1]}
+              date={forecast[4][0]}
+              high={forecast[4][2]}
+              low={forecast[4][3]}
+              weather={forecast[4][4]}
+              icon={forecast[4][5]}
+            />
+          </div>
+          <div className ="day_5">
+            <Tile
+              day={forecast[5][1]}
+              date={forecast[5][0]}
+              high={forecast[5][2]}
+              low={forecast[5][3]}
+              weather={forecast[5][4]}
+              icon={forecast[5][5]}
+            />
+          </div>
         </div>
         <br />
       </div>

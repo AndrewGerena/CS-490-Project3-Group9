@@ -20,6 +20,7 @@
   overflow:hidden;
   width: 700px;
   height: 250px;
+  border: 8px groove rgb(4, 102, 200);
 }
 
 .meta {
@@ -44,7 +45,8 @@
 
 .description {
   padding: 1rem;
-  background:radial-gradient(rgb(170, 170, 170), rgb(187, 187, 187),rgb(204, 204, 204),rgb(221, 221, 221),rgb(221, 221, 221));
+  /*background:radial-gradient(rgb(170, 170, 170), rgb(187, 187, 187),rgb(204, 204, 204),rgb(221, 221, 221),rgb(221, 221, 221));*/
+  background-color:rgb(255, 195, 0);
   position: relative;
   z-index: 1;
   width: 490px;
@@ -60,9 +62,9 @@
 .description h1 {
   line-height: 1;
   margin: 0;
-  font-size: 1.4rem;
-  color: rgb(246, 170, 28);
-  background-color: rgb(89, 89, 89);
+  font-size: 1.45rem;
+  /*color: rgb(246, 170, 28);*/
+  /*background-color: rgb(89, 89, 89);*/
 }
 .description h2 {
   font-size: 1.1rem;
@@ -74,10 +76,11 @@
 
 .description .read-more {
   text-align: right;
+  margin:5px;
 }
 
 .read-more a {
-  color: aqua;
+  color: black;
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
@@ -87,7 +90,7 @@
 .news_info_data {
   position: relative;
   margin: 1rem 0 0;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 /* Alternative card */
@@ -152,7 +155,7 @@
 
 .NewsCard_btn{
   position:absolute;
-  top: 200px;
+  top: 190px;
   left:50px;
   font-size: 20px;
   background-color:orange;
@@ -162,5 +165,5 @@
 
 .NewsCard_btn a{
   text-decoration: none;
-  color: white;
+  color: Black;
 }
