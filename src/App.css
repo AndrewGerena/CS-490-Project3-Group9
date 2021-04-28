@@ -296,6 +296,51 @@
   left:15%;
 }
 
+.Weather_Title{
+  position: absolute;
+  top: -2%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+  background-color:wheat;
+  border-bottom: 2px solid black;
+  
+}
+
+.Zipcode_Input{
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+.Zipcode_btn{
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+}
+
+
+
 .current{
   background: linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
   font-family:Ink Free;
@@ -476,12 +521,12 @@
 .Todo_Tasks{
   position:relative;
   top:10%;
-  color:  white;
   font-size: 20px;
   color: black;
   background-color:yellow;
-  
+  float:left;
 }
+
 
 /*Removing bullets and centering boxes*/
 

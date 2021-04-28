@@ -2,6 +2,7 @@ import React from 'react';
 import { Task } from './Task';
 
 
+
 export function TodoList({tasks, toggle}) {
     
     console.log(tasks);
@@ -9,7 +10,7 @@ export function TodoList({tasks, toggle}) {
     return (
         <div>
             {tasks.map((task) => {
-                return <Task key={task.id} task={task} toggle={toggle}/>;
+                return <Task key={task.id} task={task} toggle={toggle} className="TodoTasks"/>;
             })}
         </div>
         );

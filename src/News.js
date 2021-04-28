@@ -184,12 +184,3 @@ export function News() {
 }
 
 export default News;
-
-
-//       <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
-      // <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
-      
-      
-      
-        // <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
-        // <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>

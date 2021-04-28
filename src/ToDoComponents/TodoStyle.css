@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.Todo_Details_Wrapper{
+ background-color:yellow;   
+ width:400px;
+}
+
+.Todo_Details_Wrapper input{
+   float: left;
+   transform: scale(1.5);
+   margin-left:20px;
+   margin-top: 10px;
+   
+}
+
+.Todo_Details{
+    float:middle;
+    color: black;
+}
+

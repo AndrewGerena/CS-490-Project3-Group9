@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { TodoList } from './TodoList';
 
 
+
 const TODOLIST_STORAGE = 'todoApp.tasks';
 
 export function TodoPage() {
@@ -58,7 +59,7 @@ export function TodoPage() {
             <div className="Todo_Divider"></div>
             <div className="Right_Form_Wrapper">
                 <div className="Task_Comp"><span className="Task_Num">{tasks.filter(task => !task.complete).length}</span> : tasks to complete today!</div>
-                <div className="Todo_Tasks"><TodoList tasks={tasks} toggle={toggleTask}/></div> 
+                <div className="Todo_Tasks"><TodoList tasks={tasks} toggle={toggleTask}/></div>
                 <button className="eraseButton" onClick={eraseTasks}>Erase Completed Tasks</button>
             </div>
         </div>

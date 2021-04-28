@@ -8,6 +8,9 @@ export function Sample(props) {
   return (
     <div className="Weather_div">    
       <div className="Weather_Wrapper">
+        <h4 className="Weather_Title">Enter Zipcode:</h4>
+        <input className="Zipcode_Input" type="text" placeholder="Zipcode..."/>
+        <button className="Zipcode_btn" type="Submit" >Submit</button>
         <div className="current">
           <h2>{forecast[0][0]}</h2>
           <h3>
