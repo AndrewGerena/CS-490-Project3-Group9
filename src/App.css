@@ -14,6 +14,10 @@
 .header{
   background-color:black;
   margin-bottom:0px;
+  position: absolute;
+  top:0;
+  width: 100%;
+  
 }
 
 .header-bottom{
@@ -91,18 +95,20 @@
 .middle{
   position:absolute;
   width:100vw;
-  height:85vh;
+  height:100vh;
   background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-size: contain;
   z-index: -1;
+  overflow:hidden;
 }
 
 .middle h1{
-  position:absolute;
-  top:25%;
-  left:32%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align:center;
   font-size: 60px;
   border: 5px solid grey;
@@ -114,17 +120,19 @@
 }
 
 .middle h2{
-  position:absolute;
-  top:40%;
-  left:32%;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family:MV Boli;
   font-size: 30px;
 }
 
 .Main-Content{
-  position:absolute;
+  position: absolute;
   top: 50%;
-  left:35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background:linear-gradient(rgb(183, 9, 76), rgb(160, 26, 88), rgb(137, 43, 100), rgb(114, 60, 112), rgb(92, 77, 125), rgb(69, 94, 137), rgb(46, 111, 149), rgb(23, 128, 161), rgb(0, 145, 173));
   width:400px;
   margin:20px;
@@ -136,14 +144,17 @@
 /*This code us for dashboard buttons*/
 
 .dash_btn{
-  position:absolute;
-  top:17%;
-  left:18%;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: linear-gradient(rgb(0, 8, 20), rgb(0, 29, 61),rgb(0, 53, 102));
   height:100px;
   width: 1000px;
   border: 5px solid white;
-  
+  display:flex;
+  align-content:center;
+  justify-content:center;
 }
 
 .btn{
@@ -212,13 +223,15 @@
 
 /*Profile page styling*/
 .Profile_Div{
-  position:absolute;
-  top: 40%;
-  left:28%;
-  background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));*/
   width: 700px;
   height: 300px;
   border: 5px double white;
+   background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));
   
 }
 
@@ -283,26 +296,76 @@
   left:15%;
 }
 
+.Weather_Title{
+  position: absolute;
+  top: -2%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+  background-color:wheat;
+  border-bottom: 2px solid black;
+  
+}
+
+.Zipcode_Input{
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+.Zipcode_btn{
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+}
+
+
+
 .current{
   background: linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
   font-family:Ink Free;
   width:300px;
+  height:250px;
   color: yellow;
-  border: 5px solid grey;
+  border: 5px solid black;
   border-radius: 10px;
   position: absolute;
   top:15%;
   left:0%;
+  margin:10px;
+  
   
   
 }
 
 .Horiz_line{
     position: absolute;
-    border-left: 10px solid wheat;
+    /*border-left: 10px solid wheat;*/
     height: 370px;
-    top: 10%;
+    width:10px;
+    top: 5%;
     left: 55%;
+    background: linear-gradient(blue,gold,blue);
 
 }
 
@@ -324,16 +387,18 @@
   margin-top: 2.5px;
   margin-left: 40px;
   font-family:Ink Free;
-  font-size: 15px;
+  font-size: 20px;
   color:yellow;
 }
 
 .day_1, .day_2, .day_3, .day_4, .day_5{
-  border-right: 5px solid black;
+  border: 5px groove grey;
+  /*border-right: 5px solid black;*/
   padding: 0px 20px;
-  background-color: grey;
   margin: 10px;
-  border-left: 5px solid black;
+  /*border-left: 5px solid black;*/
+  /*background-color:grey;*/
+  background:linear-gradient(rgb(4, 102, 200),rgb(3, 83, 164),rgb(2, 62, 125),rgb(0, 40, 85));
 }
 
 .day_1:hover, .day_2:hover, .day_3:hover, .day_4:hover, .day_5:hover{
@@ -351,22 +416,25 @@
 
 .weather_icon{
   margin:10px;
-  height:150px;
-  width:150px;
-
+  height:200px;
+  width:200px;
 }
+
 .current img{
   border: 10px double black;
-  background-color:grey;
+  background:linear-gradient(rgb(242, 233, 228),rgb(201, 173, 167));
   border-radius: 20px;
+  height:150px;
+  width:150px;
 }
 
 
 /*TODO Page*/
 .TodoPage_div{
-  position:absolute;
-  top:35%;
-  left:18%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: wheat;
   width: 1000px;
   height:400px;
@@ -453,12 +521,15 @@
 .Todo_Tasks{
   position:relative;
   top:10%;
-  color:  white;
   font-size: 20px;
   color: black;
   background-color:yellow;
-  
+  float:left;
 }
+
+
+/*Removing bullets and centering boxes*/
+
 
 /*News Page Styling*/
 .News_div{
@@ -478,20 +549,18 @@
   
 }
 
-.News_Sec_Name{
-  position:absolute;
-  top: 5%;
-  left: 40%;
-  color:white;
-  text-decoration: underline;
-  z-index:3;
+/*.News_Sec_Name{*/
+/* background-color: red;*/
+/* color:aqua;*/
+/* z-index:2;*/
   
-}
+/*}*/
 
 .Form_Input{
-  position:absolute;
-  top: 35%;
-  left: 28%;
+  position: absolute;
+  top: 13%;
+  left: 49%;
+  transform: translate(-50%, -50%);
   width: 225px;
   height: 35px;
   background-color:silver;
@@ -504,9 +573,10 @@
 }
 
 .Form_Btn{
-  position:absolute;
-  top: 35%;
-  left: 43%;
+  position: absolute;
+  top: 13%;
+  left: 59%;
+  transform: translate(-50%, -50%);
   font-size: 15px;
   background-color:yellow;
   font-family:Apple Chancery;
@@ -520,9 +590,10 @@
 
 .News_Conditional_Wrapper{
   background:radial-gradient(rgb(198, 172, 143),rgb(234, 224, 213),rgb(34, 51, 59),rgb(10, 9, 8));
-  position:absolute;
-  top: 28%;
-  left:1%;
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
   width: 1135px;
   height: 600px;
   border: 8px groove grey;
@@ -539,18 +610,20 @@
 
 /*Covid section*/
 .Covid_div{
-  position:absolute;
-  top: 34%;
-  left: 77%;
+  position: absolute;
+  top: 60%;
+  left: 89%;
+  transform: translate(-50%, -50%);
   width: 320px;
   height: 460px;
-  background:radial-gradient(rgb(247, 178, 103), rgb(247, 157, 101),rgb(244, 132, 95),rgb(242, 112, 89),rgb(242, 92, 84));
-  border: 5px solid black;
+  /*background:radial-gradient(rgb(247, 178, 103), rgb(247, 157, 101),rgb(244, 132, 95),rgb(242, 112, 89),rgb(242, 92, 84));*/
+  border: 8px groove grey;
+  background-color:rgb(231, 236, 239);
 }
 
 .Form_Input_Covid{
   position:absolute;
-  top: 10%;
+  top: -20%;
   left: 10%;
   width: 225px;
   height: 35px;
@@ -566,7 +639,7 @@
 
 .Form_Btn_Covid{
   position:absolute;
-  top: 9.5%;
+  top: -21%;
   left: 70%;
   font-size: 15px;
   background-color:yellow;
@@ -593,15 +666,16 @@
 .Covid_Conditional_Wrapper h2{
   position: absolute;
   top:-100px;
-  left: 20px;
+  left: 30px;
 }
 
 .Covid_Conditional_Wrapper h4{
   position: absolute;
   top:10px;
-  left: 110px;
-  font-size: 20px;
+  left: 100px;
+  font-size: 30px;
   text-decoration:underline;
+  
 }
 
 .Covid_Search_Content{
