@@ -1,16 +1,27 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { socket } from './App.js';
 import Tile from './Tile';
 
 export function Sample(props) {
   const { forecast } = props;
+  const { email } = props;
+  const weather_Ref = useRef();
+  
+  function searchButton(){
+      if (weather_Ref.current.value !== '') {
+          var zipcode = weather_Ref.current.value;
+          socket.emit('search', { "zipcode": zipcode, "email": email });
+      }
+    }
+  
   return (
     <div className="Weather_div">    
       <div className="Weather_Wrapper">
         <h4 className="Weather_Title">Enter Zipcode:</h4>
-        <input className="Zipcode_Input" type="text" placeholder="Zipcode..."/>
-        <button className="Zipcode_btn" type="Submit" >Submit</button>
+        <input className="Zipcode_Input" ref={weather_Ref} type="text" placeholder="Zipcode..."/>
+        <button className="Zipcode_btn" onClick={searchButton} type="Submit" >Submit</button>
         <div className="current">
           <h2>{forecast[0][0]}</h2>
           <h3>
@@ -81,6 +92,7 @@ export function Sample(props) {
 }
 Sample.propTypes = {
   forecast: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default Sample;
