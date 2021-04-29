@@ -50,7 +50,7 @@ export function DashBoard(props) {
   if (profile) {
     test = <center><Profile email={props.email} /></center>;
   } else if (weather) {
-    test = <center><Sample forecast={forecast} /></center>;
+    test = <center><Sample forecast={forecast} email={props.email} /></center>;
   } else if (news) {
     test = <center><News email={props.email} /></center>;
   } else if (todo) {

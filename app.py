@@ -135,6 +135,18 @@ def on_forecast(data):
         )  # Default for now. Will update when we can fetch the zipcode.
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
+@SOCKETIO.on('search')
+def on_search(data):
+    '''Will fetch zipcode from DB and return local weather'''
+    zipcode = data["zipcode"]
+    if check_zip(zipcode):
+        data["weather"] = get_weather(zipcode)
+    else:
+        data["weather"] = get_weather(
+            "10001"
+        )
+    SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
+
 
 @SOCKETIO.on('Onload_News_Headlines')
 def onload_news_data(data):
