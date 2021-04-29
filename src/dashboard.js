@@ -1,8 +1,5 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
-// import {
-//  BrowserRouter as Router, Switch, Route, Link,
-// } from 'react-router-dom';
 import { socket } from './App';
 import { Sample } from './sample';
 import { News } from './News';
@@ -20,8 +17,18 @@ export function DashBoard(props) {
   emailRef.current = props.email;
   
   const firstName = props.name;
+  const profilePic = props.picURL;
   console.log(props.name); 
-
+  
+  var date = new Date();
+  var month, day, year, hour, min, sec; 
+  month = date.getMonth()+1;
+  day = date.getDate();
+  year = date.getFullYear();
+  hour = date.getHours();
+  min = date.getMinutes();
+  sec = date.getSeconds();
+    
   function onClickProfile() {
     setProfile(true);
     setWeather(false);
@@ -70,6 +77,18 @@ export function DashBoard(props) {
 
     });
   }, []);
+  var message = "";
+  if (!weather && !news && !todo && !profile) {
+    message = <div className="welcome-msg">
+                <center>
+                  <img src={profilePic} />
+                  <br></br>
+                  <h2>Hello {firstName}!</h2>
+                  <h2>Thursday, {month}/{day}/{year}</h2>
+                  <h2>{hour} {min} {sec}</h2>
+                </center>
+              </div>;
+  }
     
     return (
          <div>
@@ -94,9 +113,7 @@ export function DashBoard(props) {
                         </div>
                     </center>
             </div>
-            <div>
-              <h2>Hello name</h2>
-            </div>
+            {message}
             <div className="Comp_Render">
                 {test}
             </div>
@@ -106,7 +123,6 @@ export function DashBoard(props) {
       	        <div className="footer-bottom"></div>
             </div>
         </div>
-        
     );
 }
 

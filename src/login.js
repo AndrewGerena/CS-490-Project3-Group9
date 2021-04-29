@@ -21,6 +21,7 @@ export function Login(props) {
   //const [isHome, setIsHome] = useState(false);
   const [userEmail, setUserEmail] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [url, setUrl] = useState('');
   
   function onClickHome() {
     setAboutUs(false); 
@@ -48,6 +49,7 @@ export function Login(props) {
     setIsLoggedIn(true);
     setUserEmail(email);
     setFirstName(givenName); 
+    setUrl(imageURL);
 
     socket.emit('login', {
       id,
@@ -72,6 +74,8 @@ export function Login(props) {
     setIsNewUser(false);
     //setIsHome(false); // may not need this one
     setUserEmail(''); 
+    setFirstName('');
+    setUrl('');
     // we don't need to use useEffect here b/c we aren't transmitting this data to other clients
   }
 
@@ -92,7 +96,7 @@ export function Login(props) {
   if (isLoggedIn) {
     return (
       <div className="parent_div">
-        <DashBoard email={userEmail} name={firstName} />
+        <DashBoard email={userEmail} name={firstName} picURL={url}  />
         <div className="logout_btn" onClick={onClickLogout}>
           <Logout /> 
         </div>
