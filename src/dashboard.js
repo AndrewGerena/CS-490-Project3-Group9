@@ -52,7 +52,7 @@ export function DashBoard(props) {
   } else if (weather) {
     test = <center><Sample forecast={forecast} /></center>;
   } else if (news) {
-    test = <center><News /></center>;
+    test = <center><News email={props.email} /></center>;
   } else if (todo) {
     test = <center><TodoPage /></center>;
   }

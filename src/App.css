@@ -141,6 +141,23 @@
   border-radius: 20px;
 }
 
+/*Style Dashboard*/
+.Intro {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:0;
+}
+
+.Intro  h2{
+  color: White;
+  background-color:aqua;
+}
+
+
+
+
 /*This code us for dashboard buttons*/
 
 .dash_btn{
