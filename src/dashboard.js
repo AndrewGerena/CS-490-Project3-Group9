@@ -94,10 +94,12 @@ export function DashBoard(props) {
                         </div>
                     </center>
             </div>
+            <div>
+              <h2>Hello name</h2>
+            </div>
             <div className="Comp_Render">
                 {test}
             </div>
-
             <div className="footer NewsPage_Footer">
       	        <div className="footer-top"></div>
       	        <div className="footer-center NewsPage_FooterText"><p>&copy; SASA Inc. All Rights Reserved.</p></div>

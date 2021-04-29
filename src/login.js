@@ -99,6 +99,8 @@ export function Login(props) {
       </div>
     );
   }
+                //<a><button className="active" onClick={onClickHome}>Home</button></a>
+              	//<a><button className="about" onClick={onClickAbout}>About Us</button></a>
   
   if (aboutUs) {
     return (
@@ -109,8 +111,8 @@ export function Login(props) {
             <div className="NavBar">
               <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
               <div className="Nav_Links">
-                <button className="active" onClick={onClickHome}>Home</button>
-              	<button className="about" onClick={onClickAbout}>About Us</button>
+                <a className="home" onClick={onClickHome}>Home</a>
+              	<a className="active" onClick={onClickAbout}>About Us</a>
               </div>
             </div>
           </center>
@@ -159,8 +161,8 @@ export function Login(props) {
           <div className="NavBar">
             <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
             <div className="Nav_Links">
-              <button className="active" onClick={onClickHome}>Home</button>
-            	<button className="about" onClick={onClickAbout}>About Us</button>
+              <a className="active" onClick={onClickHome}>Home</a>
+            	<a className="about" onClick={onClickAbout}>About Us</a>
             </div>
           </div>
         </center>
