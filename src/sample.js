@@ -1,27 +1,27 @@
 import './App.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { socket } from './App.js';
+import { socket } from './App';
 import Tile from './Tile';
 
 export function Sample(props) {
   const { forecast } = props;
   const { email } = props;
-  const weather_Ref = useRef();
-  
-  function searchButton(){
-      if (weather_Ref.current.value !== '') {
-          var zipcode = weather_Ref.current.value;
-          socket.emit('search', { "zipcode": zipcode, "email": email });
-      }
+  const weatherRef = useRef();
+
+  function searchButton() {
+    if (weatherRef.current.value !== '') {
+      const zipcode = weatherRef.current.value;
+      socket.emit('search', { zipcode, email });
     }
-  
+  }
+
   return (
-    <div className="Weather_div">    
+    <div className="Weather_div">
       <div className="Weather_Wrapper">
         <h4 className="Weather_Title">Enter Zipcode:</h4>
-        <input className="Zipcode_Input" ref={weather_Ref} type="text" placeholder="Zipcode..."/>
-        <button className="Zipcode_btn" onClick={searchButton} type="Submit" >Submit</button>
+        <input className="Zipcode_Input" ref={weatherRef} type="text" placeholder="Zipcode..." />
+        <button className="Zipcode_btn" onClick={searchButton} type="submit">Search</button>
         <div className="current">
           <h2>{forecast[0][0]}</h2>
           <h3>
@@ -32,10 +32,10 @@ export function Sample(props) {
           <h3>{forecast[0][2]}</h3>
           <img src={forecast[0][3]} alt="weather" />
         </div>
-        <div className="Horiz_line"></div>
+        <div className="Horiz_line" />
         <div className="forecast">
-          <div className ="day_1">
-            <Tile 
+          <div className="day_1">
+            <Tile
               day={forecast[1][1]}
               date={forecast[1][0]}
               high={forecast[1][2]}
@@ -44,7 +44,7 @@ export function Sample(props) {
               icon={forecast[1][5]}
             />
           </div>
-          <div className ="day_2">
+          <div className="day_2">
             <Tile
               day={forecast[2][1]}
               date={forecast[2][0]}
@@ -54,7 +54,7 @@ export function Sample(props) {
               icon={forecast[2][5]}
             />
           </div>
-          <div className ="day_3">
+          <div className="day_3">
             <Tile
               day={forecast[3][1]}
               date={forecast[3][0]}
@@ -64,7 +64,7 @@ export function Sample(props) {
               icon={forecast[3][5]}
             />
           </div>
-          <div className ="day_4">
+          <div className="day_4">
             <Tile
               day={forecast[4][1]}
               date={forecast[4][0]}
@@ -74,7 +74,7 @@ export function Sample(props) {
               icon={forecast[4][5]}
             />
           </div>
-          <div className ="day_5">
+          <div className="day_5">
             <Tile
               day={forecast[5][1]}
               date={forecast[5][0]}
