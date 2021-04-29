@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { GoogleLogin } from 'react-google-login';
-/*import {
-  BrowserRouter as Router, Switch, Route, Link,
-} from 'react-router-dom';*/
 import { DashBoard } from './dashboard';
 import { Logout } from './logout'; 
 // import { refreshTokenSetup } from '../utils/refreshToken';
@@ -120,27 +117,22 @@ export function Login(props) {
           </center>
           <div className="header-bottom"></div>
         </div>
-        <div className="middle-about">
+        <div className="middle">
           <center>
             <h1> Our Team </h1>
-            <br></br>
             <table>
               <tbody>
                 <tr>
-                  <td><img src="" /></td>
-                  <td>Amandeep Singh</td>
+                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
+                  <td>Amandeep Singh<br></br>Add a description here of yourself eventually</td>
+                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
+                  <td>Andrew Gerena<br></br>Add a description here of yourself eventually</td>
                 </tr>
                 <tr>
-                  <td><img src="" /></td>
-                  <td>Andrew Gerena</td>
-                </tr>
-                <tr>
-                  <td><img src="../images/Kuntamukkala_Headshot.jpg" /></td>
-                  <td>Sunny Kuntamukkala</td>
-                </tr>
-                <tr>
-                  <td><img src="" /></td>
-                  <td>Sunny Raval</td>
+                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
+                  <td>Sunny Kuntamukkala<br></br>Add a description here of yourself eventually</td>
+                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
+                  <td>Sunny Raval<br></br>Add a description here of yourself eventually</td>
                 </tr>
               </tbody>
             </table>
@@ -189,6 +181,17 @@ export function Login(props) {
             />
           </div>
         </center>
+      <div className="landing-info">
+        <center>
+          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
+          <p>Keep track of your <br></br> daily todo lists</p>
+          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
+          <p>View your local weather <br></br> for the next 5 days on our UI</p>
+          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
+          <p>Read the latest news <br></br> headlines for topics that interest you</p>
+        </center>
+      </div>
       </div>
       <div className="footer">
       	<div className="footer-top"></div>

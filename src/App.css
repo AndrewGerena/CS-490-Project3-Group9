@@ -17,7 +17,6 @@
   position: absolute;
   top:0;
   width: 100%;
-  
 }
 
 .header-bottom{
@@ -129,7 +128,20 @@
   background-attachment:fixed;
   background-size: contain;
   z-index: -1;
-  overflow:hidden;
+  /*overflow:hidden;*/
+}
+
+.middle table{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align:center;
+}
+
+.middle img{
+  height: 100px;
+  width: 100px;
 }
 
 .middle h1{
@@ -166,7 +178,26 @@
   padding: 20px;
   border: 5px groove white;
   border-radius: 20px;
+  z-index: 1;
 }
+
+.landing-info{
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.landing-info p{
+  font-size: 30px;
+  font-family:MV Boli;
+  color: maroon;
+}
+.landing-info img{
+  height: 100px;
+  width: 100px;
+}
+
 
 .welcome-msg{
   position: absolute;
@@ -741,7 +772,12 @@ i{
 }
 
 .logout_btn {
-  float: right; 
+  position: absolute;
+  top: 7.5%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  /*float: right; 
   padding-right: 2.5em;
-  padding-top: 2.5em;
+  padding-top: 2.5em;*/
+  z-index: 2;
 }
