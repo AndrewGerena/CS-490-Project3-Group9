@@ -103,8 +103,6 @@ export function Login(props) {
       </div>
     );
   }
-                //<a><button className="active" onClick={onClickHome}>Home</button></a>
-              	//<a><button className="about" onClick={onClickAbout}>About Us</button></a>
   
   if (aboutUs) {
     return (
