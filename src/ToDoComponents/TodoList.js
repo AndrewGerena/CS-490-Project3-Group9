@@ -10,8 +10,8 @@ export function TodoList({tasks, toggle}) {
     return (
         <div>
             {tasks.map((task) => {
-                return <Task key={task.id} task={task} toggle={toggle} className="TodoTasks"/>;
+                return <Task task={task} toggle={toggle} className="TodoTasks"/>;
             })}
         </div>
         );
-}
+} //key={task.id}

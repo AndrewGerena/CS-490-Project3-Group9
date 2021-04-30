@@ -1,24 +1,44 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TodoList } from './TodoList';
+import io from "socket.io-client";
+import { socket } from '../App';
 
-
-
-const TODOLIST_STORAGE = 'todoApp.tasks';
-
-export function TodoPage() {
-    //{id: , name: , complete: }
+export function TodoPage(props) {
     const [tasks, setTasks] = useState([]);
     const taskNameRef = useRef();
+    const [checkedForTasks, setCheckedForTasks] = useState(false);
     
+    if (checkedForTasks === false) {
+    
+    // Get the current date.
+    var d = new Date();
+    var month = String(d.getMonth() + 1);
+    var date = String(d.getDate());
+    var fullYear = String(d.getFullYear());
+    var fullDate = month + date + fullYear;
+    
+    // Retrieve users tasks from today.
+    socket.emit('checkForTasks', { email: props.email, date: fullDate });
+    setCheckedForTasks(true);
+    }
+
     useEffect(() => {
-        const storedTasks = JSON.parse(localStorage.getItem(TODOLIST_STORAGE));
-        if(storedTasks) setTasks(storedTasks);
+        
+        socket.on('startTodoPage', (data) => {
+            setTasks(data["tasks"]);
+        });
+        
+        socket.on('taskAdded', (data) => {
+          var taskArray = data['todaysTasks'];
+          setTasks(taskArray);
+        });
+        
+        socket.on('refreshCurrentTasks', (data) => {
+          var taskArray = data['currentTasks'];
+          setTasks(taskArray);
+        });
     }, []);
-    
-    useEffect(() => {
-       localStorage.setItem(TODOLIST_STORAGE, JSON.stringify(tasks))
-    }, [tasks]);
     
     function toggleTask(id) {
         const newTasks = [...tasks];
@@ -27,24 +47,26 @@ export function TodoPage() {
         setTasks(newTasks);
     }
     
-    console.log("[...tasks]");
-    console.log([...tasks]);
-    console.log("tasks");
-    console.log(tasks);
-    
     function eraseTasks() {
-        const newTasks = [...tasks].filter(task => !task.complete)
-        setTasks(newTasks)
+        const newTasks = [...tasks].filter(task => !task.complete);
+        setTasks(newTasks);
     }
     
     function submitTask(e) {
         e.preventDefault();
         const name = taskNameRef.current.value;
         if (name === '') return;
-        setTasks(prevTasks => {
-            return [...prevTasks, {id: uuidv4(), name: name, complete: false}];
-        });
         taskNameRef.current.value = null;
+        
+        // Get the current date.
+        var d = new Date();
+        var month = String(d.getMonth() + 1);
+        var date = String(d.getDate());
+        var fullYear = String(d.getFullYear());
+        var fullDate = month + date + fullYear;
+        
+        // Add a task to today's current tasks.
+        socket.emit("addTask", { email: props.email, date: fullDate, task: name, completed: 0 });
     }
     
     return (

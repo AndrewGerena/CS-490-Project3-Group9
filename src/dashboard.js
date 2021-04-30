@@ -54,7 +54,7 @@ export function DashBoard(props) {
   } else if (news) {
     test = <center><News /></center>;
   } else if (todo) {
-    test = <center><TodoPage /></center>;
+    test = <center><TodoPage email={props.email} /></center>;
   }
 
   useEffect(() => {
@@ -64,7 +64,6 @@ export function DashBoard(props) {
       setForecast(data.weather);
       console.log(data.weather);
     }
-
     });
   }, []);
     

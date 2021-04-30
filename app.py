@@ -82,6 +82,54 @@ def user_login(data):
                   include_self=True)  ## changing include self to true here
 
 
+# Adds a current task to the user's database.
+@SOCKETIO.on('addTask')
+def add_task(data):
+    """A new task is added to the database."""
+    
+    # Creates a task entry in the database.
+    new_task = models.TaskList(email=data["email"],
+                               date=data["date"],
+                               task=data["task"],
+                               completed=data["completed"])
+    DB.session.add(new_task)
+    DB.session.commit()
+    
+    # Emit updated tasks to the client.
+    refreshCurrentTasks(data)
+
+
+def get_tasks_from_date(email, date):
+    """Return the dates tasks"""
+    
+    # Returns a list of all current day's tasks for the user.
+    dateTasks = DB.session.query(models.TaskList).filter_by(date=date, email=email).all()
+    return dateTasks
+
+
+@SOCKETIO.on('checkForTasks')
+def refreshCurrentTasks(data):
+    """Emit the current day's tasks to the client."""
+    
+    # Retrieve all of the user's current tasks.
+    currentTasks = get_tasks_from_date(data['email'], data['date'])
+    
+    # Places all of the user's current tasks into a list.
+    list_of_tasks = []
+    for item in currentTasks:
+        list_of_tasks.append({'email':item.email, 
+                              'date':item.date,
+                              'task':item.task, 
+                              'completed':item.completed})
+                              
+    # Emits the current list of user's tasks.                          
+    SOCKETIO.emit('refreshCurrentTasks', {
+        'currentTasks': list_of_tasks
+    },
+                  broadcast=False,
+                  include_self=True)
+
+
 def add_users(data):
     '''Adding new users to the DB'''
     user_add = models.Person(email=data["email"],
