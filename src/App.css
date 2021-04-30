@@ -183,7 +183,7 @@
 
 .landing-info{
   position: absolute;
-  top: 100%;
+  top: 300%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -194,8 +194,8 @@
   color: maroon;
 }
 .landing-info img{
-  height: 100px;
-  width: 100px;
+  height: 400px;
+  width: 600px;
 }
 
 

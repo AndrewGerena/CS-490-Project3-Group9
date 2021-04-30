@@ -184,12 +184,22 @@ export function Login(props) {
       <div className="landing-info">
         <center>
           <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
-          <p>Keep track of your <br></br> daily todo lists</p>
-          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
-          <p>View your local weather <br></br> for the next 5 days on our UI</p>
-          <img src="https://miro.medium.com/max/4000/0*bP0GbIkuUFhxhzoo"/>
-          <p>Read the latest news <br></br> headlines for topics that interest you</p>
+          <p>What is this about?</p>
+          <p>Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app.</p>
+          <br></br><br></br><br></br><br></br>
+          <p>With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
+          <p>Keep track of your daily todo lists and never miss a deadline!</p>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
+          <p>View your local weather for the next 5 days on our sleek interface!</p>
+          <br></br><br></br><br></br><br></br><br></br><br></br>
+          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
+          <p>Read the latest news headlines for topics that interest you at any time!</p>
+          <br></br><br></br><br></br><br></br>
+          <p>NEW FEATURE</p>
+          <p>You may now track the latest COVID-19 data specific to your country with our easy to use tracker. Just search for your country and receive data in seconds!</p>
         </center>
       </div>
       </div>
