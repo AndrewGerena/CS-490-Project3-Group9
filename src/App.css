@@ -17,7 +17,6 @@
   position: absolute;
   top:0;
   width: 100%;
-  
 }
 
 .header-bottom{
@@ -60,7 +59,18 @@
   letter-spacing: 5px;
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
+
+/*
+.Nav_Links button{
+  margin: 10px;
+  padding: 25px;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: white;
+}
+*/
 
 .footer-top{
   background-color:gold;
@@ -92,6 +102,23 @@
  width: 100%;
 }
 
+.middle-about{
+  position:absolute;
+  width:100vw;
+  height:85vh;
+  background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: contain;
+  z-index: -1;
+}
+
+.middle-about h1{
+  font-size: 60px;
+  font-family:Gabriola;
+  color:black;
+}
+
 .middle{
   position:absolute;
   width:100vw;
@@ -101,7 +128,20 @@
   background-attachment:fixed;
   background-size: contain;
   z-index: -1;
-  overflow:hidden;
+  /*overflow:hidden;*/
+}
+
+.middle table{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align:center;
+}
+
+.middle img{
+  height: 100px;
+  width: 100px;
 }
 
 .middle h1{
@@ -116,7 +156,6 @@
   font-family:Gabriola;
   background-color:rgb(255, 209, 0);
   color:black;
-  
 }
 
 .middle h2{
@@ -139,6 +178,14 @@
   padding: 20px;
   border: 5px groove white;
   border-radius: 20px;
+  z-index: 1;
+}
+
+.landing-info{
+  position: absolute;
+  top: 300%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /*Style Dashboard*/
@@ -158,6 +205,31 @@
 
 
 
+.landing-info p{
+  font-size: 30px;
+  font-family:MV Boli;
+  color: maroon;
+}
+.landing-info img{
+  height: 400px;
+  width: 600px;
+}
+
+
+.welcome-msg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.welcome-msg h2{
+  color: purple;
+  font-size: 40px;
+}
+.welcome-msg img{
+  width: 100px;
+  heigth: 100px;
+}
 /*This code us for dashboard buttons*/
 
 .dash_btn{
@@ -716,3 +788,13 @@ i{
   background-color:rgb(204, 204, 204);
 }
 
+.logout_btn {
+  position: absolute;
+  top: 7.5%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  /*float: right; 
+  padding-right: 2.5em;
+  padding-top: 2.5em;*/
+  z-index: 2;
+}
