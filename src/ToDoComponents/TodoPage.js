@@ -17,13 +17,6 @@ export function TodoPage(props) {
     
     if (checkedForTasks === false) {
     
-    // Get the current date.
-    //var d = new Date();
-    //var month = String(d.getMonth() + 1);
-    //var date = String(d.getDate());
-    //var fullYear = String(d.getFullYear());
-    //var fullDate = month + date + fullYear;
-    
     // Retrieve users tasks from today.
     socket.emit('checkForTasks', { email: props.email, date: fullDate });
     setCheckedForTasks(true);
@@ -50,13 +43,6 @@ export function TodoPage(props) {
         const name = taskNameRef.current.value;
         if (name === '') return;
         taskNameRef.current.value = null;
-        
-        // Get the current date.
-        //var d = new Date();
-        //var month = String(d.getMonth() + 1);
-        //var date = String(d.getDate());
-        //var fullYear = String(d.getFullYear());
-        //var fullDate = month + date + fullYear;
         
         // Add a task to today's current tasks.
         socket.emit("addTask", { email: props.email, date: fullDate, task: name, completed: 0 });

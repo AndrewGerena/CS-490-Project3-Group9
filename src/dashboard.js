@@ -8,6 +8,7 @@ import { Sample } from './sample';
 import { News } from './News';
 import { TodoPage } from './ToDoComponents/TodoPage';
 import { Profile } from './Profile';
+import findDate from './date';
 
 export function DashBoard(props) {
   const [weather, setWeather] = useState(false);
@@ -15,9 +16,11 @@ export function DashBoard(props) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
+  const [date, setDate] = useState(findDate()); // Returns the Date!
 
   const emailRef = useRef(null);
   emailRef.current = props.email;
+  console.log(date);
 
   function onClickProfile() {
     setProfile(true);
@@ -69,7 +72,7 @@ export function DashBoard(props) {
     
     return (
          <div>
-          	<div className="header NewsPage_Header">
+            <div className="header NewsPage_Header">
   	            <div className="header-top"></div>
   	            <div className="NavBar">
   	                <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
@@ -94,7 +97,7 @@ export function DashBoard(props) {
                             </ul>
                         </div>
                     </center>
-            </div>
+                </div>
             <div className="Comp_Render">
                 {test}
             </div>
