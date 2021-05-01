@@ -12,7 +12,24 @@ export function Sample(props) {
   function searchButton() {
     if (weatherRef.current.value !== '') {
       const zipcode = weatherRef.current.value;
-      socket.emit('search', { zipcode, email });
+      if (zipcode.length === 5) {
+        const str = zipcode;
+        let check = true;
+        for (let i = 0; i < str.length; i += 1) {
+          const string = '1234567890';
+          if (!string.includes(str[i])) {
+            check = false;
+            break;
+          }
+        }
+        if (check) {
+          socket.emit('search', { zipcode, email });
+        } else {
+          alert('Bad zipcode');
+        }
+      } else {
+        alert('Bad zipcode'); // eslint-disable-line no-undef
+      }
     }
   }
 
