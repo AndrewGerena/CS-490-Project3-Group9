@@ -133,13 +133,16 @@ def refreshCurrentTasks(data):
                   include_self=True)
                   
                   
-@SOCKETIO.on('eraseTask')
-def eraseTask(data): # data = {email, date, task}
-    # Returns the task we wish to delete.
-    taskToDelete = DB.session.query(models.TaskList).filter_by(date=data['date'], email=data['email'], task=data['task']).first()
+@SOCKETIO.on('eraseCompletedTasks')
+def eraseCompletedTasks(data): # data = {email, date}
+    # Returns a list of tasks we wish to delete.
+    tasksToDelete = DB.session.query(models.TaskList).filter_by(date=data['date'], email=data['email'], completed=1).all()
     
-    # Delete the selected task from the database.
-    DB.session.delete(taskToDelete)
+    # Delete every completed task.
+    for task in tasksToDelete:
+        DB.session.delete(task)
+    
+    # Commit the deletions of the database.
     DB.session.commit()
     
     # Emit updated tasks to the client.

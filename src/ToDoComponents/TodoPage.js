@@ -9,14 +9,20 @@ export function TodoPage(props) {
     const taskNameRef = useRef();
     const [checkedForTasks, setCheckedForTasks] = useState(false);
     
-    if (checkedForTasks === false) {
-    
-    // Get the current date.
     var d = new Date();
     var month = String(d.getMonth() + 1);
     var date = String(d.getDate());
     var fullYear = String(d.getFullYear());
     var fullDate = month + date + fullYear;
+    
+    if (checkedForTasks === false) {
+    
+    // Get the current date.
+    //var d = new Date();
+    //var month = String(d.getMonth() + 1);
+    //var date = String(d.getDate());
+    //var fullYear = String(d.getFullYear());
+    //var fullDate = month + date + fullYear;
     
     // Retrieve users tasks from today.
     socket.emit('checkForTasks', { email: props.email, date: fullDate });
@@ -35,9 +41,8 @@ export function TodoPage(props) {
         socket.emit('toggleComplete', { id:id, email:email, date:date });
     }
     
-    function eraseTasks() {
-        const newTasks = [...tasks].filter(task => !task.complete);
-        setTasks(newTasks);
+    function eraseTasks(email, date) {
+        socket.emit('eraseCompletedTasks', { email:email, date:date });
     }
     
     function submitTask(e) {
@@ -47,11 +52,11 @@ export function TodoPage(props) {
         taskNameRef.current.value = null;
         
         // Get the current date.
-        var d = new Date();
-        var month = String(d.getMonth() + 1);
-        var date = String(d.getDate());
-        var fullYear = String(d.getFullYear());
-        var fullDate = month + date + fullYear;
+        //var d = new Date();
+        //var month = String(d.getMonth() + 1);
+        //var date = String(d.getDate());
+        //var fullYear = String(d.getFullYear());
+        //var fullDate = month + date + fullYear;
         
         // Add a task to today's current tasks.
         socket.emit("addTask", { email: props.email, date: fullDate, task: name, completed: 0 });
@@ -68,9 +73,9 @@ export function TodoPage(props) {
             </div>
             <div className="Todo_Divider"></div>
             <div className="Right_Form_Wrapper">
-                <div className="Task_Comp"><span className="Task_Num">{tasks.filter(task => !task.complete).length}</span> : tasks to complete today!</div>
+                <div className="Task_Comp"><span className="Task_Num">{tasks.filter(task => !task.completed).length}</span> : tasks to complete today!</div>
                 <div className="Todo_Tasks"><TodoList tasks={tasks} toggle={toggleTask}/></div>
-                <button className="eraseButton" onClick={eraseTasks}>Erase Completed Tasks</button>
+                <button className="eraseButton" onClick={() => eraseTasks(props.email, fullDate)}>Erase Completed Tasks</button>
             </div>
         </div>
         );
