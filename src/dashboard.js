@@ -1,8 +1,5 @@
 import './App.css';
 import React, { useState, useEffect, useRef } from 'react';
-// import {
-//  BrowserRouter as Router, Switch, Route, Link,
-// } from 'react-router-dom';
 import { socket } from './App';
 import { Sample } from './sample';
 import { News } from './News';
@@ -16,12 +13,24 @@ export function DashBoard(props) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
-  const [date, setDate] = useState(findDate()); // Holds the Date!
+  const [theDate, setDate] = useState(findDate()); // Holds the Date!
 
   const emailRef = useRef(null);
   emailRef.current = props.email;
-  console.log(date);
-
+  
+  const firstName = props.name;
+  const profilePic = props.picURL;
+  console.log(props.name); 
+  
+  var date = new Date();
+  var month, day, year, hour, min, sec; 
+  month = date.getMonth()+1;
+  day = date.getDate();
+  year = date.getFullYear();
+  hour = date.getHours();
+  min = date.getMinutes();
+  sec = date.getSeconds();
+    
   function onClickProfile() {
     setProfile(true);
     setWeather(false);
@@ -53,7 +62,7 @@ export function DashBoard(props) {
   if (profile) {
     test = <center><Profile email={props.email} /></center>;
   } else if (weather) {
-    test = <center><Sample forecast={forecast} /></center>;
+    test = <center><Sample forecast={forecast} email={props.email} /></center>;
   } else if (news) {
     test = <center><News /></center>;
   } else if (todo) {
@@ -69,6 +78,18 @@ export function DashBoard(props) {
     }
     });
   }, []);
+  var message = "";
+  if (!weather && !news && !todo && !profile) {
+    message = <div className="welcome-msg">
+                <center>
+                  <img src={profilePic} />
+                  <br></br>
+                  <h2>Hello {firstName}!</h2>
+                  <h2>Thursday, {month}/{day}/{year}</h2>
+                  <h2>{hour} {min} {sec}</h2>
+                </center>
+              </div>;
+  }
     
     return (
          <div>
@@ -76,11 +97,6 @@ export function DashBoard(props) {
   	            <div className="header-top"></div>
   	            <div className="NavBar">
   	                <a className="Company_Logo"><img src='https://res.cloudinary.com/ddsomtotk/image/upload/v1618887646/57dd63e9c36d40e8aa369502ee886d0e_lmpcru.png' alt="Comp_logo"/></a>
-                    <div className="Nav_Links">
-            	        <a href="#home" className="active">Home</a>
-            	        <a href="#about">About Us</a>
-            	        <a href="#contact">Contact</a>
-                    </div>
                 </div>
                 <div className="header-bottom"></div>
                     <center>
@@ -97,7 +113,8 @@ export function DashBoard(props) {
                             </ul>
                         </div>
                     </center>
-                </div>
+            </div>
+            {message}
             <div className="Comp_Render">
                 {test}
             </div>
@@ -107,7 +124,6 @@ export function DashBoard(props) {
       	        <div className="footer-bottom"></div>
             </div>
         </div>
-        
     );
 }
 
