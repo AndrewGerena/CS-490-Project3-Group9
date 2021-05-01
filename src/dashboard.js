@@ -16,7 +16,7 @@ export function DashBoard(props) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
-  const [date, setDate] = useState(findDate()); // Returns the Date!
+  const [date, setDate] = useState(findDate()); // Holds the Date!
 
   const emailRef = useRef(null);
   emailRef.current = props.email;

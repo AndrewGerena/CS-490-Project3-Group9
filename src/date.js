@@ -33,5 +33,5 @@ export default function findDate() {
     months[11] = "December";
     month = months[month];
      
-    return  String(day + ", " + month + " " + date + " " + year)
+    return  String(day + ", " + month + " " + date + "  " + year)
 }
