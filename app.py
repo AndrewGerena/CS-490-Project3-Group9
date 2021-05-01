@@ -101,7 +101,7 @@ def add_task(data):
 
 def get_tasks_from_date(email, date):
     """Return the dates tasks"""
-    
+    print('I am in get tasks')
     # Returns a list of all current day's tasks for the user.
     dateTasks = DB.session.query(models.TaskList).filter_by(date=date, email=email).all()
     return dateTasks
@@ -110,17 +110,20 @@ def get_tasks_from_date(email, date):
 @SOCKETIO.on('checkForTasks')
 def refreshCurrentTasks(data):
     """Emit the current day's tasks to the client."""
-    
+    print("Im here!")
+    print(data)
     # Retrieve all of the user's current tasks.
     currentTasks = get_tasks_from_date(data['email'], data['date'])
-    
+    print("Do I reach this?")
     # Places all of the user's current tasks into a list.
     list_of_tasks = []
     for item in currentTasks:
         list_of_tasks.append({'email':item.email, 
                               'date':item.date,
                               'task':item.task, 
-                              'completed':item.completed})
+                              'completed':item.completed,
+                              'id':item.id
+        })
                               
     # Emits the current list of user's tasks.                          
     SOCKETIO.emit('refreshCurrentTasks', {
@@ -128,6 +131,36 @@ def refreshCurrentTasks(data):
     },
                   broadcast=False,
                   include_self=True)
+                  
+                  
+@SOCKETIO.on('eraseTask')
+def eraseTask(data): # data = {email, date, task}
+    # Returns the task we wish to delete.
+    taskToDelete = DB.session.query(models.TaskList).filter_by(date=data['date'], email=data['email'], task=data['task']).first()
+    
+    # Delete the selected task from the database.
+    DB.session.delete(taskToDelete)
+    DB.session.commit()
+    
+    # Emit updated tasks to the client.
+    refreshCurrentTasks(data)
+
+
+@SOCKETIO.on('toggleComplete')
+def completeTask(data):
+    taskToComplete = DB.session.query(models.TaskList).filter_by(id=data['id']).first()
+    print(taskToComplete)
+    print(taskToComplete.completed)
+    if taskToComplete.completed == 0:
+        taskToComplete.completed = 1
+    else:
+        taskToComplete.completed = 0
+    print(taskToComplete.completed)
+    DB.session.commit()
+    print('After the Commit')
+    print(data['email'])
+    print(data['date'])
+    refreshCurrentTasks(data)
 
 
 def add_users(data):

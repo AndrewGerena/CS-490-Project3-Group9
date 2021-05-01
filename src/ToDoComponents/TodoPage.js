@@ -24,27 +24,15 @@ export function TodoPage(props) {
     }
 
     useEffect(() => {
-        
-        socket.on('startTodoPage', (data) => {
-            setTasks(data["tasks"]);
-        });
-        
-        socket.on('taskAdded', (data) => {
-          var taskArray = data['todaysTasks'];
-          setTasks(taskArray);
-        });
-        
+        // Ensures current day's task list is displayed.
         socket.on('refreshCurrentTasks', (data) => {
           var taskArray = data['currentTasks'];
           setTasks(taskArray);
         });
     }, []);
     
-    function toggleTask(id) {
-        const newTasks = [...tasks];
-        const task = newTasks.find(task => task.id === id);
-        task.complete = !task.complete;
-        setTasks(newTasks);
+    function toggleTask(id, email, date) {
+        socket.emit('toggleComplete', { id:id, email:email, date:date });
     }
     
     function eraseTasks() {
@@ -86,7 +74,6 @@ export function TodoPage(props) {
             </div>
         </div>
         );
-    
 }
 
 export default TodoPage;
