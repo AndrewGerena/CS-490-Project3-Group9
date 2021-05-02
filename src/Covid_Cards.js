@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
+import React from "react";
+import { App } from "./App.js";
 // import './Covid_Cards.css';
 
-export function CovidCard(props) {
+export function Covid_Card(props) {
   return (
     <div className="Covid_Card" ><span><u>Results As Of:</u></span>&nbsp;
        <i className="Date">{props.Covid_Date}</i>
@@ -28,4 +28,4 @@ export function CovidCard(props) {
   );
 }
 
-export default CovidCard;
+export default Covid_Card;

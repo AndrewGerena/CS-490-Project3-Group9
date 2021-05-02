@@ -15,12 +15,25 @@ export function Profile(props) {
     // console.log(zipcode);
     // console.log(email);
     if (zipcode.length === 5) {
-      socket.emit('new_zip', {
-        zip: zipcode,
-        email,
-      });
+      const str = zipcode;
+      let check = true;
+      for (let i = 0; i < str.length; i += 1) {
+        const string = '1234567890';
+        if (!string.includes(str[i])) {
+          check = false;
+          break;
+        }
+      }
+      if (check) {
+        socket.emit('new_zip', {
+          zip: zipcode,
+          email,
+        });
+      } else {
+        alert('Bad zipcode');
+      }
     } else {
-      alert('Bad zipcode'); // eslint-disable-line no-undef
+      alert('Bad zipcode');
     }
   }
 
@@ -34,12 +47,12 @@ export function Profile(props) {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome to the Profile Page!</h1>
-      <div>
+    <div className="Profile_Div">
+      <h1 className="ProfileHeader">Welcome to the Profile Page!</h1>
+      <div className="Prof_Wrapper">
         <h3>Set your zipcode here</h3>
-        <input ref={inputRef} type="text" aria-label="zipcode-input" />
-        <button onClick={zipButton} type="submit">
+        <input ref={inputRef} type="text" aria-label="zipcode-input" className="Zip_input" />
+        <button onClick={zipButton} type="submit" className="Confirm_btn">
           Confirm
         </button>
       </div>

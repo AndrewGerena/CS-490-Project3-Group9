@@ -1,102 +1,171 @@
-.Link_Attch {
-  text-decoration: none;
-}
-.News-img {
-  width: 100%;
-  display: block;
-}
-
-.Title {
-  letter-spacing: 0.25;
-  text-transform: capitalize;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
+.Comp_Render{
+  width:100%;
+  height:120%;
+  background: url("https://resi.ze-robot.com/dl/4k/4k-desktop-wallpaper.-1920%C3%971200.jpg");
+  background-size: contain;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  overflow-x: hidden;
 }
 
-.News-date {
-  margin-bottom: 1.25rem;
-  color: silver;
-}
 
-.News_Article_Link{
+.blog-card {
+  position: absolute;
+  top:100px;
+  left:-70px;
+  transform:scale(.75);
   margin: 10px;
+  overflow:hidden;
+  width: 700px;
+  height: 250px;
+  border: 8px groove rgb(4, 102, 200);
 }
 
-.section-center {
-  /*background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-5IHnkY2CzgHJ2toYlDPtlOWMIDkXqBTk1w&usqp=CAU');*/
-  object-fit: contain;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+
+
+.meta {
+  position: relative;
+  z-index: 0;
+  height: 200px;
+  width: 700px;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+  height: 250px;
+  width: 250px;
+}
+
+.description {
+  padding: 1rem;
+  /*background:radial-gradient(rgb(170, 170, 170), rgb(187, 187, 187),rgb(204, 204, 204),rgb(221, 221, 221),rgb(221, 221, 221));*/
+  background-color:rgb(255, 195, 0);
+  position: relative;
+  z-index: 1;
+  width: 490px;
+  height:450px;
+  float: right;
+  overflow:hidden;
+}
+
+.description h1,
+.description h2 {
+  font-family: Poppins, sans-serif;
+}
+.description h1 {
+  line-height: 1;
+  margin: 0;
+  font-size: 1.45rem;
+  /*color: rgb(246, 170, 28);*/
+  /*background-color: rgb(89, 89, 89);*/
+}
+.description h2 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgb(216, 17, 89);
+  margin-top: 5px;
+}
+
+.description .read-more {
+  text-align: right;
+  margin:5px;
+}
+
+.read-more a {
+  color: black;
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  margin-left: -10px;
+}
+
+.news_info_data {
+  position: relative;
+  margin: 1rem 0 0;
+  font-size: 19px;
+}
+
+/* Alternative card */
+.alt{
+  position:absolute;
+  top:240px;
+  left:-70px;
+  margin-top: 90px;
+  overflow:hidden;
+}
+
+.alt .description {
+  float: left;
+  overflow:hidden;
+}
+
+.alt_photo {
+  position: absolute;
+  top: 0;
+  left: 450px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+  height: 200px;
+  width: 250px;
+}
+
+
+.card_1{
+  position: absolute;
+  top:100px;
+  left:480px;
+  transform:scale(.75);
+  overflow:hidden;
   
 }
 
-.News-card {
-  transition: all 0.3s linear;
-  background-color: hsl(211, 39%, 23%);
-  margin: 20px;
-  flex: 0 20%;
-  border: 4px solid black;
+.alt_1{
+  position:absolute;
+  top:300px;
+  left:480px;
+  margin-top: 30px;
+  transform:scale(.75);
+  overflow:hidden;
+  
 }
 
-.News-card:hover {
-  transform: scale(1.05);
-  border: 4px solid gold;
-  cursor: pointer;
+.alt_1 .description {
+  float: left;
 }
 
-.News-card:hover h4 {
-  text-decoration: underline;
-}
-
-.News-img-container:hover p {
-  opacity: 1;
-  transition: all 0.3s linear;
-  color: gold;
-}
-
-.News-img-container {
-  position: relative;
-}
-
-.News-img {
-  height: 15rem;
-  object-fit: cover;
-}
-
-.News-date {
+.alt_photo{
   position: absolute;
-  right: 0;
-  bottom: 0;
-  background-color: hsl(211, 39%, 23%);
-  margin-bottom: 0;
-  color: white;
-  text-transform: capitalize;
-  padding: 0.25rem 0.5rem;
-  opacity: 0.5;
+  top: 0;
+  left: 450px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.2s;
+  height: 250px;
+  width: 250px;
 }
 
-.News-info {
-  padding: 1.25rem 1.5rem;
-  color: gold;
+.NewsCard_btn{
+  position:absolute;
+  top: 190px;
+  left:50px;
+  font-size: 20px;
+  background-color:orange;
+  border: 3px solid black;
+  padding: 5px;
 }
 
-.News-footer {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  float:right;
-  align-items: center;
+.NewsCard_btn a{
+  text-decoration: none;
+  color: Black;
 }
-
-.News-footer p {
-  line-height: 0;
-  margin-bottom: 0;
-  text-transform: capitalize;
-  color: white;
-}
-
-
-
-
-
