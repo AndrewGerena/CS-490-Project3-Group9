@@ -28,6 +28,3 @@ class TaskList(DB.Model):
     
     def __repr__(self):
         return '<TaskList %r>' % self.email
-
-    
-    
