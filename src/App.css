@@ -234,9 +234,9 @@
   background-color: rgb(234, 224, 213);
   color:rgb(34, 51, 59);
   position: absolute;
-  top: 27.5%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -300%);
   border:10px groove grey;
   padding:5px;
 }
@@ -1312,4 +1312,88 @@ i{
   padding-top: 2.5em;*/
   z-index: 2;
 }
+
+/*About Section Styling*/
+
+.About_Wrapper{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:1400px;
+  height:400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.flip_card_1, .flip_card_2, .flip_card_3, .flip_card_4 {
+  background-color: transparent;
+  width: 275px;
+  height: 300px;
+  margin:20px 20px;
+  border: 10px groove rgb(255, 195, 0);
+  
+}
+
+.flip_card_inner_1, .flip_card_inner_2, .flip_card_inner_3, .flip_card_inner_4 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgb(255, 195, 0);
+}
+
+.flip_card_1:hover .flip_card_inner_1, .flip_card_2:hover .flip_card_inner_2, .flip_card_3:hover .flip_card_inner_3, .flip_card_4:hover .flip_card_inner_4{
+  transform: rotateY(180deg);
+}
+
+.flip_card_1_front, .flip_card_1_back, .flip_card_2_front, .flip_card_2_back, .flip_card_3_front, .flip_card_3_back, .flip_card_4_front, .flip_card_4_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip_card_1_front, .flip_card_2_front, .flip_card_3_front, .flip_card_4_front {
+  background-color: #bbb;
+  color: white;
+}
+
+.flip_card_1_front h1, .flip_card_2_front h1, .flip_card_3_front h1, .flip_card_4_front h1 {
+  color:rgb(255, 214, 10);
+  background-color:rgb(0, 53, 102);
+  /*text-decoration:underline;*/
+  margin:5px;
+  font-family:URW Chancery L, cursive;
+}
+
+.flip_card_1_back,.flip_card_2_back, .flip_card_3_back, .flip_card_4_back {
+  background-color:rgb(0, 53, 102) ;
+  color: gold;
+  transform: rotateY(180deg);
+}
+
+.flip_card_1_back h1,.flip_card_2_back h1, .flip_card_3_back h1, .flip_card_4_back h1{
+  text-decoration:underline;
+  
+}
+.Card_Back_Info, .Card_Back_Info, .Card_Back_Info, .Card_Back_Info{
+  color:white;
+  margin:5px;
+  margin-top:25px;
+  
+}
+
+.Img_card_1, .Img_card_2, .Img_card_3, .Img_card_4{
+  width:258px;
+  height:280px;
+  margin-bottom:15px;
+  object-fit:cover;
+}
+
 
