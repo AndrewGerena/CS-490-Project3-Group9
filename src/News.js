@@ -141,7 +141,6 @@ export function News(props) {
 
   return (
     <div className="News_div">
-      <h1 className="News_Sec_Name">News Section!</h1>
       <div className="News_Conditional_Wrapper">
         {NewsSearch ?(
           <div className="Searched_News_Div">

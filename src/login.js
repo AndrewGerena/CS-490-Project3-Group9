@@ -181,27 +181,55 @@ export function Login(props) {
             />
           </div>
         </center>
-      <div className="landing-info">
-        <center>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <p>What is this about?</p>
-          <p>Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app.</p>
-          <br></br><br></br><br></br><br></br>
-          <p>With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>Keep track of your daily todo lists and never miss a deadline!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>View your local weather for the next 5 days on our sleek interface!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>Read the latest news headlines for topics that interest you at any time!</p>
-          <br></br><br></br><br></br><br></br>
-          <p>NEW FEATURE</p>
-          <p>You may now track the latest COVID-19 data specific to your country with our easy to use tracker. Just search for your country and receive data in seconds!</p>
-        </center>
       </div>
+      <div className="landing-info">
+        <div className="content-divider_1"></div>
+        <img className="News_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946888/Newsimg_harljy.png"/>
+        <img className="Weather_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946882/WeatherImg_d05jmk.png"/>
+        <img className="Todo_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946885/Todolist_su8dg0.png"/>
+        <img className="Covid_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619825092/CovidUpdate_o2e0xm.gif"/>
+        
+        
+        <h1 className ="About_Title">What is this about?</h1>
+        <div className="Outer_Border_1"></div>
+        <div className="About_Wrapper">
+            <p className="About_Info">Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app. With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
+
+        </div>
+        
+        <div class="wrap">
+            <section class="feature-section">
+                <h2>functionalities</h2>
+                <div class="feature feature-item">
+                    <h3>Todo List</h3>
+                    <p>Keep track of your daily todo lists and never miss a deadline!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>Weather Information</h3>
+                    <p>View your local weather for the next 5 days on our sleek interface!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>News Headlines</h3>
+                    <p>Read the latest news headlines for topics that interest you at any time!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>Covid Stats Tracker</h3>
+                    <p>View latest COVID-19 stats for any country. Just search for a country!</p>
+                </div>
+            </section>
+          </div>
+          <img className="ToDoFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837807/TodoPage_pic_zlcczl.png"/>
+          <img className="WeatherFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837809/WeatherPage_pic_g65er1.png"/>
+          <img className="NewsFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837804/NewsPage_pic_nmkwmr.png"/>
+          <img className="ToDoArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/> 
+          <h2 className ="ToDoPic_Name">TODO SECTION</h2>
+          <img className="WeatherArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="WeatherPic_Name">WEATHER SECTION</h2>
+          <img className="NewsArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="NewsPic_Name">NEWS SECTION</h2>
+          <img className="CovidArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="CovidPic_Name">COVID SECTION</h2>
+      
       </div>
       <div className="footer">
       	<div className="footer-top"></div>

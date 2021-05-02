@@ -17,6 +17,7 @@
   position: absolute;
   top:0;
   width: 100%;
+  z-index:0;
 }
 
 .header-bottom{
@@ -62,7 +63,7 @@
   cursor: pointer;
 }
 
-/*
+
 .Nav_Links button{
   margin: 10px;
   padding: 25px;
@@ -70,7 +71,7 @@
   text-decoration: none;
   color: white;
 }
-*/
+
 
 .footer-top{
   background-color:gold;
@@ -88,6 +89,7 @@
 
 .footer-center p{
   text-align:center;
+  margin:0 auto;
 }
 
 .footer-bottom{
@@ -97,9 +99,10 @@
 }
 
 .footer{
- position: absolute;
+ position: fixed;
  bottom: 0;
  width: 100%;
+ 
 }
 
 .middle-about{
@@ -121,14 +124,15 @@
 
 .middle{
   position:absolute;
-  width:100vw;
-  height:100vh;
-  background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
+  width:100%;
+  height:100%;
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619830252/MyDayApp_iozgan.jpg');
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619843245/bgpic_lyau6r.jpg');
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-size: contain;
+  background-size: cover;
   z-index: -1;
-  /*overflow:hidden;*/
+  overflow:hidden;
 }
 
 .middle table{
@@ -170,7 +174,7 @@
 .Main-Content{
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 48.5%;
   transform: translate(-50%, -50%);
   background:linear-gradient(rgb(183, 9, 76), rgb(160, 26, 88), rgb(137, 43, 100), rgb(114, 60, 112), rgb(92, 77, 125), rgb(69, 94, 137), rgb(46, 111, 149), rgb(23, 128, 161), rgb(0, 145, 173));
   width:400px;
@@ -181,12 +185,519 @@
   z-index: 1;
 }
 
+/*Landing Page Scrolling Data*/
+
 .landing-info{
   position: absolute;
-  top: 300%;
+  top: 100%;
+  left: 0%;
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619831426/pic_y9ceav.jpg');
+  width:100%;
+  height:400%;
+  background-size: cover;
+  z-index:-1;
+}
+
+/*Content Dividers*/
+.content-divider_1{
+  height: 1rem;
+  background: linear-gradient(to left, rgb(255, 195, 0), rgb(0, 53, 102), rgb(255, 195, 0));
+  margin-bottom: 0;
+  z-index:2;
+}
+
+/*Styling "What is this about" landing page section*/
+
+.About_Wrapper{
+  position: absolute;
+  top: 12%;
+  left: 11%;
+  height:600px;
+  width:1200px;
+  z-index:2;
+  
+}
+
+.About_Title{
+  z-index:2;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family:Segoe Print ;
+  color: orange;
+  font-size:4rem;
+}
+
+.About_Wrapper .About_Info{
+  z-index:4;
+  background-color: rgb(234, 224, 213);
+  color:rgb(34, 51, 59);
+  position: absolute;
+  top: 27.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border:10px groove grey;
+  padding:5px;
+}
+
+
+
+.landing-info .Outer_Border_1{
+  position: absolute;
+  top: 17.5%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  height:600px;
+  width:630px;
+  background: gold;
+  animation: OutBord 1.5s linear infinite;
+  border: 5px solid black;
+}
+
+@keyframes OutBord {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(180deg);
+  }
+}
+
+
+.landing-info .News_Img{
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  transform: translate(-50%, -50%)  rotate(-20deg);
+  height:200px;
+  width:200px;
+}
+
+.landing-info .Covid_Img{
+  position: absolute;
+  top: 18%;
+  left: 15%;
+  transform: translate(-20%, -50%) rotate(-20deg);
+  height:200px;
+  width:200px;
+  background-color:pink;
+}
+
+.landing-info .Todo_Img{
+  position: absolute;
+  top: 11%;
+  left: 85%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  height:200px;
+  width:200px;
+  background-color:orange;
+}
+
+.landing-info .Weather_Img{
+  position: absolute;
+  top: 19%;
+  left: 85%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  height:200px;
+  width:200px;
+}
+
+
+
+
+/*App Features section styling */
+
+.wrap{
+  position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.feature-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(450px, 200px));
+  justify-content: center;
+  grid-gap: 15px;
+  justify-self: start;
+  padding: 40px 0;
+  background-color: orange;
+  height:800px;
+}
+
+
+.feature-section h2 {
+  font-size: 4rem;
+  margin: 0 20px;
+  text-align: center;
+  grid-column: 1 / -1;
+  color: #383544;
+  text-transform:uppercase;
+  text-decoration:underline;
+  font-family:Segoe Print;
+}
+.feature-section h3 {
+  text-decoration:underline;
+  font-family:Segoe Print;
+  font-size:30px;
+}
+        
+.feature {
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 15px 0.5px rgba(56, 53, 68, 0.1);
+  transition: box-shadow 0.3s;
+  position: relative;
+  width:400px;
+  margin: 25px;
+}
+
+/*Styling End of the landing page arrows and pics*/
+
+.ToDoFunc_Pic{
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+
+.WeatherFunc_Pic{
+  position: absolute;
+  top: 80%;
+  left: 75%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+.NewsFunc_Pic{
+  position: absolute;
+  top: 90%;
+  left: 35%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+
+.ToDoArrow_Pic{
+  position: absolute;
+  top: 72%;
+  left: 45.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(160deg); 
+}
+
+.ToDoPic_Name{
+  position: absolute;
+  top: 71%;
+  left: 56%;
+  transform: translate(-50%, -50%); 
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+
+.WeatherArrow_Pic{
+  position: absolute;
+  top: 80%;
+  left: 54.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(-20deg);
+  
+}
+.WeatherPic_Name{
+  position: absolute;
+  top: 82%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+.NewsArrow_Pic{
+  position: absolute;
+  top: 90%;
+  left: 14.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(35deg);
+}
+
+.NewsPic_Name{
+  position: absolute;
+  top: 87.5%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+.CovidArrow_Pic{
+  position: absolute;
+  top: 90%;
+  left: 56%;
+  transform: translate(-50%, -50%) scale(.4) rotate(190deg); 
+  
+}
+
+.CovidPic_Name{
+  position: absolute;
+  top: 91.5%;
+  left: 66.5%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+  
+}
+
+/*Dashboard landing page*/
+.Main_Welcome_Div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  background-color:rgb(0, 53, 102);;
+  width:600px;
+  height:280px;
+  border:5px solid gold;
+  border-radius:10px;
+}
+
+
+.Image_Wrapper{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position:absolute;
+  top:160px;
+  left:290px;
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  
+}
+
+.Image_Wrapper img{
+  height:190px;
+  min-width:190px;
+  margin-top:5px;
+  margin-left:5px;
+  object-fit: cover;
+  filter: contrast(160%);
+  border-radius: 50%;
+  border: 5px solid lime;
+}
+
+.glow:before, 
+.glow:after{
+  content: "";
+  position:absolute;
+  left:-2px;
+  top: -2px;
+  background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff, #ff0099, #099fff);
+  background-size:400%;
+  height:calc(100% + 5px);
+  width: calc(100% + 5px);
+  z-index:-1;
+  animation: change 10s linear infinite;
+  border-radius: 50%;
+
+}
+
+@keyframes change{
+  0%{
+     background-position: 0 0;
+  }
+  50%{
+    background-position: 400% 0;
+  }
+  100%{
+    background-position: 0 0;
+  }
+}
+
+.glow:after{
+  filter:blur(40px); 
+  opacity: .5;
+  border-radius: 50%;
+  
+}
+
+
+.DashHome_h1{
+  border-radius:10px;
+  text-align:center;
+  color:rgb(255, 195, 0);
+  margin-top:5px;
+  font-size:35px;
+  
+}
+
+
+.Fire_TL{
+  position: absolute;
+  top: 20%;
+  left:8%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_LB{
+  position: absolute;
+  top: 80%;
+  left:8%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_TR{
+  position: absolute;
+  top: 20%;
+  left:92%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_RB{
+  position: absolute;
+  top: 80%;
+  left:92%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+/*Dashboard Date Time Section*/
+.Time_Div{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-55%, 100%);
+  height:180px;
+  width:600px;
+  background-color: rgb(51, 65, 92);
+  border: 10px groove white;
+}
+
+.Colon_1{
+  position: absolute;
+  top: 30%;
+  left:35%;
+  transform: translate(-50%, -50%);
+  height:40px;
+  width:20px;
+  font-size:60px;
+  text-align:center;
+  margin-top:10px;
+}
+
+.Colon_2{
+  position: absolute;
+  top: 30%;
+  left:65%;
+  transform: translate(-50%, -50%);
+  height:40px;
+  width:20px;
+  font-size:60px;
+  text-align:center;
+  margin-top:10px;
+}
+
+
+.Hours{
+  position: absolute;
+  top: 50%;
+  left:20%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+  
+}
+.Mins{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+  
+}
+.Secs{
+  position: absolute;
+  top: 50%;
+  left:80%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+}
+
+.Hours p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Mins p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Secs p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Hours h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+.Mins h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+.Secs h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+
+
+.DashHome_h3{
+  border-radius:10px;
+  text-align:center;
+  color:rgb(255, 195, 0);
+  font-size:25px;
+  text-decoration:underline;
+}
+
 
 /*Style Dashboard*/
 .Intro {
@@ -201,8 +712,6 @@
   color: White;
   background-color:aqua;
 }
-
-
 
 
 .landing-info p{
@@ -259,7 +768,8 @@
 .prof-btn{  
   position: absolute;
   top:20px;
-  left: 11%;}
+  left: 11%;
+}
 .weath-btn{
   position: absolute;
   top:20px;
@@ -320,7 +830,9 @@
   width: 700px;
   height: 300px;
   border: 5px double white;
-   background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));
+  /*background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));*/
+  /*background: rgb(68, 65, 64);*/
+   background:linear-gradient(rgb(183, 105, 53), rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(38, 60, 65));
   
 }
 
@@ -332,6 +844,7 @@
   font-size: 40px;
   font-family:Comic Sans MS;
   text-align:center;
+  color:White;
 }
 
 .Prof_Wrapper{
@@ -511,7 +1024,8 @@
 
 .current img{
   border: 10px double black;
-  background:linear-gradient(rgb(242, 233, 228),rgb(201, 173, 167));
+  /*background:linear-gradient(rgb(242, 233, 228),rgb(201, 173, 167));*/
+  background-color:rgb(58, 110, 165);
   border-radius: 20px;
   height:150px;
   width:150px;
@@ -521,7 +1035,7 @@
 /*TODO Page*/
 .TodoPage_div{
   position: absolute;
-  top: 60%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: wheat;
@@ -798,3 +1312,4 @@ i{
   padding-top: 2.5em;*/
   z-index: 2;
 }
+
