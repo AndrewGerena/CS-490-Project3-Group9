@@ -82,6 +82,93 @@ def user_login(data):
                   include_self=True)  ## changing include self to true here
 
 
+# Adds a current task to the user's database.
+@SOCKETIO.on('addTask')
+def add_task(data):
+    """A new task is added to the database."""
+
+    # Creates a task entry in the database.
+    new_task = models.TaskList(email=data["email"],
+                               date=data["date"],
+                               task=data["task"],
+                               completed=data["completed"])
+    DB.session.add(new_task)
+    DB.session.commit()
+
+    # Emit updated tasks to the client.
+    refresh_current_tasks(data)
+
+
+def get_tasks_from_date(email, date):
+    """Return the dates tasks"""
+    print('I am in get tasks')
+    # Returns a list of all current day's tasks for the user.
+    date_tasks = DB.session.query(models.TaskList).filter_by(
+        date=date, email=email).all()
+    return date_tasks
+
+
+@SOCKETIO.on('checkForTasks')
+def refresh_current_tasks(data):
+    """Emit the current day's tasks to the client."""
+    print("Im here!")
+    print(data)
+    # Retrieve all of the user's current tasks.
+    current_tasks = get_tasks_from_date(data['email'], data['date'])
+    print("Do I reach this?")
+    # Places all of the user's current tasks into a list.
+    list_of_tasks = []
+    for item in current_tasks:
+        list_of_tasks.append({
+            'email': item.email,
+            'date': item.date,
+            'task': item.task,
+            'completed': item.completed,
+            'id': item.id
+        })
+
+    # Emits the current list of user's tasks.
+    SOCKETIO.emit('refreshCurrentTasks', {'currentTasks': list_of_tasks},
+                  broadcast=False,
+                  include_self=True)
+
+
+@SOCKETIO.on('eraseCompletedTasks')
+def erase_completed_tasks(data):  # data = {email, date}
+    '''Returns a list of tasks we wish to delete.'''
+    tasks_to_delete = DB.session.query(models.TaskList).filter_by(
+        date=data['date'], email=data['email'], completed=1).all()
+
+    # Delete every completed task.
+    for task in tasks_to_delete:
+        DB.session.delete(task)
+
+    # Commit the deletions of the database.
+    DB.session.commit()
+
+    # Emit updated tasks to the client.
+    refresh_current_tasks(data)
+
+
+@SOCKETIO.on('toggleComplete')
+def complete_task(data):
+    '''Marks a task as complete'''
+    task_to_complete = DB.session.query(
+        models.TaskList).filter_by(id=data['id']).first()
+    print(task_to_complete)
+    print(task_to_complete.completed)
+    if task_to_complete.completed == 0:
+        task_to_complete.completed = 1
+    else:
+        task_to_complete.completed = 0
+    print(task_to_complete.completed)
+    DB.session.commit()
+    print('After the Commit')
+    print(data['email'])
+    print(data['date'])
+    refresh_current_tasks(data)
+
+
 def add_users(data):
     '''Adding new users to the DB'''
     user_add = models.Person(email=data["email"],
@@ -135,6 +222,7 @@ def on_forecast(data):
         )  # Default for now. Will update when we can fetch the zipcode.
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
+
 @SOCKETIO.on('search')
 def on_search(data):
     '''Will fetch zipcode from DB and return local weather'''
@@ -142,9 +230,7 @@ def on_search(data):
     if check_zip(zipcode):
         data["weather"] = get_weather(zipcode)
     else:
-        data["weather"] = get_weather(
-            "10001"
-        )
+        data["weather"] = get_weather("10001")
     SOCKETIO.emit('forecast', data, broadcast=False, include_self=True)
 
 

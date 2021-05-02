@@ -1,50 +1,51 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TodoList } from './TodoList';
+import io from "socket.io-client";
+import { socket } from '../App';
 
-
-
-const TODOLIST_STORAGE = 'todoApp.tasks';
-
-export function TodoPage() {
-    //{id: , name: , complete: }
+export function TodoPage(props) {
     const [tasks, setTasks] = useState([]);
     const taskNameRef = useRef();
+    const [checkedForTasks, setCheckedForTasks] = useState(false);
     
+    var d = new Date();
+    var month = String(d.getMonth() + 1);
+    var date = String(d.getDate());
+    var fullYear = String(d.getFullYear());
+    var fullDate = month + date + fullYear;
+    
+    if (checkedForTasks === false) {
+    
+    // Retrieve users tasks from today.
+    socket.emit('checkForTasks', { email: props.email, date: fullDate });
+    setCheckedForTasks(true);
+    }
+
     useEffect(() => {
-        const storedTasks = JSON.parse(localStorage.getItem(TODOLIST_STORAGE));
-        if(storedTasks) setTasks(storedTasks);
+        // Ensures current day's task list is displayed.
+        socket.on('refreshCurrentTasks', (data) => {
+          var taskArray = data['currentTasks'];
+          setTasks(taskArray);
+        });
     }, []);
     
-    useEffect(() => {
-       localStorage.setItem(TODOLIST_STORAGE, JSON.stringify(tasks))
-    }, [tasks]);
-    
-    function toggleTask(id) {
-        const newTasks = [...tasks];
-        const task = newTasks.find(task => task.id === id);
-        task.complete = !task.complete;
-        setTasks(newTasks);
+    function toggleTask(id, email, date) {
+        socket.emit('toggleComplete', { id:id, email:email, date:date });
     }
     
-    console.log("[...tasks]");
-    console.log([...tasks]);
-    console.log("tasks");
-    console.log(tasks);
-    
-    function eraseTasks() {
-        const newTasks = [...tasks].filter(task => !task.complete)
-        setTasks(newTasks)
+    function eraseTasks(email, date) {
+        socket.emit('eraseCompletedTasks', { email:email, date:date });
     }
     
     function submitTask(e) {
         e.preventDefault();
         const name = taskNameRef.current.value;
         if (name === '') return;
-        setTasks(prevTasks => {
-            return [...prevTasks, {id: uuidv4(), name: name, complete: false}];
-        });
         taskNameRef.current.value = null;
+        
+        // Add a task to today's current tasks.
+        socket.emit("addTask", { email: props.email, date: fullDate, task: name, completed: 0 });
     }
     
     return (
@@ -58,13 +59,12 @@ export function TodoPage() {
             </div>
             <div className="Todo_Divider"></div>
             <div className="Right_Form_Wrapper">
-                <div className="Task_Comp"><span className="Task_Num">{tasks.filter(task => !task.complete).length}</span> : tasks to complete today!</div>
+                <div className="Task_Comp"><span className="Task_Num">{tasks.filter(task => !task.completed).length}</span> : tasks to complete today!</div>
                 <div className="Todo_Tasks"><TodoList tasks={tasks} toggle={toggleTask}/></div>
-                <button className="eraseButton" onClick={eraseTasks}>Erase Completed Tasks</button>
+                <button className="eraseButton" onClick={() => eraseTasks(props.email, fullDate)}>Erase Completed Tasks</button>
             </div>
         </div>
         );
-    
 }
 
 export default TodoPage;
