@@ -4,6 +4,7 @@
   box-sizing:border-box;
 }
 
+
 .header-top{
   background-color:gold;
   z-index:1;
@@ -100,7 +101,7 @@
 
 .footer{
  position: fixed;
- bottom: 0;
+ bottom: 0%;
  width: 100%;
  
 }
@@ -1044,6 +1045,19 @@
   border: 10px groove grey;
 }
 
+.TodoPage_div_back{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(79, 93, 117);
+  /*background: linear-gradient(rgb(183, 105, 53),rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(20, 54, 66));*/
+  width: 1000px;
+  height:500px;
+  border: 10px groove grey;
+  
+}
+
 .Left_Form_Wrapper{
   position:absolute;
   top:20%;
@@ -1113,7 +1127,7 @@
 .eraseButton{
   position: absolute;
   top: 20%;
-  left: 35%;
+  left: 12%;
   width:150px;
   height:35px;
   border-radius: 10px;
@@ -1129,6 +1143,184 @@
   background-color:yellow;
   float:left;
 }
+
+.PastTodoTask_Back{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+  float:left;
+  width:600px;
+}
+
+.SearchPastTask_Frontbtn{
+  position: absolute;
+  top: 20%;
+  left: 52%;
+  width:150px;
+  height:35px;
+  border-radius: 10px;
+  color:white;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+  
+}
+
+.SearchPastTask_Backbtn{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:200px;
+  font-size:20px;
+  background-color: gold;
+  border:5px solid silver;
+  
+}
+
+
+.Search_Select_Wrapper{
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:800px;
+  height:170px;
+  border:10px solid rgb(51, 53, 51);
+  border-radius:20%;
+  background: linear-gradient(rgb(183, 105, 53),rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(20, 54, 66));
+  background-color: rgb(27, 59, 111);
+  color:rgb(39, 62, 71);
+  
+}
+
+.PastTodoPic_1{
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  height:75px;
+  width:75px;
+  background-color:orange;
+  border-radius:10px;
+  
+}
+
+.PastTodoPic_2{
+  position: absolute;
+  top: 50%;
+  left: 93%;
+  transform: translate(-50%, -50%);
+  height:75px;
+  width:75px;
+  background-color:orange;
+  border-radius:10px;
+}
+
+.PastTask_Title{
+  text-align:center;
+  font-size:30px;
+  color:rgb(255, 255, 61);
+  text-transform:uppercase;
+  
+}
+
+
+.PastTask_Month{
+  position: absolute;
+  top: 50%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Day{
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Year{
+  position: absolute;
+  top: 50%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Month_Inp{
+  position: absolute;
+  top: 53%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.PastTask_Day_Inp{
+  position: absolute;
+  top: 53%;
+  left: 53.2%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.PastTask_Year_Inp{
+  position: absolute;
+  top: 53%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.ToDoPast_Sub_btn{
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:200px;
+  font-size:20px;
+  background-color: gold;
+  border:5px solid silver;
+}
+
+
+.NoPastTask{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+}
+
+
+
+
+
 
 
 /*Removing bullets and centering boxes*/
@@ -1317,7 +1509,20 @@ i{
 
 .About_Wrapper{
   position: absolute;
-  top: 60%;
+  top: 64.5%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  width:1200px;
+  height:400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.AboutUsPage_div{
+  position: absolute;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width:1400px;
@@ -1326,6 +1531,7 @@ i{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  
 }
 
 .flip_card_1, .flip_card_2, .flip_card_3, .flip_card_4 {

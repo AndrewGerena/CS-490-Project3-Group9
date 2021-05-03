@@ -9,7 +9,7 @@ export function PastTodoList({tasks}) {
         console.log("Array is empty!") 
         return (
             <div>
-                <h4>"There are no past tasks from this day!"</h4>
+                <h4 className = "NoPastTask">"There are no past tasks from this day!"</h4>
             </div>
             );
     }
@@ -17,7 +17,7 @@ export function PastTodoList({tasks}) {
     return (
         <div>
             {tasks.map((task) => {
-                return <PastTask key={task.id} task={task} className="TodoTasks"/>;
+                return <PastTask key={task.id} task={task} className="PastTodoTasks"/>;
             })}
         </div>
         );
