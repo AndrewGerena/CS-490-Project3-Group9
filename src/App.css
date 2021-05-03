@@ -1,38 +1,1605 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.header-top{
+  background-color:gold;
+  z-index:1;
+  height:6px;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+  background-color:black;
+  margin-bottom:0px;
+  position: absolute;
+  top:0;
+  width: 100%;
+  z-index:0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header-bottom{
+  height:6px;
+  background-color:gold;
+  z-index:1;
+}
+
+.NavBar{
+  overflow: hidden;
+  padding: 20px 10px;
+}
+
+.Company_Logo{
+  float: left;
+  font-weight: bold; 
+  width:250px;
+}
+
+.Company_Logo img{
+  transform:scale(1.2);
+  margin-left:40px;
+}
+
+.Nav_Links a.active {
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+  padding:20px;
+}
+.Nav_Links{
+  float:right;
+  margin: 15px;
+  
+}
+
+.Nav_Links a{
+  margin: 10px;
+  padding: 25px;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+.Nav_Links button{
+  margin: 10px;
+  padding: 25px;
+  letter-spacing: 5px;
+  text-decoration: none;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.footer-top{
+  background-color:gold;
+  z-index:1;
+  height:6px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.footer-center{
+  color:red;
+  height:30px;
+  background:black;
+  padding:7px;
+}
+
+.footer-center p{
+  text-align:center;
+  margin:0 auto;
+}
+
+.footer-bottom{
+  height:6px;
+  background-color:gold;
+  z-index:1;
+}
+
+.footer{
+ position: fixed;
+ bottom: 0%;
+ width: 100%;
+ 
+}
+
+.middle-about{
+  position:absolute;
+  width:100vw;
+  height:85vh;
+  background:url('https://colibriwp.com/blog/wp-content/uploads/2019/08/watercolor2.png');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: contain;
+  z-index: -1;
+}
+
+.middle-about h1{
+  font-size: 60px;
+  font-family:Gabriola;
+  color:black;
+}
+
+.middle{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619830252/MyDayApp_iozgan.jpg');
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619843245/bgpic_lyau6r.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size: cover;
+  z-index: -1;
+  overflow:hidden;
+}
+
+.middle table{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align:center;
+}
+
+.middle img{
+  height: 100px;
+  width: 100px;
+}
+
+.middle h1{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align:center;
+  font-size: 60px;
+  border: 5px solid grey;
+  width: 500px;
+  font-family:Gabriola;
+  background-color:rgb(255, 209, 0);
+  color:black;
+}
+
+.middle h2{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family:MV Boli;
+  font-size: 30px;
+}
+
+.Main-Content{
+  position: absolute;
+  top: 50%;
+  left: 48.5%;
+  transform: translate(-50%, -50%);
+  background:linear-gradient(rgb(183, 9, 76), rgb(160, 26, 88), rgb(137, 43, 100), rgb(114, 60, 112), rgb(92, 77, 125), rgb(69, 94, 137), rgb(46, 111, 149), rgb(23, 128, 161), rgb(0, 145, 173));
+  width:400px;
+  margin:20px;
+  padding: 20px;
+  border: 5px groove white;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/*Landing Page Scrolling Data*/
+
+.landing-info{
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  background:url('https://res.cloudinary.com/ddsomtotk/image/upload/v1619831426/pic_y9ceav.jpg');
+  width:100%;
+  height:400%;
+  background-size: cover;
+  z-index:-1;
+}
+
+/*Content Dividers*/
+.content-divider_1{
+  height: 1rem;
+  background: linear-gradient(to left, rgb(255, 195, 0), rgb(0, 53, 102), rgb(255, 195, 0));
+  margin-bottom: 0;
+  z-index:2;
+}
+
+/*Styling "What is this about" landing page section*/
+
+.About_Wrapper{
+  position: absolute;
+  top: 12%;
+  left: 11%;
+  height:600px;
+  width:1200px;
+  z-index:2;
+  
+}
+
+.About_Title{
+  z-index:2;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family:Segoe Print ;
+  color: orange;
+  font-size:4rem;
+}
+
+.About_Wrapper .About_Info{
+  z-index:4;
+  background-color: rgb(234, 224, 213);
+  color:rgb(34, 51, 59);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+  border:10px groove grey;
+  padding:5px;
+}
+
+
+
+.landing-info .Outer_Border_1{
+  position: absolute;
+  top: 17.5%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  height:600px;
+  width:630px;
+  background: gold;
+  animation: OutBord 1.5s linear infinite;
+  border: 5px solid black;
+}
+
+@keyframes OutBord {
+  0% {
+    filter: hue-rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    filter: hue-rotate(180deg);
   }
 }
+
+
+.landing-info .News_Img{
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  transform: translate(-50%, -50%)  rotate(-20deg);
+  height:200px;
+  width:200px;
+}
+
+.landing-info .Covid_Img{
+  position: absolute;
+  top: 18%;
+  left: 15%;
+  transform: translate(-20%, -50%) rotate(-20deg);
+  height:200px;
+  width:200px;
+  background-color:pink;
+}
+
+.landing-info .Todo_Img{
+  position: absolute;
+  top: 11%;
+  left: 85%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  height:200px;
+  width:200px;
+  background-color:orange;
+}
+
+.landing-info .Weather_Img{
+  position: absolute;
+  top: 19%;
+  left: 85%;
+  transform: translate(-50%, -50%) rotate(20deg);
+  height:200px;
+  width:200px;
+}
+
+
+
+
+/*App Features section styling */
+
+.wrap{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.feature-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(450px, 200px));
+  justify-content: center;
+  grid-gap: 15px;
+  justify-self: start;
+  padding: 40px 0;
+  background-color: orange;
+  height:800px;
+}
+
+
+.feature-section h2 {
+  font-size: 4rem;
+  margin: 0 20px;
+  text-align: center;
+  grid-column: 1 / -1;
+  color: #383544;
+  text-transform:uppercase;
+  text-decoration:underline;
+  font-family:Segoe Print;
+}
+.feature-section h3 {
+  text-decoration:underline;
+  font-family:Segoe Print;
+  font-size:30px;
+}
+        
+.feature {
+  background-color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 15px 0.5px rgba(56, 53, 68, 0.1);
+  transition: box-shadow 0.3s;
+  position: relative;
+  width:400px;
+  margin: 25px;
+}
+
+/*Styling End of the landing page arrows and pics*/
+
+.ToDoFunc_Pic{
+  position: absolute;
+  top: 75%;
+  left: 25%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+
+.WeatherFunc_Pic{
+  position: absolute;
+  top: 80%;
+  left: 75%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+.NewsFunc_Pic{
+  position: absolute;
+  top: 90%;
+  left: 35%;
+  transform: translate(-50%, -50%) scale(.8);
+  border: 8px groove gold;
+}
+
+
+.ToDoArrow_Pic{
+  position: absolute;
+  top: 72%;
+  left: 45.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(160deg); 
+}
+
+.ToDoPic_Name{
+  position: absolute;
+  top: 71%;
+  left: 56%;
+  transform: translate(-50%, -50%); 
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+
+.WeatherArrow_Pic{
+  position: absolute;
+  top: 80%;
+  left: 54.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(-20deg);
+  
+}
+.WeatherPic_Name{
+  position: absolute;
+  top: 82%;
+  left: 43%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+.NewsArrow_Pic{
+  position: absolute;
+  top: 90%;
+  left: 14.5%;
+  transform: translate(-50%, -50%) scale(.4) rotate(35deg);
+}
+
+.NewsPic_Name{
+  position: absolute;
+  top: 87.5%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+}
+
+.CovidArrow_Pic{
+  position: absolute;
+  top: 90%;
+  left: 56%;
+  transform: translate(-50%, -50%) scale(.4) rotate(190deg); 
+  
+}
+
+.CovidPic_Name{
+  position: absolute;
+  top: 91.5%;
+  left: 66.5%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 209, 0);
+  background-color: rgb(51, 53, 51);
+  text-decoration:underline;
+  
+  
+}
+
+/*Dashboard landing page*/
+.Main_Welcome_Div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  background-color:rgb(0, 53, 102);;
+  width:600px;
+  height:280px;
+  border:5px solid gold;
+  border-radius:10px;
+}
+
+
+.Image_Wrapper{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position:absolute;
+  top:160px;
+  left:290px;
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  
+}
+
+.Image_Wrapper img{
+  height:190px;
+  min-width:190px;
+  margin-top:5px;
+  margin-left:5px;
+  object-fit: cover;
+  filter: contrast(160%);
+  border-radius: 50%;
+  border: 5px solid lime;
+}
+
+.glow:before, 
+.glow:after{
+  content: "";
+  position:absolute;
+  left:-2px;
+  top: -2px;
+  background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff, #ff0099, #099fff);
+  background-size:400%;
+  height:calc(100% + 5px);
+  width: calc(100% + 5px);
+  z-index:-1;
+  animation: change 10s linear infinite;
+  border-radius: 50%;
+
+}
+
+@keyframes change{
+  0%{
+     background-position: 0 0;
+  }
+  50%{
+    background-position: 400% 0;
+  }
+  100%{
+    background-position: 0 0;
+  }
+}
+
+.glow:after{
+  filter:blur(40px); 
+  opacity: .5;
+  border-radius: 50%;
+  
+}
+
+
+.DashHome_h1{
+  border-radius:10px;
+  text-align:center;
+  color:rgb(255, 195, 0);
+  margin-top:5px;
+  font-size:35px;
+  
+}
+
+
+.Fire_TL{
+  position: absolute;
+  top: 20%;
+  left:8%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_LB{
+  position: absolute;
+  top: 80%;
+  left:8%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_TR{
+  position: absolute;
+  top: 20%;
+  left:92%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+.Fire_RB{
+  position: absolute;
+  top: 80%;
+  left:92%;
+  transform: translate(-50%, -50%) scale(1.5);
+  filter: brightness(125%);
+}
+
+/*Dashboard Date Time Section*/
+.Time_Div{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-55%, 100%);
+  height:180px;
+  width:600px;
+  background-color: rgb(51, 65, 92);
+  border: 10px groove white;
+}
+
+.Colon_1{
+  position: absolute;
+  top: 30%;
+  left:35%;
+  transform: translate(-50%, -50%);
+  height:40px;
+  width:20px;
+  font-size:60px;
+  text-align:center;
+  margin-top:10px;
+}
+
+.Colon_2{
+  position: absolute;
+  top: 30%;
+  left:65%;
+  transform: translate(-50%, -50%);
+  height:40px;
+  width:20px;
+  font-size:60px;
+  text-align:center;
+  margin-top:10px;
+}
+
+
+.Hours{
+  position: absolute;
+  top: 50%;
+  left:20%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+  
+}
+.Mins{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+  
+}
+.Secs{
+  position: absolute;
+  top: 50%;
+  left:80%;
+  transform: translate(-50%, -50%);
+  height:100px;
+  width:100px;
+  background-color:white;
+  border: 10px groove rgb(3, 83, 164);
+  margin-top:10px;
+}
+
+.Hours p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Mins p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Secs p{
+  text-align:center;
+  font-family: cursive;
+  text-decoration:underline;
+}
+
+.Hours h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+.Mins h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+.Secs h1{
+  text-align:center;
+  margin:2px;
+  font-size:40px;
+  font-family: cursive;
+}
+
+
+
+.DashHome_h3{
+  border-radius:10px;
+  text-align:center;
+  color:rgb(255, 195, 0);
+  font-size:25px;
+  text-decoration:underline;
+}
+
+
+/*Style Dashboard*/
+.Intro {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:0;
+}
+
+.Intro  h2{
+  color: White;
+  background-color:aqua;
+}
+
+
+.landing-info p{
+  font-size: 30px;
+  font-family:MV Boli;
+  color: maroon;
+}
+.landing-info img{
+  height: 400px;
+  width: 600px;
+}
+
+
+.welcome-msg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.welcome-msg h2{
+  color: purple;
+  font-size: 40px;
+}
+.welcome-msg img{
+  width: 100px;
+  heigth: 100px;
+}
+/*This code us for dashboard buttons*/
+
+.dash_btn{
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(rgb(0, 8, 20), rgb(0, 29, 61),rgb(0, 53, 102));
+  height:100px;
+  width: 1000px;
+  border: 5px solid white;
+  display:flex;
+  align-content:center;
+  justify-content:center;
+}
+
+.btn{
+  position: absolute;
+  top: 20px;
+  font-size:20px;
+  border: 5px dashed silver;
+  border-radius: 10px;
+  padding: 5px;
+  
+}
+
+.prof-btn{  
+  position: absolute;
+  top:20px;
+  left: 11%;
+}
+.weath-btn{
+  position: absolute;
+  top:20px;
+  left: 36%;
+}
+.news-btn {
+  position: absolute;
+  top:20px;
+  left: 59%;
+}
+.todo-btn{
+  position: absolute;
+  top:20px;
+  left: 82%;
+}
+
+.profile_img{
+  position: absolute;
+  top:20px;
+  left: 5%;
+  height:50px;
+  width:50px;
+  
+}
+.weather_img{
+  position: absolute;
+  top:20px;
+  left: 30%;
+  height:50px;
+  width:50px;
+  
+}
+
+.news_img{
+  position: absolute;
+  top:20px;
+  left: 53%;
+  height:50px;
+  width:50px;
+  
+}
+.todo_img{
+  position: absolute;
+  top:20px;
+  left: 76%;
+  height:50px;
+  width:50px;
+}
+
+
+/*Profile page styling*/
+.Profile_Div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));*/
+  width: 700px;
+  height: 300px;
+  border: 5px double white;
+  /*background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));*/
+  /*background: rgb(68, 65, 64);*/
+   background:linear-gradient(rgb(183, 105, 53), rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(38, 60, 65));
+  
+}
+
+.ProfileHeader{
+  position:absolute;
+  top: 5%;
+  left:7%;
+  z-index:2;
+  font-size: 40px;
+  font-family:Comic Sans MS;
+  text-align:center;
+  color:White;
+}
+
+.Prof_Wrapper{
+  background:linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
+  position:absolute;
+  top: 30%;
+  left:15%;
+  z-index:2;
+  font-size: 30px;
+  padding: 20px;
+  border: 10px groove grey;
+  
+}
+
+.Prof_Wrapper h3{
+  font-family:MS UI Gothic;
+}
+
+.Confirm_btn{
+  font-size: 20px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+}
+
+.Zip_input{
+  font-size: 20px;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  
+}
+
+/*Weather page styling*/
+.Weather_div{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+.Weather_Wrapper{
+  position: absolute;
+  top:33.5%;
+  left:15%;
+}
+
+.Weather_Title{
+  position: absolute;
+  top: -2%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+  background-color:wheat;
+  border-bottom: 2px solid black;
+  
+}
+
+.Zipcode_Input{
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+.Zipcode_btn{
+  position: absolute;
+  top: 5%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+}
+
+
+
+.current{
+  background: linear-gradient(rgb(255, 0, 84), rgb(255, 84, 0),rgb(255, 189, 0));
+  font-family:Ink Free;
+  width:300px;
+  height:250px;
+  color: yellow;
+  border: 5px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top:15%;
+  left:0%;
+  margin:10px;
+  
+  
+  
+}
+
+.Horiz_line{
+    position: absolute;
+    /*border-left: 10px solid wheat;*/
+    height: 370px;
+    width:10px;
+    top: 5%;
+    left: 55%;
+    background: linear-gradient(blue,gold,blue);
+
+}
+
+.current:hover {
+  transform:scale(1.2);
+  transition: all 0.3s ease;
+}
+
+.forecast{
+  position:relative;
+  top:-30px;
+  left:60%;
+  width: 700px; 
+  display: grid; 
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); 
+  margin-top: 2.5px;
+  margin-left: 40px;
+  font-family:Ink Free;
+  font-size: 20px;
+  color:yellow;
+}
+
+.day_1, .day_2, .day_3, .day_4, .day_5{
+  border: 5px groove grey;
+  /*border-right: 5px solid black;*/
+  padding: 0px 20px;
+  margin: 10px;
+  /*border-left: 5px solid black;*/
+  /*background-color:grey;*/
+  background:linear-gradient(rgb(4, 102, 200),rgb(3, 83, 164),rgb(2, 62, 125),rgb(0, 40, 85));
+}
+
+.day_1:hover, .day_2:hover, .day_3:hover, .day_4:hover, .day_5:hover{
+  transform:scale(1.05);
+  transition: .3s linear;
+  border: 5px solid aqua;
+}
+
+.Weather_BG{
+  background:url("https://wallpaperaccess.com/full/1119564.jpg");
+  height: 1000px;
+  background-repeat:no-repeat;
+  background-size: 2000px 1000px;
+}
+
+.weather_icon{
+  margin:10px;
+  height:200px;
+  width:200px;
+}
+
+.current img{
+  border: 10px double black;
+  /*background:linear-gradient(rgb(242, 233, 228),rgb(201, 173, 167));*/
+  background-color:rgb(58, 110, 165);
+  border-radius: 20px;
+  height:150px;
+  width:150px;
+}
+
+
+/*TODO Page*/
+.TodoPage_div{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: wheat;
+  width: 1000px;
+  height:400px;
+  border: 10px groove grey;
+}
+
+.TodoPage_div_back{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(79, 93, 117);
+  /*background: linear-gradient(rgb(183, 105, 53),rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(20, 54, 66));*/
+  width: 1000px;
+  height:500px;
+  border: 10px groove grey;
+  
+}
+
+.Left_Form_Wrapper{
+  position:absolute;
+  top:20%;
+  left:5%;
+  background-color:aqua;
+  width: 400px;
+  height: 200px;
+}
+
+.Left_Form_Wrapper h1{
+  font-family:Gabriola;
+}
+
+.Todo_inp{
+  position: absolute;
+  top: 35%;
+  left: 5%;
+  width:350px;
+  height:40px;
+  background-color: yellow;
+  border: 5px groove black;
+  border-radius: 10px;
+}
+
+.Todo_sub{
+  position: absolute;
+  top: 65%;
+  left: 30%;
+  font-size: 20px;
+  width:150px;
+  height:45px;
+  color:white;
+  border-radius: 10px;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+}
+
+
+.Todo_Divider{
+  position: absolute;
+  border-left: 6px groove black;
+  height: 370px;
+  top: 2%;
+  left: 50%;
+  
+}
+
+
+.Right_Form_Wrapper{
+  position:absolute;
+  top:5%;
+  left:55%;
+  background-color:aqua;
+  width: 400px;
+  height: 350px;
+}
+
+.Task_Num{
+  font-size: 50px; 
+  
+}
+.Task_Comp{
+  font-family:Gabriola;
+  font-size: 30px; 
+  
+}
+
+.eraseButton{
+  position: absolute;
+  top: 20%;
+  left: 12%;
+  width:150px;
+  height:35px;
+  border-radius: 10px;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+  color:white;
+}
+
+.Todo_Tasks{
+  position:relative;
+  top:10%;
+  font-size: 20px;
+  color: black;
+  background-color:yellow;
+  float:left;
+}
+
+.PastTodoTask_Back{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: black;
+  float:left;
+  width:600px;
+}
+
+.SearchPastTask_Frontbtn{
+  position: absolute;
+  top: 20%;
+  left: 52%;
+  width:150px;
+  height:35px;
+  border-radius: 10px;
+  color:white;
+  background:linear-gradient(rgb(247, 37, 133), rgb(76, 201, 240));
+  
+}
+
+.SearchPastTask_Backbtn{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:200px;
+  font-size:20px;
+  background-color: gold;
+  border:5px solid silver;
+  
+}
+
+
+.Search_Select_Wrapper{
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:800px;
+  height:170px;
+  border:10px solid rgb(51, 53, 51);
+  border-radius:20%;
+  background: linear-gradient(rgb(183, 105, 53),rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(20, 54, 66));
+  background-color: rgb(27, 59, 111);
+  color:rgb(39, 62, 71);
+  
+}
+
+.PastTodoPic_1{
+  position: absolute;
+  top: 50%;
+  left: 7%;
+  transform: translate(-50%, -50%);
+  height:75px;
+  width:75px;
+  background-color:orange;
+  border-radius:10px;
+  
+}
+
+.PastTodoPic_2{
+  position: absolute;
+  top: 50%;
+  left: 93%;
+  transform: translate(-50%, -50%);
+  height:75px;
+  width:75px;
+  background-color:orange;
+  border-radius:10px;
+}
+
+.PastTask_Title{
+  text-align:center;
+  font-size:30px;
+  color:rgb(255, 255, 61);
+  text-transform:uppercase;
+  
+}
+
+
+.PastTask_Month{
+  position: absolute;
+  top: 50%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Day{
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Year{
+  position: absolute;
+  top: 50%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+  margin-top:5px;
+  background-color:rgb(0, 80, 157);
+  
+}
+
+.PastTask_Month_Inp{
+  position: absolute;
+  top: 53%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.PastTask_Day_Inp{
+  position: absolute;
+  top: 53%;
+  left: 53.2%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.PastTask_Year_Inp{
+  position: absolute;
+  top: 53%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  background-color:rgb(0, 80, 157);
+  font-size:20px;
+  color:gold;
+  
+}
+
+.ToDoPast_Sub_btn{
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:200px;
+  font-size:20px;
+  background-color: gold;
+  border:5px solid silver;
+}
+
+
+.NoPastTask{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size:20px;
+}
+
+
+
+
+
+
+
+/*Removing bullets and centering boxes*/
+
+
+/*News Page Styling*/
+.News_div{
+  width: 100vw;
+  height: 100vh;
+  /*background-color: pink;*/
+}
+
+.NewsPage_Footer{
+  position: fixed;
+}
+
+.NewsPage_FooterText p{
+  position:absolute;
+  bottom: 10px;
+  left:40%;
+  
+}
+
+/*.News_Sec_Name{*/
+/* background-color: red;*/
+/* color:aqua;*/
+/* z-index:2;*/
+  
+/*}*/
+
+.Form_Input{
+  position: absolute;
+  top: 13%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+
+.Form_Btn{
+  position: absolute;
+  top: 13%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+}
+
+.News_Conditional_Wrapper{
+  background:radial-gradient(rgb(198, 172, 143),rgb(234, 224, 213),rgb(34, 51, 59),rgb(10, 9, 8));
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 1135px;
+  height: 600px;
+  border: 8px groove grey;
+}
+
+.News_Conditional_Wrapper .Searched_Topic{
+  position: absolute;
+  top: 3%;
+  left:36%;
+  font-size: 25px;
+  color:white;
+}
+
+
+/*Covid section*/
+.Covid_div{
+  position: absolute;
+  top: 60%;
+  left: 89%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 460px;
+  /*background:radial-gradient(rgb(247, 178, 103), rgb(247, 157, 101),rgb(244, 132, 95),rgb(242, 112, 89),rgb(242, 92, 84));*/
+  border: 8px groove grey;
+  background-color:rgb(231, 236, 239);
+}
+
+.Form_Input_Covid{
+  position:absolute;
+  top: -20%;
+  left: 10%;
+  width: 225px;
+  height: 35px;
+  background-color:silver;
+  margin:5px;
+  border: 5px solid black;
+  padding: 10px;
+  border-radius:10px;
+  z-index: 2;
+  
+  
+}
+
+.Form_Btn_Covid{
+  position:absolute;
+  top: -21%;
+  left: 70%;
+  font-size: 15px;
+  background-color:yellow;
+  font-family:Apple Chancery;
+  margin:5px;
+  border: 5px solid black;
+  padding: 5px;
+  text-align:center;
+  border-radius:10px;
+  z-index: 2;
+  
+}
+
+
+.Covid_Conditional_Wrapper{
+  position:absolute;
+  top: 25%;
+  left: 7%;
+  background-color: aqua;
+  height: 325px;
+  width:270px;
+}
+
+.Covid_Conditional_Wrapper h2{
+  position: absolute;
+  top:-100px;
+  left: 30px;
+}
+
+.Covid_Conditional_Wrapper h4{
+  position: absolute;
+  top:10px;
+  left: 100px;
+  font-size: 30px;
+  text-decoration:underline;
+  
+}
+
+.Covid_Search_Content{
+  position: relative;
+  top: 60px;
+  
+}
+
+.Covid_Default_Content{
+  position: relative;
+  top: 60px;  
+}
+
+.Covid_Card span{
+  background-color: yellow; 
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+i{
+  background-color:rgb(204, 204, 204);
+}
+
+.logout_btn {
+  position: absolute;
+  top: 7.5%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  /*float: right; 
+  padding-right: 2.5em;
+  padding-top: 2.5em;*/
+  z-index: 2;
+}
+
+/*About Section Styling*/
+
+.About_Wrapper{
+  position: absolute;
+  top: 64.5%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  width:1200px;
+  height:400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.AboutUsPage_div{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:1400px;
+  height:400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+
+.flip_card_1, .flip_card_2, .flip_card_3, .flip_card_4 {
+  background-color: transparent;
+  width: 275px;
+  height: 300px;
+  margin:20px 20px;
+  border: 10px groove rgb(255, 195, 0);
+  
+}
+
+.flip_card_inner_1, .flip_card_inner_2, .flip_card_inner_3, .flip_card_inner_4 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgb(255, 195, 0);
+}
+
+.flip_card_1:hover .flip_card_inner_1, .flip_card_2:hover .flip_card_inner_2, .flip_card_3:hover .flip_card_inner_3, .flip_card_4:hover .flip_card_inner_4{
+  transform: rotateY(180deg);
+}
+
+.flip_card_1_front, .flip_card_1_back, .flip_card_2_front, .flip_card_2_back, .flip_card_3_front, .flip_card_3_back, .flip_card_4_front, .flip_card_4_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip_card_1_front, .flip_card_2_front, .flip_card_3_front, .flip_card_4_front {
+  background-color: #bbb;
+  color: white;
+}
+
+.flip_card_1_front h1, .flip_card_2_front h1, .flip_card_3_front h1, .flip_card_4_front h1 {
+  color:rgb(255, 214, 10);
+  background-color:rgb(0, 53, 102);
+  /*text-decoration:underline;*/
+  margin:5px;
+  font-family:URW Chancery L, cursive;
+}
+
+.flip_card_1_back,.flip_card_2_back, .flip_card_3_back, .flip_card_4_back {
+  background-color:rgb(0, 53, 102) ;
+  color: gold;
+  transform: rotateY(180deg);
+}
+
+.flip_card_1_back h1,.flip_card_2_back h1, .flip_card_3_back h1, .flip_card_4_back h1{
+  text-decoration:underline;
+  
+}
+.Card_Back_Info, .Card_Back_Info, .Card_Back_Info, .Card_Back_Info{
+  color:white;
+  margin:5px;
+  margin-top:25px;
+  
+}
+
+.Img_card_1, .Img_card_2, .Img_card_3, .Img_card_4{
+  width:258px;
+  height:280px;
+  margin-bottom:15px;
+  object-fit:cover;
+}
+
+
