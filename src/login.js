@@ -225,8 +225,7 @@ export function Login(props) {
         <h1 className ="About_Title">What is this about?</h1>
         <div className="Outer_Border_1"></div>
         <div className="About_Wrapper">
-            <p className="About_Info">Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app. With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
-
+          <p className="About_Info">Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app. With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
         </div>
         
         <div class="wrap">
