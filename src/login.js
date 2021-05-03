@@ -128,7 +128,7 @@ export function Login(props) {
                 </div>
                 <div class="flip_card_1_back">
                   <h1 className="Card_Back_Name">Amandeep Singh</h1>
-                  <p className="Card_Back_Info">Add a description here of yourself eventually</p>
+                  <p className="Card_Back_Info">Majoring in Computer Science at NJIT, and an Eboard memeber of ACM. Graduating in Spring 2022, I still don't have any plans after graduation. I like playing video games and going on walks.</p>
                 </div>
               </div>
             </div>
