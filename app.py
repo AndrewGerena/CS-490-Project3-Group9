@@ -151,24 +151,24 @@ def erase_completed_tasks(data):  # data = {email, date}
 
 
 @SOCKETIO.on('searchDate')
-def searchForOldTasks(data): # data = {email, date}
-    oldTasks = get_tasks_from_date(data["email"], data["date"])
-    print(oldTasks)
-    
+def search_for_old_tasks(data):  # data = {email, date}
+    '''Searches for old tasks'''
+    old_tasks = get_tasks_from_date(data["email"], data["date"])
+    print(old_tasks)
+
     list_of_tasks = []
-    for item in oldTasks:
-        list_of_tasks.append({'email':item.email, 
-                              'date':item.date,
-                              'task':item.task, 
-                              'completed':item.completed,
-                              'id':item.id
+    for item in old_tasks:
+        list_of_tasks.append({
+            'email': item.email,
+            'date': item.date,
+            'task': item.task,
+            'completed': item.completed,
+            'id': item.id
         })
     print(list_of_tasks)
-    
-    # Emits a list of user's old tasks.                          
-    SOCKETIO.emit('refreshOldTasks', {
-        'listOfOldTasks': list_of_tasks
-    },
+
+    # Emits a list of user's old tasks.
+    SOCKETIO.emit('refreshOldTasks', {'listOfOldTasks': list_of_tasks},
                   broadcast=False,
                   include_self=True)
 
