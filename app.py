@@ -225,6 +225,18 @@ def change_zip(data):
     # added this for mocked test
     return update_user.zipcode
 
+@SOCKETIO.on('new_country')
+def change_country(data):
+    '''Will add country to DB and emit back'''
+    query = DB.session.query(models.Person)
+    user_info = on_filter(data["email"], query)
+    user_info.country = data["country"]
+    DB.session.commit()
+    ## broadcast country name back to ensure we updated DB properly
+    SOCKETIO.emit('new_country', {'country': data["country"]},
+                  broadcast=False,
+                  include_self=True)
+    return user_info.country
 
 def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''

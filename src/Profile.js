@@ -5,9 +5,10 @@ import './App.css';
 
 export function Profile(props) {
   const { email } = props;
-
   const [zip, setZip] = useState('');
+  const [country, setCountry] = useState('');
   const inputRef = useRef();
+  const inputCountryRef = useRef();
 
   function zipButton() {
     // will add test for alphanumeric character later
@@ -36,6 +37,15 @@ export function Profile(props) {
       alert('Bad zipcode');
     }
   }
+  
+  function countryButton() {
+    const countryName = inputCountryRef.current.value;
+    //will implement drop-down list later, so no need to put checks here
+    socket.emit('new_country', {
+      country: countryName,
+      email,
+    });
+  }
 
   useEffect(() => {
     socket.on('new_zip', (data) => {
@@ -43,6 +53,12 @@ export function Profile(props) {
       // console.log(data.zip);
       setZip(data.zip);
       console.log(zip);
+    });
+    socket.on('new_country', (data) => {
+      // console.log('new_country event received!');
+      // console.log(data.country);
+      setCountry(data.country);
+      console.log(country);
     });
   }, []);
 
@@ -53,6 +69,12 @@ export function Profile(props) {
         <h3>Set your zipcode here</h3>
         <input ref={inputRef} type="text" aria-label="zipcode-input" className="Zip_input" />
         <button onClick={zipButton} type="submit" className="Confirm_btn">
+          Confirm
+        </button>
+        <br></br>
+        <h3>Set your home country here</h3>
+        <input ref={inputCountryRef} type="text" aria-label="zipcode-input" className="Zip_input" />
+        <button onClick={countryButton} type="submit" className="Confirm_btn">
           Confirm
         </button>
       </div>
