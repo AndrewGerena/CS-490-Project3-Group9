@@ -6,8 +6,11 @@ import { CovidCard } from "./CovidCard.js";
 
 const socket = io();
 
-export function News() { 
+export function News(props) { 
   // Reading Inputs
+  const emailRef = useRef(null);
+  emailRef.current = props.email;
+  console.log("The Current User Email is: " + props.email);
   
   const News_Topic_User_Input = useRef(null);
   const Covid__Country_User_Input = useRef(null);
@@ -35,8 +38,8 @@ export function News() {
   const [CovidSearch, setCovidSearch] = useState(false);
   
   if(OnloadData){
-    socket.emit('Onload_News_Headlines');
-    socket.emit('Onload_Covid_Global');
+    socket.emit('Onload_News_Headlines', {email: emailRef.current});
+    socket.emit('Onload_Covid_Global',{email: emailRef.current});
     setOnloadData(false);
   }
   
@@ -47,7 +50,7 @@ export function News() {
       setNews_Topic(Curr_News_Search);
       setNewsSearch(true);
       console.log("The User Searched NEWs Topic: " + Curr_News_Search);
-      socket.emit('User_Searched_News_Topic', {News_Topic_Searched: Curr_News_Search});
+      socket.emit('User_Searched_News_Topic', {News_Topic_Searched: Curr_News_Search, email: props.email});
       
     }
   }
@@ -58,7 +61,7 @@ export function News() {
       setCountry_Input(Curr_Country_Search);
       setCovidSearch(true);
       console.log("The User Searched Covid Country: " + Curr_Country_Search);
-      socket.emit('User_Searched_Covid_Country', {Covid_Country_Searched: Curr_Country_Search});
+      socket.emit('User_Searched_Covid_Country', {Covid_Country_Searched: Curr_Country_Search, email: props.email});
     }
   }
   
@@ -67,44 +70,48 @@ export function News() {
      
     //--------------Answering User Asked News topic------------------------------
     socket.on("Answer_Searched_News_Topic", (Fetched_News_Data) => {
-      console.log("These are the article Headlines: " + Fetched_News_Data['Headlines']);
-      setDisplayNewsHeadlines(Fetched_News_Data['Headlines']);
-      
-      console.log("These are the article Snippets: " + Fetched_News_Data['Snippets']);
-      setDisplayNewsSnippet(Fetched_News_Data['Snippets']);
-      
-      console.log("These are the article Dates: " + Fetched_News_Data['Date']);
-      setDisplayNewsDate(Fetched_News_Data['Date']);
-      
-      console.log("These are the article URLS: " + Fetched_News_Data['URL']);
-      setDisplayNewsURL(Fetched_News_Data['URL']);
-      
-      console.log("These are the article Authors: " + Fetched_News_Data['Author']);
-      setDisplayNewsAuthor(Fetched_News_Data['Author']);
+      if (Fetched_News_Data.email == emailRef.current){
+        console.log("These are the article Headlines: " + Fetched_News_Data['Headlines']);
+        setDisplayNewsHeadlines(Fetched_News_Data['Headlines']);
+        
+        console.log("These are the article Snippets: " + Fetched_News_Data['Snippets']);
+        setDisplayNewsSnippet(Fetched_News_Data['Snippets']);
+        
+        console.log("These are the article Dates: " + Fetched_News_Data['Date']);
+        setDisplayNewsDate(Fetched_News_Data['Date']);
+        
+        console.log("These are the article URLS: " + Fetched_News_Data['URL']);
+        setDisplayNewsURL(Fetched_News_Data['URL']);
+        
+        console.log("These are the article Authors: " + Fetched_News_Data['Author']);
+        setDisplayNewsAuthor(Fetched_News_Data['Author']);
+      }
     });
     
     //------------- Answering User Asked Covid Data----------------------- 
     socket.on("Answer_Searched_Covid_Country", (Fetched_Country_Data) => {
-      console.log("Latest Covid Stats Date: " + Fetched_Country_Data['Date']);
-      setDisplayCovidDate(Fetched_Country_Data['Date']);
-      
-      console.log("Total Covid Cases: " + Fetched_Country_Data['TotalCases']);
-      setDisplayCovidTotalCases(Fetched_Country_Data['TotalCases']);
-      
-      console.log("New Covid Cases: " + Fetched_Country_Data['NewCases']);
-      setDisplayCovidNewCases(Fetched_Country_Data['NewCases']);
-      
-      console.log("Total Covid Deaths: " + Fetched_Country_Data['TotalDeaths']);
-      setDisplayCovidTotalDeaths(Fetched_Country_Data['TotalDeaths']);
-      
-      console.log("New Covid Deaths: " + Fetched_Country_Data['NewDeaths']);
-      setDisplayCovidNewDeaths(Fetched_Country_Data['NewDeaths']);
-      
-      console.log("Total Covid Recoveries: " + Fetched_Country_Data['TotalRecovered']);
-      setDisplayCovidTotalRecovered(Fetched_Country_Data['TotalRecovered']);
-      
-      console.log("New Covid Recoveries: " + Fetched_Country_Data['NewRecovered']);
-      setDisplayCovidNewRecovered(Fetched_Country_Data['NewRecovered']);
+      if (Fetched_Country_Data.email == emailRef.current){
+        console.log("Latest Covid Stats Date: " + Fetched_Country_Data['Date']);
+        setDisplayCovidDate(Fetched_Country_Data['Date']);
+        
+        console.log("Total Covid Cases: " + Fetched_Country_Data['TotalCases']);
+        setDisplayCovidTotalCases(Fetched_Country_Data['TotalCases']);
+        
+        console.log("New Covid Cases: " + Fetched_Country_Data['NewCases']);
+        setDisplayCovidNewCases(Fetched_Country_Data['NewCases']);
+        
+        console.log("Total Covid Deaths: " + Fetched_Country_Data['TotalDeaths']);
+        setDisplayCovidTotalDeaths(Fetched_Country_Data['TotalDeaths']);
+        
+        console.log("New Covid Deaths: " + Fetched_Country_Data['NewDeaths']);
+        setDisplayCovidNewDeaths(Fetched_Country_Data['NewDeaths']);
+        
+        console.log("Total Covid Recoveries: " + Fetched_Country_Data['TotalRecovered']);
+        setDisplayCovidTotalRecovered(Fetched_Country_Data['TotalRecovered']);
+        
+        console.log("New Covid Recoveries: " + Fetched_Country_Data['NewRecovered']);
+        setDisplayCovidNewRecovered(Fetched_Country_Data['NewRecovered']);
+      }
     });
   
   }, []);
@@ -134,7 +141,6 @@ export function News() {
 
   return (
     <div className="News_div">
-      <h1 className="News_Sec_Name">News Section!</h1>
       <div className="News_Conditional_Wrapper">
         {NewsSearch ?(
           <div className="Searched_News_Div">

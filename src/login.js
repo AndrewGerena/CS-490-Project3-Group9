@@ -117,26 +117,58 @@ export function Login(props) {
           </center>
           <div className="header-bottom"></div>
         </div>
-        <div className="middle">
-          <center>
-            <h1> Our Team </h1>
-            <table>
-              <tbody>
-                <tr>
-                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
-                  <td>Amandeep Singh<br></br>Add a description here of yourself eventually</td>
-                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
-                  <td>Andrew Gerena<br></br>Add a description here of yourself eventually</td>
-                </tr>
-                <tr>
-                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
-                  <td>Sunny Kuntamukkala<br></br>Add a description here of yourself eventually</td>
-                  <td><img src="https://i.imgflip.com/4/d0tb7.jpg" /></td>
-                  <td>Sunny Raval<br></br>Add a description here of yourself eventually</td>
-                </tr>
-              </tbody>
-            </table>
-          </center>
+        <div className="middle"><h1> Our Team </h1></div>
+        <div className = "About_Wrapper">
+          <div className="AboutUsPage_div">
+            <div class="flip_card_1">
+              <div class="flip_card_inner_1">
+                <div class="flip_card_1_front">
+                  <img className = "Img_card_1" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619979494/Deep_y8k2f2.png"/> 
+                  <h1>Amandeep Singh</h1> 
+                </div>
+                <div class="flip_card_1_back">
+                  <h1 className="Card_Back_Name">Amandeep Singh</h1>
+                  <p className="Card_Back_Info">Add a description here of yourself eventually</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip_card_2">
+              <div class="flip_card_inner_2">
+                <div class="flip_card_2_front">
+                  <img className = "Img_card_2" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619808021/SunnyK-Img_sahqpo.jpg"/> 
+                  <h1>Sunny Kuntamukkala</h1> 
+                </div>
+                <div class="flip_card_2_back">
+                  <h1 className="Card_Back_Name">Sunny Kuntamukkala</h1>
+                  <p className="Card_Back_Info">Add a description here of yourself eventually</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip_card_3">
+              <div class="flip_card_inner_3">
+                <div class="flip_card_3_front">
+                  <img className = "Img_card_3" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619979496/Andrew_ssa84d.jpg"/> 
+                  <h1>Andrew Gerena</h1> 
+                </div>
+                <div class="flip_card_3_back">
+                  <h1 className="Card_Back_Name">Andrew Gerena</h1>
+                  <p className="Card_Back_Info">Add a description here of yourself eventually</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip_card_4">
+              <div class="flip_card_inner_4">
+                <div class="flip_card_4_front">
+                  <img className = "Img_card_4" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619979330/IMG_4275_n0bw1j.jpg"/> 
+                  <h1>Sunny Raval</h1> 
+                </div>
+                <div class="flip_card_4_back">
+                  <h1 className="Card_Back_Name">Sunny Raval</h1> 
+                  <p className="Card_Back_Info">Majoring in Computer Science at NJIT, graduating in December 2021. My main goal is to work as a full-stack web developer. In my free time, I like to explore new web development technologies, play sports, and play video games. </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="footer">
         	<div className="footer-top"></div>
@@ -148,7 +180,7 @@ export function Login(props) {
   }
 
   return (
-    <div>
+    <div className = "FullPage_Wrapper">
   	  <div className="header">
   	    <div className="header-top"></div>
         <center>
@@ -162,7 +194,7 @@ export function Login(props) {
         </center>
         <div className="header-bottom"></div>
       </div>
-
+      
       
       <div className="middle">
         <center>
@@ -181,31 +213,59 @@ export function Login(props) {
             />
           </div>
         </center>
-      <div className="landing-info">
-        <center>
-          <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-          <p>What is this about?</p>
-          <p>Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app.</p>
-          <br></br><br></br><br></br><br></br>
-          <p>With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>Keep track of your daily todo lists and never miss a deadline!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>View your local weather for the next 5 days on our sleek interface!</p>
-          <br></br><br></br><br></br><br></br><br></br><br></br>
-          <img src="https://www.bbc.co.uk/staticarchive/9786fdfd969641533187d5e59e836f584fa7745e.jpg"/>
-          <p>Read the latest news headlines for topics that interest you at any time!</p>
-          <br></br><br></br><br></br><br></br>
-          <p>NEW FEATURE</p>
-          <p>You may now track the latest COVID-19 data specific to your country with our easy to use tracker. Just search for your country and receive data in seconds!</p>
-        </center>
       </div>
+      <div className="landing-info">
+        <div className="content-divider_1"></div>
+        <img className="News_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946888/Newsimg_harljy.png"/>
+        <img className="Weather_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946882/WeatherImg_d05jmk.png"/>
+        <img className="Todo_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1618946885/Todolist_su8dg0.png"/>
+        <img className="Covid_Img" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619825092/CovidUpdate_o2e0xm.gif"/>
+        
+        
+        <h1 className ="About_Title">What is this about?</h1>
+        <div className="Outer_Border_1"></div>
+        <div className="About_Wrapper">
+            <p className="About_Info">Have you ever thought about having an app where you are able to plan your daily tasks, view your local weather and read the latest news all in once place? MyDay is just that app. With the help of the MyDay app, you are able to achieve all of the above functionalities with great efficiency. You will longer have to navigate through the web to receive your most essential information!</p>
+
+        </div>
+        
+        <div class="wrap">
+            <section class="feature-section">
+                <h2>functionalities</h2>
+                <div class="feature feature-item">
+                    <h3>Todo List</h3>
+                    <p>Keep track of your daily todo lists and never miss a deadline!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>Weather Information</h3>
+                    <p>View your local weather for the next 5 days on our sleek interface!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>News Headlines</h3>
+                    <p>Read the latest news headlines for topics that interest you at any time!</p>
+                </div>
+                <div class="feature feature-item">
+                    <h3>Covid Stats Tracker</h3>
+                    <p>View latest COVID-19 stats for any country. Just search for a country!</p>
+                </div>
+            </section>
+          </div>
+          <img className="ToDoFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837807/TodoPage_pic_zlcczl.png"/>
+          <img className="WeatherFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837809/WeatherPage_pic_g65er1.png"/>
+          <img className="NewsFunc_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619837804/NewsPage_pic_nmkwmr.png"/>
+          <img className="ToDoArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/> 
+          <h2 className ="ToDoPic_Name">TODO SECTION</h2>
+          <img className="WeatherArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="WeatherPic_Name">WEATHER SECTION</h2>
+          <img className="NewsArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="NewsPic_Name">NEWS SECTION</h2>
+          <img className="CovidArrow_Pic" src = "https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png"/>
+          <h2 className ="CovidPic_Name">COVID SECTION</h2>
+      
       </div>
       <div className="footer">
       	<div className="footer-top"></div>
-      	<div className="footer-center"><p>&copy; SASA Inc. All Rights Reserved.</p></div>
+      	<div className="footer-center"><p className="footer_p">&copy; SASA Inc. All Rights Reserved.</p></div>
       	<div className="footer-bottom"></div>
       </div>
     </div>

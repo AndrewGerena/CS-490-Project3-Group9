@@ -64,7 +64,7 @@ export function DashBoard(props) {
   } else if (weather) {
     test = <center><Sample forecast={forecast} email={props.email} /></center>;
   } else if (news) {
-    test = <center><News /></center>;
+    test = <center><News email={props.email} /></center>;
   } else if (todo) {
     test = <center><TodoPage email={props.email} /></center>;
   }
@@ -81,13 +81,26 @@ export function DashBoard(props) {
   var message = "";
   if (!weather && !news && !todo && !profile) {
     message = <div className="welcome-msg">
-                <center>
-                  <img src={profilePic} />
-                  <br></br>
-                  <h2>Hello {firstName}!</h2>
-                  <h2>Thursday, {month}/{day}/{year}</h2>
-                  <h2>{hour} {min} {sec}</h2>
-                </center>
+                  <div className="Main_Welcome_Div">
+                    <div className = "Home_Wrapper">
+                      <h1 className = "DashHome_h1">Hello {firstName}!</h1>
+                      <img className = "Fire_TL" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1612802629/FireBurn-Pic-uvz5ud-unscreen_fvktbd.gif"/>
+                      <img className = "Fire_TR" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1612802629/FireBurn-Pic-uvz5ud-unscreen_fvktbd.gif"/>
+                      <img className = "Fire_RB" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1612802629/FireBurn-Pic-uvz5ud-unscreen_fvktbd.gif"/>
+                      <img className = "Fire_LB" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1612802629/FireBurn-Pic-uvz5ud-unscreen_fvktbd.gif"/>
+                    </div>
+                    <div className = "Image_Wrapper glow">
+                      <img src={profilePic} />
+                    </div>
+                  </div>
+                  <div className = "Time_Div">
+                    <h3 className = "DashHome_h3">Thursday, {month}/{day}/{year}</h3>
+                    <div className = "Hours"><p>Hours</p><h1>{hour}</h1></div>
+                    <p className="Colon_1">:</p>
+                    <div className = "Mins"><p>Mins</p><h1>{min}</h1></div>
+                    <p className="Colon_2">:</p>
+                    <div className= "Secs"><p>Secs</p><h1>{sec}</h1></div>
+                  </div>
               </div>;
   }
     
@@ -107,9 +120,9 @@ export function DashBoard(props) {
                                 <img  className="weather_img" src ="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946882/WeatherImg_d05jmk.png" />
                                 <button data-testid="weather-btn" onClick={onClickWeather} className="weath-btn btn">Local Weather</button>
                                 <img  className="news_img" src ="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946888/Newsimg_harljy.png" />
-                                <button data-testid="news-btn" onClick={onClickNews} className=" news-btn btn">News Updates</button>
+                                <button data-testid="news-btn" onClick={onClickNews} className="news-btn btn">News Updates</button>
                                 <img  className="todo_img" src ="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946885/Todolist_su8dg0.png" />
-                                <button data-testid="todo-btn" onClick={onClickTodo} className=" todo-btn btn">Daily Tasks</button>
+                                <button data-testid="todo-btn" onClick={onClickTodo} className="todo-btn btn">Daily Tasks</button>
                             </ul>
                         </div>
                     </center>

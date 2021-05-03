@@ -22,3 +22,13 @@
     color: black;
 }
 
+
+.PastTodo_Details_Wrapper{
+    background-color:yellow;   
+    width:600px;
+    border-bottom: 5px solid grey;
+}
+
+.PastTodo_Details{
+    float:middle;
+}
