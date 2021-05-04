@@ -25,7 +25,7 @@ export function Sample(props) {
         if (check) {
           socket.emit('search', { zipcode, email });
         } else {
-          alert('Bad zipcode');
+          alert('Bad zipcode'); // eslint-disable-line no-undef
         }
       } else {
         alert('Bad zipcode'); // eslint-disable-line no-undef
