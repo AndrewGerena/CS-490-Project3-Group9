@@ -111,6 +111,8 @@ export function News(props) {
         
         console.log("New Covid Recoveries: " + Fetched_Country_Data['NewRecovered']);
         setDisplayCovidNewRecovered(Fetched_Country_Data['NewRecovered']);
+        
+        setCountry_Input(Fetched_Country_Data['country']);  
       }
     });
   

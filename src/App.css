@@ -829,7 +829,7 @@
   transform: translate(-50%, -50%);
   /*background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));*/
   width: 700px;
-  height: 300px;
+  height: 425px;
   border: 5px double white;
   /*background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));*/
   /*background: rgb(68, 65, 64);*/
@@ -1041,7 +1041,7 @@
   transform: translate(-50%, -50%);
   background-color: wheat;
   width: 1000px;
-  height:400px;
+  height: 500px;
   border: 10px groove grey;
 }
 
@@ -1053,7 +1053,7 @@
   background-color: rgb(79, 93, 117);
   /*background: linear-gradient(rgb(183, 105, 53),rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(20, 54, 66));*/
   width: 1000px;
-  height:500px;
+  height: 600px;
   border: 10px groove grey;
   
 }
@@ -1098,7 +1098,7 @@
 .Todo_Divider{
   position: absolute;
   border-left: 6px groove black;
-  height: 370px;
+  height: 450px;
   top: 2%;
   left: 50%;
   
@@ -1111,7 +1111,7 @@
   left:55%;
   background-color:aqua;
   width: 400px;
-  height: 350px;
+  height: 425px;
 }
 
 .Task_Num{
@@ -1169,7 +1169,7 @@
 
 .SearchPastTask_Backbtn{
   position: absolute;
-  top: 95%;
+  top: 96%;
   left: 50%;
   transform: translate(-50%, -50%);
   width:200px;
@@ -1804,7 +1804,7 @@ i{
     transform: translate(-50%, -50%) scale(1.2);
     background-color: wheat;
     width: 1000px;
-    height:400px;
+    height: 400px;
     border: 10px groove grey;
   }
 
