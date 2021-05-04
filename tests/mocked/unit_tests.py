@@ -3,6 +3,8 @@
     
     1. The test for new_zip function is to make sure that a user's zipcode is being updated accurately in the DB upon user request
     2. The test for add_users function is to make sure that new users are added to the DB correctly 
+    3. 
+    4. 
 '''
 
 import unittest

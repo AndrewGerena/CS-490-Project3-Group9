@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv, find_dotenv
 from weather import get_weather
 from zip_check import check_zip  # commented out for now
-from nyt import init_news_data, user_searched_news
+from nyt import user_searched_news
 from covid import init_covid_data, user_searched_country
 
 load_dotenv(find_dotenv())
@@ -280,7 +280,7 @@ def on_search(data):
 def onload_news_data(data):
     '''Used to Display NEWS onPage Load'''
     ## fetched_news_data = init_news_data()
-    fetched_news_data = user_searched_news("Global") 
+    fetched_news_data = user_searched_news("Global")
     print(fetched_news_data)
     print(data)
     fetched_news_data["email"] = data["email"]
@@ -308,7 +308,7 @@ def fetch_user_searched_news(data):
 def onload_covid_data(data):
     '''Used To Send INTIAL DATA UPON PAGE LOAD'''
     country = get_country(data["email"])
-    if country == None:
+    if country is None:
         fetched_country_data = init_covid_data()
     else:
         fetched_country_data = user_searched_country(country)
