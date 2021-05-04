@@ -238,6 +238,13 @@ def change_country(data):
                   include_self=True)
     return user_info.country
 
+def get_country(email):
+    '''Returns user country name from DB'''
+    query = DB.session.query(models.Person)
+    user_info = on_filter(email, query)
+    country_name = user_info.country
+    return country_name
+
 def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''
     return query.filter_by(email=email).first()
