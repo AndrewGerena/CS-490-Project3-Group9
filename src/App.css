@@ -828,11 +828,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 700px;
-<<<<<<< HEAD
   height: 425px;
-=======
-  height: 400px;
->>>>>>> 0adc306b9df7eab5b5e16ed1bff98f8dfb053caa
   border: 5px double white;
   background:linear-gradient(rgb(183, 105, 53), rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(38, 60, 65));
   
@@ -1042,11 +1038,7 @@
   transform: translate(-50%, -50%);
   background-color: wheat;
   width: 1000px;
-<<<<<<< HEAD
   height: 500px;
-=======
-  height:500px;
->>>>>>> 0adc306b9df7eab5b5e16ed1bff98f8dfb053caa
   border: 10px groove grey;
 }
 
