@@ -13,6 +13,8 @@ class Person(DB.Model):
     given_name = DB.Column(DB.String(80), unique=False, nullable=True)
     family_name = DB.Column(DB.String(80), unique=False, nullable=True)
     image_url = DB.Column(DB.String(160), unique=False, nullable=True)
+    country = DB.Column(DB.String(160), unique=False, nullable=True)
+    topic = DB.Column(DB.String(160), unique=False, nullable=True)
 
     def __repr__(self):
         return '<Person %r>' % self.email
