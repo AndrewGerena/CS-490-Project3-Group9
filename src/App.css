@@ -827,13 +827,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /*background:linear-gradient(rgb(7, 190, 184), rgb(61, 204, 199),rgb(104, 216, 214),rgb(156, 234, 239),rgb(196, 255, 249),rgb(15, 128, 170),rgb(22, 103, 154),rgb(26, 91, 146),rgb(28, 85, 142),rgb(29, 78, 137));*/
   width: 700px;
-  height: 300px;
+  height: 400px;
   border: 5px double white;
-  /*background:linear-gradient(rgb(217, 217, 217), rgb(40, 75, 99));*/
-  /*background: rgb(68, 65, 64);*/
-   background:linear-gradient(rgb(183, 105, 53), rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(38, 60, 65));
+  background:linear-gradient(rgb(183, 105, 53), rgb(165, 99, 54),rgb(147, 94, 56),rgb(129, 88, 57),rgb(111, 82, 59),rgb(92, 77, 60),rgb(74, 71, 62),rgb(56, 65, 63),rgb(38, 60, 65),rgb(38, 60, 65));
   
 }
 
@@ -1041,7 +1038,7 @@
   transform: translate(-50%, -50%);
   background-color: wheat;
   width: 1000px;
-  height:400px;
+  height:500px;
   border: 10px groove grey;
 }
 
@@ -1410,7 +1407,7 @@
   left: 89%;
   transform: translate(-50%, -50%);
   width: 320px;
-  height: 460px;
+  height: 500px;
   /*background:radial-gradient(rgb(247, 178, 103), rgb(247, 157, 101),rgb(244, 132, 95),rgb(242, 112, 89),rgb(242, 92, 84));*/
   border: 8px groove grey;
   background-color:rgb(231, 236, 239);
@@ -1419,8 +1416,8 @@
 .Form_Input_Covid{
   position:absolute;
   top: -20%;
-  left: 10%;
-  width: 225px;
+  left: 5%;
+  width: 240px;
   height: 35px;
   background-color:silver;
   margin:5px;
@@ -1451,31 +1448,37 @@
 
 .Covid_Conditional_Wrapper{
   position:absolute;
-  top: 25%;
+  top: 33%;
   left: 7%;
   background-color: aqua;
-  height: 325px;
+  height: 300px;
   width:270px;
 }
 
 .Covid_Conditional_Wrapper h2{
   position: absolute;
   top:-100px;
-  left: 30px;
+  left: 35px;
+  text-align:center;
+  font-size:25px;
+  
 }
 
 .Covid_Conditional_Wrapper h4{
   position: absolute;
   top:10px;
-  left: 100px;
-  font-size: 30px;
+  left: 0px;
+  font-size:25px;
+  width:270px;
   text-decoration:underline;
+  text-align:center;
+  background-color:orange;
   
 }
 
 .Covid_Search_Content{
   position: relative;
-  top: 60px;
+  top: 100px;
   
 }
 
