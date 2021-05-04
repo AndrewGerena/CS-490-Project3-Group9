@@ -279,7 +279,8 @@ def on_search(data):
 @SOCKETIO.on('Onload_News_Headlines')
 def onload_news_data(data):
     '''Used to Display NEWS onPage Load'''
-    fetched_news_data = init_news_data()
+    # fetched_news_data = init_news_data()
+    fetched_news_data = user_searched_news('global')
     print(fetched_news_data)
     print(data)
     fetched_news_data["email"] = data["email"]
