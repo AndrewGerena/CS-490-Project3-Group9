@@ -279,8 +279,8 @@ def on_search(data):
 @SOCKETIO.on('Onload_News_Headlines')
 def onload_news_data(data):
     '''Used to Display NEWS onPage Load'''
-    # fetched_news_data = init_news_data()
-    fetched_news_data = user_searched_news('global')
+    ## fetched_news_data = init_news_data()
+    fetched_news_data = user_searched_news("Global") 
     print(fetched_news_data)
     print(data)
     fetched_news_data["email"] = data["email"]
@@ -307,7 +307,11 @@ def fetch_user_searched_news(data):
 @SOCKETIO.on('Onload_Covid_Global')
 def onload_covid_data(data):
     '''Used To Send INTIAL DATA UPON PAGE LOAD'''
-    fetched_country_data = init_covid_data()
+    country = get_country(data["email"])
+    if country == None:
+        fetched_country_data = init_covid_data()
+    else:
+        fetched_country_data = user_searched_country(country)
     print(fetched_country_data)
     print(data)
     fetched_country_data["email"] = data["email"]
