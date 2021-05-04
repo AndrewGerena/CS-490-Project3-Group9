@@ -140,7 +140,7 @@ export function Login(props) {
                 </div>
                 <div className="flip_card_2_back">
                   <h1 className="Card_Back_Name">Sunny Kuntamukkala</h1>
-                  <p className="Card_Back_Info">Add a description here of yourself eventually</p>
+                  <p className="Card_Back_Info">Currently a senior at NJIT studying Computer Science and a volunteer tutor at ACM. I hope to pursue a career in back-end development. I enjoy playing basketball with my friends during my free time.</p>
                 </div>
               </div>
             </div>
