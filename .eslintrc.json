@@ -1,6 +1,6 @@
 {
     "ignorePatterns": ["reportWebVitals.js", "index.js", "setupTests.js", "App.test.js", 
-     "News.js","CovidCard.js", "NewsCard.js",  "dashboard.js", "login.js", "Covid_Cards.js", "News_Cards.js", "date.js"],
+     "News.js","CovidCard.js", "NewsCard.js", "dashboard.js", "login.js", "Covid_Cards.js", "News_Cards.js", "date.js"],
     "extends": "airbnb",
     "overrides": [
     {
