@@ -30,10 +30,10 @@ export function Profile(props) {
           email,
         });
       } else {
-        alert('Bad zipcode');
+        alert('Bad zipcode'); // eslint-disable-line no-undef
       }
     } else {
-      alert('Bad zipcode');
+      alert('Bad zipcode'); // eslint-disable-line no-undef
     }
   }
 
