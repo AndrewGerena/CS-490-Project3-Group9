@@ -45,23 +45,27 @@ export function News(props) {
   
   
   function User_News_Topic_Search() {
-    if (News_Topic_User_Input != null) {
+    if (News_Topic_User_Input.current.value !== '') {
       let Curr_News_Search = News_Topic_User_Input.current.value;
       setNews_Topic(Curr_News_Search);
       setNewsSearch(true);
       console.log("The User Searched NEWs Topic: " + Curr_News_Search);
       socket.emit('User_Searched_News_Topic', {News_Topic_Searched: Curr_News_Search, email: props.email});
       
+    } else {
+      alert('Empty value'); 
     }
   }
   
   function User_Covid_Country_Search(){
-    if (Covid__Country_User_Input != null) {
+    if (Covid__Country_User_Input.current.value !== '') {
       let Curr_Country_Search = Covid__Country_User_Input.current.value;
       setCountry_Input(Curr_Country_Search);
       setCovidSearch(true);
       console.log("The User Searched Covid Country: " + Curr_Country_Search);
       socket.emit('User_Searched_Covid_Country', {Covid_Country_Searched: Curr_Country_Search, email: props.email});
+    } else {
+      alert('Empty value');
     }
   }
   
