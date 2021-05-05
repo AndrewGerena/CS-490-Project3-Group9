@@ -1,6 +1,5 @@
 {
-    "ignorePatterns": ["reportWebVitals.js", "index.js", "setupTests.js", "App.test.js", "*.js",
-    "Profile.js", "sample.js", "Tile.js", "News.js","CovidCard.js", "NewsCard.js", "TodoPage.js", "TodoList.js", "Task.js", "dashboard.js", "login.js", "Covid_Cards.js", "News_Cards.js"],
+    "ignorePatterns": ["reportWebVitals.js", "index.js", "setupTests.js", "App.test.js"],
     "extends": "airbnb",
     "overrides": [
     {
@@ -14,7 +13,8 @@
         "import/no-named-as-default-member": "off",
         "react/prop-types": "off",
         "dot-notation": "off",
-        "prefer-template": "off"
+        "prefer-template": "off",
+        "no-undef": "off"
       }
     }
   ]

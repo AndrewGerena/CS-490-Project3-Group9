@@ -1,8 +1,9 @@
 .Comp_Render{
   width:100%;
   height:120%;
-  background: url("https://resi.ze-robot.com/dl/4k/4k-desktop-wallpaper.-1920%C3%971200.jpg");
-  background-size: contain;
+  /*background: url("https://resi.ze-robot.com/dl/4k/4k-desktop-wallpaper.-1920%C3%971200.jpg");*/
+  background: url("https://res.cloudinary.com/ddsomtotk/image/upload/v1619925466/MainBG_gyipo5.jpg");
+  background-size: cover;
   position:absolute;
   top:0;
   left:0;
@@ -19,7 +20,7 @@
   margin: 10px;
   overflow:hidden;
   width: 700px;
-  height: 250px;
+  height: 270px;
   border: 8px groove rgb(4, 102, 200);
 }
 
@@ -91,8 +92,9 @@
 
 .news_info_data {
   position: relative;
-  margin: 1rem 0 0;
+  margin: .5rem 0 0;
   font-size: 19px;
+  
 }
 
 /* Alternative card */
@@ -157,7 +159,7 @@
 
 .NewsCard_btn{
   position:absolute;
-  top: 190px;
+  top: 210px;
   left:50px;
   font-size: 20px;
   background-color:orange;

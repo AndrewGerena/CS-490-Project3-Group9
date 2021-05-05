@@ -25,11 +25,13 @@ export function Sample(props) {
         if (check) {
           socket.emit('search', { zipcode, email });
         } else {
-          alert('Bad zipcode');
+          alert('Bad zipcode'); // eslint-disable-line no-undef
         }
       } else {
         alert('Bad zipcode'); // eslint-disable-line no-undef
       }
+    } else {
+      alert('Empty value');
     }
   }
 
@@ -43,6 +45,7 @@ export function Sample(props) {
           <h2>{forecast[0][0]}</h2>
           <h3>
             Currently:
+            &nbsp;
             {forecast[0][1]}
             °
           </h3>

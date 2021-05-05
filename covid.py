@@ -34,7 +34,8 @@ def init_covid_data():
         'TotalDeaths': global_deaths,
         'NewDeaths': global_new_deaths,
         'TotalRecovered': global_recovered,
-        'NewRecovered': global_new_recovered
+        'NewRecovered': global_new_recovered,
+        'country': "Global"
     }
     return fetched_country_data
 
@@ -75,6 +76,7 @@ def user_searched_country(search):
         'TotalDeaths': country_deaths,
         'NewDeaths': country_new_deaths,
         'TotalRecovered': country_recovered,
-        'NewRecovered': country_new_recovered
+        'NewRecovered': country_new_recovered,
+        'country': search
     }
     return fetched_country_data

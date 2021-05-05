@@ -8,7 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv, find_dotenv
 from weather import get_weather
 from zip_check import check_zip  # commented out for now
-from nyt import init_news_data, user_searched_news
+#from nyt import init_news_data, user_searched_news
+from nyt import user_searched_news
 from covid import init_covid_data, user_searched_country
 
 load_dotenv(find_dotenv())
@@ -111,11 +112,11 @@ def get_tasks_from_date(email, date):
 @SOCKETIO.on('checkForTasks')
 def refresh_current_tasks(data):
     """Emit the current day's tasks to the client."""
-    print("Im here!")
-    print(data)
+    # print("Im here!")
+    # print(data)
     # Retrieve all of the user's current tasks.
     current_tasks = get_tasks_from_date(data['email'], data['date'])
-    print("Do I reach this?")
+    # print("Do I reach this?")
     # Places all of the user's current tasks into a list.
     list_of_tasks = []
     for item in current_tasks:
@@ -131,6 +132,8 @@ def refresh_current_tasks(data):
     SOCKETIO.emit('refreshCurrentTasks', {'currentTasks': list_of_tasks},
                   broadcast=False,
                   include_self=True)
+
+    return list_of_tasks
 
 
 @SOCKETIO.on('eraseCompletedTasks')
@@ -151,24 +154,24 @@ def erase_completed_tasks(data):  # data = {email, date}
 
 
 @SOCKETIO.on('searchDate')
-def searchForOldTasks(data): # data = {email, date}
-    oldTasks = get_tasks_from_date(data["email"], data["date"])
-    print(oldTasks)
-    
+def search_for_old_tasks(data):  # data = {email, date}
+    '''Searches for old tasks'''
+    old_tasks = get_tasks_from_date(data["email"], data["date"])
+    print(old_tasks)
+
     list_of_tasks = []
-    for item in oldTasks:
-        list_of_tasks.append({'email':item.email, 
-                              'date':item.date,
-                              'task':item.task, 
-                              'completed':item.completed,
-                              'id':item.id
+    for item in old_tasks:
+        list_of_tasks.append({
+            'email': item.email,
+            'date': item.date,
+            'task': item.task,
+            'completed': item.completed,
+            'id': item.id
         })
     print(list_of_tasks)
-    
-    # Emits a list of user's old tasks.                          
-    SOCKETIO.emit('refreshOldTasks', {
-        'listOfOldTasks': list_of_tasks
-    },
+
+    # Emits a list of user's old tasks.
+    SOCKETIO.emit('refreshOldTasks', {'listOfOldTasks': list_of_tasks},
                   broadcast=False,
                   include_self=True)
 
@@ -226,6 +229,28 @@ def change_zip(data):
     return update_user.zipcode
 
 
+@SOCKETIO.on('new_country')
+def change_country(data):
+    '''Will add country to DB and emit back'''
+    query = DB.session.query(models.Person)
+    user_info = on_filter(data["email"], query)
+    user_info.country = data["country"]
+    DB.session.commit()
+    ## broadcast country name back to ensure we updated DB properly
+    SOCKETIO.emit('new_country', {'country': data["country"]},
+                  broadcast=False,
+                  include_self=True)
+    return user_info.country
+
+
+def get_country(email):
+    '''Returns user country name from DB'''
+    query = DB.session.query(models.Person)
+    user_info = on_filter(email, query)
+    country_name = user_info.country
+    return country_name
+
+
 def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''
     return query.filter_by(email=email).first()
@@ -258,9 +283,13 @@ def on_search(data):
 
 
 @SOCKETIO.on('Onload_News_Headlines')
-def onload_news_data():
+def onload_news_data(data):
     '''Used to Display NEWS onPage Load'''
-    fetched_news_data = init_news_data()
+    ## fetched_news_data = init_news_data()
+    fetched_news_data = user_searched_news("Global")
+    print(fetched_news_data)
+    print(data)
+    fetched_news_data["email"] = data["email"]
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
                   broadcast=False,
@@ -272,6 +301,9 @@ def fetch_user_searched_news(data):
     '''USED TO SEND USER ASKED NEWS'''
     topic = data['News_Topic_Searched']
     fetched_news_data = user_searched_news(topic)
+    print(fetched_news_data)
+    print(data)
+    fetched_news_data["email"] = data["email"]
     SOCKETIO.emit('Answer_Searched_News_Topic',
                   fetched_news_data,
                   broadcast=False,
@@ -279,11 +311,16 @@ def fetch_user_searched_news(data):
 
 
 @SOCKETIO.on('Onload_Covid_Global')
-def onload_covid_data():
+def onload_covid_data(data):
     '''Used To Send INTIAL DATA UPON PAGE LOAD'''
-
-    fetched_country_data = init_covid_data()
-
+    country = get_country(data["email"])
+    if country is None:
+        fetched_country_data = init_covid_data()
+    else:
+        fetched_country_data = user_searched_country(country)
+    print(fetched_country_data)
+    print(data)
+    fetched_country_data["email"] = data["email"]
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
                   broadcast=False,
@@ -293,10 +330,11 @@ def onload_covid_data():
 @SOCKETIO.on('User_Searched_Covid_Country')
 def fetch_user_searched_country(data):
     '''USED TO SEND COVID STATS FOR USER SEARCHED COUNTRY'''
-
     country = data['Covid_Country_Searched']
     fetched_country_data = user_searched_country(country)
-
+    print(fetched_country_data)
+    print(data)
+    fetched_country_data["email"] = data["email"]
     SOCKETIO.emit('Answer_Searched_Covid_Country',
                   fetched_country_data,
                   broadcast=False,
