@@ -33,7 +33,7 @@ export function NewsCard(props) {
               </p>
               <p className="read-more">
                 <h2>
-                  by:
+                  by:&nbsp;
                   {props.News_Author[0]}
                 </h2>
                 <p>{props.News_Date[0]}</p>
@@ -57,7 +57,7 @@ export function NewsCard(props) {
               </p>
               <p className="read-more">
                 <h2>
-                  by:
+                  by:&nbsp;
                   {props.News_Author[1]}
                 </h2>
                 <p>{props.News_Date[1]}</p>
@@ -81,7 +81,7 @@ export function NewsCard(props) {
               </p>
               <p className="read-more">
                 <h2>
-                  by:
+                  by:&nbsp;
                   {props.News_Author[2]}
                 </h2>
                 <p>{props.News_Date[2]}</p>
@@ -105,7 +105,7 @@ export function NewsCard(props) {
               </p>
               <p className="read-more">
                 <h2>
-                  by:
+                  by:&nbsp;
                   {props.News_Author[3]}
                 </h2>
                 <p>{props.News_Date[3]}</p>

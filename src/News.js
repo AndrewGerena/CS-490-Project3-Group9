@@ -137,13 +137,13 @@ export function News(props) {
         {NewsSearch ? (
           <div className="Searched_News_Div">
             <h4 className="Searched_Topic">
-              Current News Topic:
+              Current News Topic:&nbsp;
               {News_Topic}
             </h4>
             <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
             <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
             <h4 className="Searched_Topic">
-              Current News Topic:
+              Current News Topic:&nbsp;
               {News_Topic}
             </h4>
             <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author={Show_NewsAuthor} />
@@ -152,7 +152,7 @@ export function News(props) {
           : (
             <div className="Searched_News_Div">
               <h4 className="Searched_Topic">
-                Current News Topic:
+                Current News Topic:&nbsp;
                 {News_Topic}
               </h4>
               <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
@@ -170,7 +170,7 @@ export function News(props) {
               <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
               <h4>{Country_Input}</h4>
               <div className="Covid_Search_Content">
-                <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths={DisplayCovidNewDeaths} Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered} />
+                <CovidCard CovidDate={DisplayCovidDate} CovidTotalCases={DisplayCovidTotalCases} CovidNewCases={DisplayCovidNewCases} CovidTotalDeaths={DisplayCovidTotalDeaths} CovidNewDeaths={DisplayCovidNewDeaths} CovidTotalRecovered={DisplayCovidTotalRecovered} CovidNewRecovered={DisplayCovidNewRecovered} />
               </div>
             </div>
           )
@@ -181,7 +181,7 @@ export function News(props) {
                 <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
                 <h4>{Country_Input}</h4>
                 <div className="Covid_Default_Content">
-                  <CovidCard Covid_Date={DisplayCovidDate} Covid_TotalCases={DisplayCovidTotalCases} Covid_NewCases={DisplayCovidNewCases} Covid_TotalDeaths={DisplayCovidTotalDeaths} Covid_NewDeaths={DisplayCovidNewDeaths} Covid_TotalRecovered={DisplayCovidTotalRecovered} Covid_NewRecovered={DisplayCovidNewRecovered} />
+                  <CovidCard CovidDate={DisplayCovidDate} CovidTotalCases={DisplayCovidTotalCases} CovidNewCases={DisplayCovidNewCases} CovidTotalDeaths={DisplayCovidTotalDeaths} CovidNewDeaths={DisplayCovidNewDeaths} CovidTotalRecovered={DisplayCovidTotalRecovered} CovidNewRecovered={DisplayCovidNewRecovered} />
                 </div>
               </div>
             )}
