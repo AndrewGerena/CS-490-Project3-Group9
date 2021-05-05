@@ -4,6 +4,9 @@
 ## Heroku Link: Sprint 1
 https://shrouded-lowlands-20943.herokuapp.com/
 
+## Heroku Link: Sprint 2
+https://sheltered-cliffs-07599.herokuapp.com/
+
 ## Eslinting Rules
 *Below we describe the rules we chose to silence and why these decisions were made.*
 
