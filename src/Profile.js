@@ -238,7 +238,7 @@ export function Profile(props) {
           <option value="Nauru">Nauru</option>
           <option value="Nepal">Nepal</option>
           <option value="Netherland Antilles">Netherland Antilles</option>
-          <option value="Netherlands">Netherlands (Holland, Europe)</option>
+          <option value="Netherlands">Netherlands</option>
           <option value="Nevis">Nevis</option>
           <option value="New Caledonia">New Caledonia</option>
           <option value="New Zealand">New Zealand</option>
@@ -316,7 +316,7 @@ export function Profile(props) {
           <option value="Uganda">Uganda</option>
           <option value="United Kingdom">United Kingdom</option>
           <option value="Ukraine">Ukraine</option>
-          <option value="United Arab Erimates">United Arab Emirates</option>
+          <option value="United Arab Emirates">United Arab Emirates</option>
           <option value="United States of America">United States of America</option>
           <option value="Uraguay">Uruguay</option>
           <option value="Uzbekistan">Uzbekistan</option>
