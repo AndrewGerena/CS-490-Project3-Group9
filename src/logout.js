@@ -7,7 +7,7 @@ const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 export function Logout(props) {
   const onSuccess = () => {
     // console.log('You have successfully logged out!');
-    alert('You have successfully logged out!');
+    alert('You have successfully logged out!'); // eslint-disable-line no-undef
   };
   return (
     <div>
