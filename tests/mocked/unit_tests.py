@@ -13,8 +13,8 @@ from unittest.mock import patch
 import os
 import sys
 
-sys.path.append(os.path.abspath('../../'))
-# sys.path.append(os.path.abspath(''))
+# sys.path.append(os.path.abspath('../../'))
+sys.path.append(os.path.abspath(''))
 import models
 from app import add_users, change_zip, change_country, refresh_current_tasks
 

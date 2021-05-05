@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv, find_dotenv
 from weather import get_weather
 from zip_check import check_zip  # commented out for now
+#from nyt import init_news_data, user_searched_news
 from nyt import user_searched_news
 from covid import init_covid_data, user_searched_country
 
@@ -227,6 +228,7 @@ def change_zip(data):
     # added this for mocked test
     return update_user.zipcode
 
+
 @SOCKETIO.on('new_country')
 def change_country(data):
     '''Will add country to DB and emit back'''
@@ -240,12 +242,14 @@ def change_country(data):
                   include_self=True)
     return user_info.country
 
+
 def get_country(email):
     '''Returns user country name from DB'''
     query = DB.session.query(models.Person)
     user_info = on_filter(email, query)
     country_name = user_info.country
     return country_name
+
 
 def on_filter(email, query):
     '''Checks DB table and returns user with given email id'''

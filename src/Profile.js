@@ -32,15 +32,16 @@ export function Profile(props) {
         });
         alert('Your zipcode has been updated');
       } else {
-        alert('Bad zipcode');
+        alert('Bad zipcode'); // eslint-disable-line no-undef
       }
     } else {
-      alert('Bad zipcode');
+      alert('Bad zipcode'); // eslint-disable-line no-undef
     }
   }
 
   function countryButton() {
     const countryName = inputCountryRef.current.value;
+    
     //will implement drop-down list later, so no need to put checks here
     if (countryName.length > 0) {
       socket.emit('new_country', {
