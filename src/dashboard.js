@@ -14,7 +14,8 @@ export function DashBoard({ email, name, picURL }) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
-  const [date, setDate] = useState(new Date()); // Holds the date!
+  // const [date, setDate] = useState(new Date()); // Holds the date!
+  const date = new Date();
   const emailRef = useRef(null);
   emailRef.current = email;
   const firstName = name;
@@ -27,11 +28,6 @@ export function DashBoard({ email, name, picURL }) {
   let hour;
   let min;
   let sec;
-
-  function clock() {
-    setDate(new Date());
-  }
-  setInterval(clock, 1000);
 
   month = date.getMonth() + 1;
   day = date.getDate();
