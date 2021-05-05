@@ -68,8 +68,8 @@ test('Accessing weather Page', () => {
   expect(Dashboard.text()).toMatch("Daily Tasks");
   
 
-  //const  wrapper = mount(<News />);
-  //expect(wrapper.text()).toMatch("News Section!");
+  const  wrapper = mount(<News />);
+  expect(wrapper.text()).toMatch("Current News Topic:");
   
 });
 
