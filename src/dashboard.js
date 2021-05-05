@@ -14,18 +14,25 @@ export function DashBoard({ email, name, picURL }) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
-  const [theDate, setDate] = useState(findDate()); // Holds the Date!
-
+  const [date, setDate] = useState(new Date()); // Holds the date!
   const emailRef = useRef(null);
   emailRef.current = email;
-
   const firstName = name;
   const profilePic = picURL;
   console.log(name);
 
-  const date = new Date();
-  let month; let day; let year; let hour; let min; let
-    sec;
+  let month;
+  let day;
+  let year;
+  let hour;
+  let min;
+  let sec;
+
+  function clock() {
+    setDate(new Date());
+  }
+  setInterval(clock, 1000);
+
   month = date.getMonth() + 1;
   day = date.getDate();
   year = date.getFullYear();

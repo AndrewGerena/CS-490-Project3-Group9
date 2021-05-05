@@ -112,11 +112,11 @@ def get_tasks_from_date(email, date):
 @SOCKETIO.on('checkForTasks')
 def refresh_current_tasks(data):
     """Emit the current day's tasks to the client."""
-    print("Im here!")
-    print(data)
+    # print("Im here!")
+    # print(data)
     # Retrieve all of the user's current tasks.
     current_tasks = get_tasks_from_date(data['email'], data['date'])
-    print("Do I reach this?")
+    # print("Do I reach this?")
     # Places all of the user's current tasks into a list.
     list_of_tasks = []
     for item in current_tasks:
@@ -132,6 +132,8 @@ def refresh_current_tasks(data):
     SOCKETIO.emit('refreshCurrentTasks', {'currentTasks': list_of_tasks},
                   broadcast=False,
                   include_self=True)
+
+    return list_of_tasks
 
 
 @SOCKETIO.on('eraseCompletedTasks')
