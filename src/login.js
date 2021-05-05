@@ -263,7 +263,6 @@ export function Login() {
         <h2 className="NewsPic_Name">NEWS SECTION</h2>
         <img alt="" className="CovidArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
         <h2 className="CovidPic_Name">COVID SECTION</h2>
-
       </div>
       <div className="footer">
         <div className="footer-top" />

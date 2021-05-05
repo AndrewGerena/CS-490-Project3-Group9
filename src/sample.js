@@ -30,6 +30,8 @@ export function Sample(props) {
       } else {
         alert('Bad zipcode'); // eslint-disable-line no-undef
       }
+    } else {
+      alert('Empty value');
     }
   }
 

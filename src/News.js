@@ -1,7 +1,6 @@
 /* eslint-disable camelcase, object-shorthand */
 // More important to have working code than accidently break while linting camelcase.
 import React, { useState, useRef, useEffect } from 'react';
-
 import io from 'socket.io-client';
 import { NewsCard } from './NewsCard';
 import { CovidCard } from './CovidCard';
@@ -45,22 +44,26 @@ export function News({ email }) {
   }
 
   function User_News_Topic_Search() {
-    if (News_Topic_User_Input != null) {
-      const Curr_News_Search = News_Topic_User_Input.current.value;
+    if (News_Topic_User_Input.current.value.trim() !== '') {
+      const Curr_News_Search = News_Topic_User_Input.current.value.trim();
       setNews_Topic(Curr_News_Search);
       setNewsSearch(true);
       console.log('The User Searched NEWs Topic: ' + Curr_News_Search);
       socket.emit('User_Searched_News_Topic', { News_Topic_Searched: Curr_News_Search, email: email });
+    } else {
+      alert('Empty value');
     }
   }
 
   function User_Covid_Country_Search() {
-    if (Covid__Country_User_Input != null) {
-      const Curr_Country_Search = Covid__Country_User_Input.current.value;
+    if (Covid__Country_User_Input.current.value.trim() !== '') {
+      const Curr_Country_Search = Covid__Country_User_Input.current.value.trim();
       setCountry_Input(Curr_Country_Search);
       setCovidSearch(true);
       console.log('The User Searched Covid Country: ' + Curr_Country_Search);
       socket.emit('User_Searched_Covid_Country', { Covid_Country_Searched: Curr_Country_Search, email: email });
+    } else {
+      alert('Empty value');
     }
   }
 
