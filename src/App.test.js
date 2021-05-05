@@ -69,7 +69,7 @@ test('Accessing weather Page', () => {
   
 
   const  wrapper = mount(<News />);
-  expect(wrapper.text()).toMatch("News Section!");
+  expect(wrapper.text()).toMatch("Current News Topic:");
   
 });
 
