@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { socket } from './App';
 import './App.css';
 
 export function Profile(props) {
   const { email } = props;
-  const [zip, setZip] = useState('');
-  const [country, setCountry] = useState('');
+  // const [zip, setZip] = useState('');
+  // const [country, setCountry] = useState('');
   const inputRef = useRef();
   const inputCountryRef = useRef();
 
@@ -41,8 +41,6 @@ export function Profile(props) {
 
   function countryButton() {
     const countryName = inputCountryRef.current.value;
-    
-    //will implement drop-down list later, so no need to put checks here
     if (countryName.length > 0) {
       socket.emit('new_country', {
         country: countryName,
@@ -50,7 +48,7 @@ export function Profile(props) {
       });
       alert('Your home country name has been updated');
     } else {
-      alert('Empty value'); 
+      alert('Empty value');
     }
   }
 
@@ -58,13 +56,13 @@ export function Profile(props) {
     socket.on('new_zip', (data) => {
       // console.log('new_zip event received!');
       // console.log(data.zip);
-      setZip(data.zip);
+      // setZip(data.zip);
       console.log(data.zip);
     });
     socket.on('new_country', (data) => {
       // console.log('new_country event received!');
       // console.log(data.country);
-      setCountry(data.country);
+      // setCountry(data.country);
       console.log(data.country);
     });
   }, []);
@@ -78,7 +76,6 @@ export function Profile(props) {
         <button onClick={zipButton} type="submit" className="Confirm_btn">
           Confirm
         </button>
-        <br></br>
         <h3>Set your home country</h3>
         <select
           ref={inputCountryRef}
@@ -86,7 +83,7 @@ export function Profile(props) {
           aria-label="zipcode-input"
           className="Zip_input"
         >
-          <option></option>
+          <option>   </option>
           <option value="Afghanistan">Afghanistan</option>
           <option value="Albania">Albania</option>
           <option value="Algeria">Algeria</option>

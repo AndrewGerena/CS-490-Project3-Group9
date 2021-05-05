@@ -15,29 +15,31 @@ export function DashBoard({ email, name, picURL }) {
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
   const [date, setDate] = useState(new Date()); // Holds the date!
-  
   const emailRef = useRef(null);
   emailRef.current = email;
-  
   const firstName = name;
   const profilePic = picURL;
-  console.log(name); 
-  
-  // var date = new Date(); 
-  var month, day, year, hour, min, sec; 
-  
+  console.log(name);
+
+  let month;
+  let day;
+  let year;
+  let hour;
+  let min;
+  let sec;
+
   function clock() {
-    setDate(new Date()); 
+    setDate(new Date());
   }
-  setInterval(clock,1000); 
-  
-  month = date.getMonth()+1;
+  setInterval(clock, 1000);
+
+  month = date.getMonth() + 1;
   day = date.getDate();
   year = date.getFullYear();
   hour = date.getHours();
   min = date.getMinutes();
   sec = date.getSeconds();
-  
+
   function onClickProfile() {
     setProfile(true);
     setWeather(false);
