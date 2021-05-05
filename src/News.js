@@ -1,16 +1,18 @@
+/* eslint-disable camelcase, object-shorthand */
+// More important to have working code than accidently break while linting camelcase.
 import React, { useState, useRef, useEffect } from 'react';
 
 import io from 'socket.io-client';
-import { NewsCard } from './NewsCard.js';
-import { CovidCard } from './CovidCard.js';
+import { NewsCard } from './NewsCard';
+import { CovidCard } from './CovidCard';
 
 const socket = io();
 
-export function News(props) {
+export function News({ email }) {
   // Reading Inputs
   const emailRef = useRef(null);
-  emailRef.current = props.email;
-  console.log('The Current User Email is: ' + props.email);
+  emailRef.current = email;
+  console.log('The Current User Email is: ' + email);
 
   const News_Topic_User_Input = useRef(null);
   const Covid__Country_User_Input = useRef(null);
@@ -48,7 +50,7 @@ export function News(props) {
       setNews_Topic(Curr_News_Search);
       setNewsSearch(true);
       console.log('The User Searched NEWs Topic: ' + Curr_News_Search);
-      socket.emit('User_Searched_News_Topic', { News_Topic_Searched: Curr_News_Search, email: props.email });
+      socket.emit('User_Searched_News_Topic', { News_Topic_Searched: Curr_News_Search, email: email });
     }
   }
 
@@ -58,14 +60,14 @@ export function News(props) {
       setCountry_Input(Curr_Country_Search);
       setCovidSearch(true);
       console.log('The User Searched Covid Country: ' + Curr_Country_Search);
-      socket.emit('User_Searched_Covid_Country', { Covid_Country_Searched: Curr_Country_Search, email: props.email });
+      socket.emit('User_Searched_Covid_Country', { Covid_Country_Searched: Curr_Country_Search, email: email });
     }
   }
 
   useEffect(() => {
     // --------------Answering User Asked News topic------------------------------
     socket.on('Answer_Searched_News_Topic', (Fetched_News_Data) => {
-      if (Fetched_News_Data.email == emailRef.current) {
+      if (Fetched_News_Data.email === emailRef.current) {
         console.log('These are the article Headlines: ' + Fetched_News_Data['Headlines']);
         setDisplayNewsHeadlines(Fetched_News_Data['Headlines']);
 
@@ -85,7 +87,7 @@ export function News(props) {
 
     // ------------- Answering User Asked Covid Data-----------------------
     socket.on('Answer_Searched_Covid_Country', (Fetched_Country_Data) => {
-      if (Fetched_Country_Data.email == emailRef.current) {
+      if (Fetched_Country_Data.email === emailRef.current) {
         console.log('Latest Covid Stats Date: ' + Fetched_Country_Data['Date']);
         setDisplayCovidDate(Fetched_Country_Data['Date']);
 
@@ -106,19 +108,19 @@ export function News(props) {
 
         console.log('New Covid Recoveries: ' + Fetched_Country_Data['NewRecovered']);
         setDisplayCovidNewRecovered(Fetched_Country_Data['NewRecovered']);
-        
-        setCountry_Input(Fetched_Country_Data['country']);  
+
+        setCountry_Input(Fetched_Country_Data['country']);
       }
     });
   }, []);
 
-  const Show_NewsHeadlines = Array();
-  const Show_NewsSnippets = Array();
-  const Show_NewsDates = Array();
-  const Show_NewsURL = Array();
-  const Show_NewsAuthor = Array();
+  const Show_NewsHeadlines = [];
+  const Show_NewsSnippets = [];
+  const Show_NewsDates = [];
+  const Show_NewsURL = [];
+  const Show_NewsAuthor = [];
 
-  for (let i = 0; i < DisplayNewsHeadlines.length; i++) {
+  for (let i = 0; i < DisplayNewsHeadlines.length; i += 1) { // eslint-disable-line no-plusplus
     console.log(DisplayNewsHeadlines[i]);
     Show_NewsHeadlines.push(DisplayNewsHeadlines[i]);
     console.log(DisplayNewsSnippet[i]);
@@ -141,12 +143,18 @@ export function News(props) {
               {News_Topic}
             </h4>
             <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
-            <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
+            <button className="Form_Btn" type="submit" onClick={User_News_Topic_Search}>Submit</button>
             <h4 className="Searched_Topic">
               Current News Topic:&nbsp;
               {News_Topic}
             </h4>
-            <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author={Show_NewsAuthor} />
+            <NewsCard
+              NewsHeadlines={Show_NewsHeadlines}
+              NewsInfo={Show_NewsSnippets}
+              NewsDate={Show_NewsDates}
+              NewsUrl={Show_NewsURL}
+              NewsAuthor={Show_NewsAuthor}
+            />
           </div>
         )
           : (
@@ -156,8 +164,14 @@ export function News(props) {
                 {News_Topic}
               </h4>
               <input className="Form_Input" type="text" ref={News_Topic_User_Input} />
-              <button className="Form_Btn" type="Submit" onClick={User_News_Topic_Search}>Submit</button>
-              <NewsCard News_Headlines={Show_NewsHeadlines} News_Info={Show_NewsSnippets} News_Date={Show_NewsDates} News_Url={Show_NewsURL} News_Author={Show_NewsAuthor} />
+              <button className="Form_Btn" type="submit" onClick={User_News_Topic_Search}>Submit</button>
+              <NewsCard
+                NewsHeadlines={Show_NewsHeadlines}
+                NewsInfo={Show_NewsSnippets}
+                NewsDate={Show_NewsDates}
+                NewsUrl={Show_NewsURL}
+                NewsAuthor={Show_NewsAuthor}
+              />
             </div>
           )}
       </div>
@@ -167,10 +181,18 @@ export function News(props) {
             <div>
               <h2>Covid Statistics:</h2>
               <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
-              <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
+              <button className="Form_Btn_Covid" type="submit" onClick={User_Covid_Country_Search}>Submit</button>
               <h4>{Country_Input}</h4>
               <div className="Covid_Search_Content">
-                <CovidCard CovidDate={DisplayCovidDate} CovidTotalCases={DisplayCovidTotalCases} CovidNewCases={DisplayCovidNewCases} CovidTotalDeaths={DisplayCovidTotalDeaths} CovidNewDeaths={DisplayCovidNewDeaths} CovidTotalRecovered={DisplayCovidTotalRecovered} CovidNewRecovered={DisplayCovidNewRecovered} />
+                <CovidCard
+                  CovidDate={DisplayCovidDate}
+                  CovidTotalCases={DisplayCovidTotalCases}
+                  CovidNewCases={DisplayCovidNewCases}
+                  CovidTotalDeaths={DisplayCovidTotalDeaths}
+                  CovidNewDeaths={DisplayCovidNewDeaths}
+                  CovidTotalRecovered={DisplayCovidTotalRecovered}
+                  CovidNewRecovered={DisplayCovidNewRecovered}
+                />
               </div>
             </div>
           )
@@ -178,10 +200,18 @@ export function News(props) {
               <div>
                 <h2>Covid Statistics:</h2>
                 <input className="Form_Input_Covid" type="text" ref={Covid__Country_User_Input} />
-                <button className="Form_Btn_Covid" type="Submit" onClick={User_Covid_Country_Search}>Submit</button>
+                <button className="Form_Btn_Covid" type="submit" onClick={User_Covid_Country_Search}>Submit</button>
                 <h4>{Country_Input}</h4>
                 <div className="Covid_Default_Content">
-                  <CovidCard CovidDate={DisplayCovidDate} CovidTotalCases={DisplayCovidTotalCases} CovidNewCases={DisplayCovidNewCases} CovidTotalDeaths={DisplayCovidTotalDeaths} CovidNewDeaths={DisplayCovidNewDeaths} CovidTotalRecovered={DisplayCovidTotalRecovered} CovidNewRecovered={DisplayCovidNewRecovered} />
+                  <CovidCard
+                    CovidDate={DisplayCovidDate}
+                    CovidTotalCases={DisplayCovidTotalCases}
+                    CovidNewCases={DisplayCovidNewCases}
+                    CovidTotalDeaths={DisplayCovidTotalDeaths}
+                    CovidNewDeaths={DisplayCovidNewDeaths}
+                    CovidTotalRecovered={DisplayCovidTotalRecovered}
+                    CovidNewRecovered={DisplayCovidNewRecovered}
+                  />
                 </div>
               </div>
             )}

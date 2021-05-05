@@ -43,6 +43,7 @@ export function Sample(props) {
           <h2>{forecast[0][0]}</h2>
           <h3>
             Currently:
+            &nbsp;
             {forecast[0][1]}
             °
           </h3>

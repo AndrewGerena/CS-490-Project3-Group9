@@ -1,4 +1,6 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events,
+jsx-a11y/no-static-element-interactions, no-unused-vars,
+                            jsx-a11y/anchor-is-valid */
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { GoogleLogin } from 'react-google-login';
@@ -9,7 +11,7 @@ import { socket } from './App';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 
-export function Login(props) {
+export function Login() {
   const [aboutUs, setAboutUs] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -123,19 +125,19 @@ export function Login(props) {
             <div className="flip_card_1">
               <div className="flip_card_inner_1">
                 <div className="flip_card_1_front">
-                  <img className="Img_card_1" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979494/Deep_y8k2f2.png" />
+                  <img img alt="" className="Img_card_1" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979494/Deep_y8k2f2.png" />
                   <h1>Amandeep Singh</h1>
                 </div>
                 <div className="flip_card_1_back">
                   <h1 className="Card_Back_Name">Amandeep Singh</h1>
-                  <p className="Card_Back_Info">Majoring in Computer Science at NJIT, and an Eboard memeber of ACM. Graduating in Spring 2022, I still don't have any plans after graduation. I like playing video games and going on walks.</p>
+                  <p className="Card_Back_Info">Majoring in Computer Science at NJIT, and an Eboard memeber of ACM. Graduating in Spring 2022, I still don&apos;t have any plans after graduation. I like playing video games and going on walks.</p>
                 </div>
               </div>
             </div>
             <div className="flip_card_2">
               <div className="flip_card_inner_2">
                 <div className="flip_card_2_front">
-                  <img className="Img_card_2" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619808021/SunnyK-Img_sahqpo.jpg" />
+                  <img img alt="" className="Img_card_2" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619808021/SunnyK-Img_sahqpo.jpg" />
                   <h1>Sunny Kuntamukkala</h1>
                 </div>
                 <div className="flip_card_2_back">
@@ -147,7 +149,7 @@ export function Login(props) {
             <div className="flip_card_3">
               <div className="flip_card_inner_3">
                 <div className="flip_card_3_front">
-                  <img className="Img_card_3" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979496/Andrew_ssa84d.jpg" />
+                  <img img alt="" className="Img_card_3" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979496/Andrew_ssa84d.jpg" />
                   <h1>Andrew Gerena</h1>
                 </div>
                 <div className="flip_card_3_back">
@@ -159,7 +161,7 @@ export function Login(props) {
             <div className="flip_card_4">
               <div className="flip_card_inner_4">
                 <div className="flip_card_4_front">
-                  <img className="Img_card_4" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979330/IMG_4275_n0bw1j.jpg" />
+                  <img img alt="" className="Img_card_4" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619979330/IMG_4275_n0bw1j.jpg" />
                   <h1>Sunny Raval</h1>
                 </div>
                 <div className="flip_card_4_back">
@@ -218,10 +220,10 @@ export function Login(props) {
       </div>
       <div className="landing-info">
         <div className="content-divider_1" />
-        <img className="News_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946888/Newsimg_harljy.png" />
-        <img className="Weather_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946882/WeatherImg_d05jmk.png" />
-        <img className="Todo_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946885/Todolist_su8dg0.png" />
-        <img className="Covid_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619825092/CovidUpdate_o2e0xm.gif" />
+        <img alt="" className="News_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946888/Newsimg_harljy.png" />
+        <img alt="" className="Weather_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946882/WeatherImg_d05jmk.png" />
+        <img alt="" className="Todo_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1618946885/Todolist_su8dg0.png" />
+        <img alt="" className="Covid_Img" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619825092/CovidUpdate_o2e0xm.gif" />
 
         <h1 className="About_Title">What is this about?</h1>
         <div className="Outer_Border_1" />
@@ -250,16 +252,16 @@ export function Login(props) {
             </div>
           </section>
         </div>
-        <img className="ToDoFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837807/TodoPage_pic_zlcczl.png" />
-        <img className="WeatherFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837809/WeatherPage_pic_g65er1.png" />
-        <img className="NewsFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837804/NewsPage_pic_nmkwmr.png" />
-        <img className="ToDoArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
+        <img alt="" className="ToDoFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837807/TodoPage_pic_zlcczl.png" />
+        <img alt="" className="WeatherFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837809/WeatherPage_pic_g65er1.png" />
+        <img alt="" className="NewsFunc_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619837804/NewsPage_pic_nmkwmr.png" />
+        <img alt="" className="ToDoArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
         <h2 className="ToDoPic_Name">TODO SECTION</h2>
-        <img className="WeatherArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
+        <img alt="" className="WeatherArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
         <h2 className="WeatherPic_Name">WEATHER SECTION</h2>
-        <img className="NewsArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
+        <img alt="" className="NewsArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
         <h2 className="NewsPic_Name">NEWS SECTION</h2>
-        <img className="CovidArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
+        <img alt="" className="CovidArrow_Pic" src="https://res.cloudinary.com/ddsomtotk/image/upload/v1619840620/Ar-removebg-preview_splacx.png" />
         <h2 className="CovidPic_Name">COVID SECTION</h2>
 
       </div>

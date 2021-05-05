@@ -37,10 +37,10 @@ export function Profile(props) {
       alert('Bad zipcode'); // eslint-disable-line no-undef
     }
   }
-  
+
   function countryButton() {
     const countryName = inputCountryRef.current.value;
-    //will implement drop-down list later, so no need to put checks here
+    // will implement drop-down list later, so no need to put checks here
     socket.emit('new_country', {
       country: countryName,
       email,
@@ -71,7 +71,7 @@ export function Profile(props) {
         <button onClick={zipButton} type="submit" className="Confirm_btn">
           Confirm
         </button>
-        <br></br>
+        <br />
         <h3>Set your home country here</h3>
         <input ref={inputCountryRef} type="text" aria-label="zipcode-input" className="Zip_input" />
         <button onClick={countryButton} type="submit" className="Confirm_btn">

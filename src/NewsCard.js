@@ -1,15 +1,17 @@
 import React from 'react';
 import './News_Cards.css';
 
-export function NewsCard(props) {
-  const news_url_0 = props.News_Url[0];
-  console.log(news_url_0);
-  const news_url_1 = props.News_Url[1];
-  console.log(news_url_1);
-  const news_url_2 = props.News_Url[2];
-  console.log(news_url_2);
-  const news_url_3 = props.News_Url[3];
-  console.log(news_url_3);
+export function NewsCard({
+  NewsHeadlines, NewsInfo, NewsDate, NewsUrl, NewsAuthor,
+}) {
+  const newsURL0 = NewsUrl[0];
+  console.log(newsURL0);
+  const newsURL1 = NewsUrl[1];
+  console.log(newsURL1);
+  const newsURL2 = NewsUrl[2];
+  console.log(newsURL2);
+  const newsURL3 = NewsUrl[3];
+  console.log(newsURL3);
   return (
     <html lang="en">
       <head>
@@ -23,23 +25,24 @@ export function NewsCard(props) {
         <div className="blog-card">
           <div className="meta">
             <img
+              alt="news"
               className="photo"
               src="https://cdn.dribbble.com/users/230290/screenshots/1059151/news.png"
             />
             <div className="description">
-              <h1>{props.News_Headlines[0]}</h1>
+              <h1>{NewsHeadlines[0]}</h1>
               <p className="news_info_data">
-                {props.News_Info[0]}
+                {NewsInfo[0]}
               </p>
               <p className="read-more">
                 <h2>
                   by:&nbsp;
-                  {props.News_Author[0]}
+                  {NewsAuthor[0]}
                 </h2>
-                <p>{props.News_Date[0]}</p>
+                <p>{NewsDate[0]}</p>
               </p>
-              <button className="NewsCard_btn">
-                <a href={news_url_0} target="_blank" rel="noreferrer">Read More</a>
+              <button type="button" className="NewsCard_btn">
+                <a href={newsURL0} target="_blank" rel="noreferrer">Read More</a>
               </button>
             </div>
           </div>
@@ -47,23 +50,24 @@ export function NewsCard(props) {
         <div className="blog-card alt">
           <div className="meta">
             <img
+              alt="news"
               className="alt_photo"
               src="https://cdn.dribbble.com/users/230290/screenshots/1059151/news.png"
             />
             <div className="description">
-              <h1>{props.News_Headlines[1]}</h1>
+              <h1>{NewsHeadlines[1]}</h1>
               <p className="news_info_data">
-                {props.News_Info[1]}
+                {NewsInfo[1]}
               </p>
               <p className="read-more">
                 <h2>
                   by:&nbsp;
-                  {props.News_Author[1]}
+                  {NewsAuthor[1]}
                 </h2>
-                <p>{props.News_Date[1]}</p>
+                <p>{NewsDate[1]}</p>
               </p>
-              <button className="NewsCard_btn">
-                <a href={news_url_1} target="_blank" rel="noreferrer">Read More</a>
+              <button type="button" className="NewsCard_btn">
+                <a href={newsURL1} target="_blank" rel="noreferrer">Read More</a>
               </button>
             </div>
           </div>
@@ -71,23 +75,24 @@ export function NewsCard(props) {
         <div className="blog-card card_1">
           <div className="meta">
             <img
+              alt="news"
               className="photo"
               src="https://cdn.dribbble.com/users/230290/screenshots/1059151/news.png"
             />
             <div className="description">
-              <h1>{props.News_Headlines[2]}</h1>
+              <h1>{NewsHeadlines[2]}</h1>
               <p className="news_info_data">
-                {props.News_Info[2]}
+                {NewsInfo[2]}
               </p>
               <p className="read-more">
                 <h2>
                   by:&nbsp;
-                  {props.News_Author[2]}
+                  {NewsAuthor[2]}
                 </h2>
-                <p>{props.News_Date[2]}</p>
+                <p>{NewsDate[2]}</p>
               </p>
-              <button className="NewsCard_btn">
-                <a href={news_url_2} target="_blank" rel="noreferrer">Read More</a>
+              <button type="button" className="NewsCard_btn">
+                <a href={newsURL2} target="_blank" rel="noreferrer">Read More</a>
               </button>
             </div>
           </div>
@@ -95,23 +100,24 @@ export function NewsCard(props) {
         <div className="blog-card alt_1">
           <div className="meta">
             <img
+              alt="news"
               className="alt_photo"
               src="https://cdn.dribbble.com/users/230290/screenshots/1059151/news.png"
             />
             <div className="description">
-              <h1>{props.News_Headlines[3]}</h1>
+              <h1>{NewsHeadlines[3]}</h1>
               <p className="news_info_data">
-                {props.News_Info[3]}
+                {NewsInfo[3]}
               </p>
               <p className="read-more">
                 <h2>
                   by:&nbsp;
-                  {props.News_Author[3]}
+                  {NewsAuthor[3]}
                 </h2>
-                <p>{props.News_Date[3]}</p>
+                <p>{NewsDate[3]}</p>
               </p>
-              <button className="NewsCard_btn">
-                <a href={news_url_3} target="_blank" rel="noreferrer">Read More</a>
+              <button type="button" className="NewsCard_btn">
+                <a href={newsURL3} target="_blank" rel="noreferrer">Read More</a>
               </button>
             </div>
           </div>
