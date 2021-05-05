@@ -49,5 +49,4 @@ jobs:
       - name: Run Mocked Tests
         run: python tests/mocked/unit_tests.py 
         env: 
-           DATABASE_URL: postgres://myxhrihvxbgkpf:793d03290c1d291c913b291512c7499b99814abd78d47e0b05d1fc9a5ca98b90@ec2-34-233-0-64.compute-1.amazonaws.com:5432/d8q490p790n60i
-          
+           DATABASE_URL: ${{ secrets.DATABASE_URL}}
