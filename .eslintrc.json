@@ -13,7 +13,8 @@
         "import/no-named-as-default-member": "off",
         "react/prop-types": "off",
         "dot-notation": "off",
-        "prefer-template": "off"
+        "prefer-template": "off",
+        "no-undef": "off"
       }
     }
   ]
