@@ -13,9 +13,7 @@ export function DashBoard(props) {
   const [todo, setTodo] = useState(false);
   const [profile, setProfile] = useState(false);
   const [forecast, setForecast] = useState([[], [], [], [], [], []]);
-  // const [theDate, setDate] = useState(findDate()); // Holds the Date!
-  
-  const [date, setDate] = useState(new Date()); 
+  const [date, setDate] = useState(new Date()); // Holds the date!
   
   const emailRef = useRef(null);
   emailRef.current = props.email;
@@ -24,14 +22,13 @@ export function DashBoard(props) {
   const profilePic = props.picURL;
   console.log(props.name); 
   
-  //var date = new Date();
+  // var date = new Date(); 
   var month, day, year, hour, min, sec; 
   
   function clock() {
     setDate(new Date()); 
   }
-  // clock();
-  setInterval(clock,1000);
+  setInterval(clock,1000); 
   
   month = date.getMonth()+1;
   day = date.getDate();
