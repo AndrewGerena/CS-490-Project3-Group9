@@ -50,7 +50,7 @@ test('Accessing Profile Page', () => {
   
 
   const wrapper = mount(<Profile />);
-  expect(wrapper.text()).toMatch("Set your zipcode here");
+  expect(wrapper.text()).toMatch("Welcome to the Profile Page!");
 
 });
 
